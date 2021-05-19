@@ -1,13 +1,43 @@
-body {
+@import url("https://fonts.googleapis.com/css2?family=PT+Mono&display=swap");
+
+:root {
+  /* Primary & secondary colors */
+  --primary: #827ffe;
+  --primary-dark: #5754e0;
+  --secondaryDark: #4542da;
+
+  /* 50 shades of grey */
+  --backgroundGrey: #f5f7fa;
+  --customGrey: #ececec;
+  --placeholderColor: #8f8ea1;
+  --customBlack: #403865;
+
+  /* Notifications / messages colors */
+  --success: #34cc3f;
+  --success-dark: #13a01e;
+  --danger: #e73537;
+  --danger-dark: #b71c1d;
+  --warning: #ffba00;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body,
+html {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "PT Mono", monospace, sans-serif;
+  /* font-size: 62.5%; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
 }
