@@ -1,7 +1,13 @@
-export default function Homepage() {
+import Hero from "../../components/homepage/Hero";
+import HomepageNav from "../../components/navigation/HomepageNav";
+import Carousel from "../../components/homepage/carousel/Carousel";
+
+export default function HomepageView() {
   return (
-    <div>
-      <p>Hello world from codewaves.io</p>
-    </div>
+    <>
+      <HomepageNav />
+      <Hero />
+      <Carousel />
+    </>
   );
 }

@@ -1,36 +1,35 @@
 @import url("https://fonts.googleapis.com/css2?family=PT+Mono&display=swap");
 
 :root {
-  /* Primary & secondary colors */
+  /* Primary app colors. */
   --primary: #827ffe;
   --primary-dark: #5754e0;
-  --secondaryDark: #4542da;
+  --secondary-dark: #4542da;
 
   /* 50 shades of grey */
-  --backgroundGrey: #f5f7fa;
-  --customGrey: #ececec;
-  --placeholderColor: #8f8ea1;
-  --customBlack: #403865;
+  --background-grey: #f5f7fa;
+  --placeholder-grey: #8f8ea1;
+  --custom-greyy: #ececec;
+  --custom-black: #403865;
 
-  /* Notifications / messages colors */
+  /* Notifications / messages colors. */
   --success: #34cc3f;
   --success-dark: #13a01e;
   --danger: #e73537;
   --danger-dark: #b71c1d;
   --warning: #ffba00;
+
+  /* App wide light shadow. */
+  --light-shadow: 0px 3px 15px rgba(0, 0, 0, 0.4);
 }
 
-* {
-  box-sizing: border-box;
-}
-
-body,
-html {
+html,
+body {
+  padding: 0;
   margin: 0;
-  font-family: "PT Mono", monospace, sans-serif;
-  /* font-size: 62.5%; */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: "PT Mono", sans-serif;
+  color: var(--custom-black);
+  font-size: 62.5%;
 }
 
 a {
@@ -40,4 +39,17 @@ a {
 
 ul {
   list-style: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.title {
+  font-size: 4rem;
+}
+
+.title .dot {
+  color: var(--primary);
+  font-size: 1em;
 }
