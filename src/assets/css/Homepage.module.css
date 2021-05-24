@@ -1,6 +1,6 @@
-/**********
+/****************************************
     HERO SECTION + CAROUSEL
-**********/
+****************************************/
 
 .Hero {
   width: 100%;
@@ -61,7 +61,7 @@
   height: 80px;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 1000px;
+  margin-bottom: 100px;
   margin-top: 50px;
   animation: slideAnimation linear 20s infinite;
   padding: 0;
@@ -103,5 +103,40 @@
 
   100% {
     transform: translateX(-200%);
+  }
+}
+
+/****************************************
+    COURSE PREVIEW SECTION
+****************************************/
+
+.CoursePreview {
+  background-color: var(--background-grey);
+  min-height: 500px;
+  padding: 100px 0;
+}
+
+.CoursePreview .PerspectiveWrapper {
+  perspective: 1500px;
+}
+
+.CoursePreview .HomepageCodeEditorWrapper {
+  width: 500px;
+  height: 500px;
+  transform: rotateY(35deg);
+  box-shadow: var(--light-shadow);
+  animation: fadeInFromBottom ease-in 0.4s;
+  position: relative;
+}
+
+@keyframes fadeInFromBottom {
+  0% {
+    opacity: 0;
+    transform: rotateY(35deg) translateY(200px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: rotateY(35deg) translateY(0);
   }
 }
