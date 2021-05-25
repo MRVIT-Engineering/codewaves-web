@@ -7,7 +7,7 @@ const PrimaryButton = styled.button`
   color: white;
   outline: none;
   border: none;
-  border-radius: 8px;
+  border-radius: var(--border-radius);
   text-transform: uppercase;
   cursor: pointer;
   font-family: "PT Mono", sans-serif;

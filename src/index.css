@@ -21,6 +21,7 @@
 
   /* App wide light shadow. */
   --light-shadow: 0px 3px 15px rgba(0, 0, 0, 0.4);
+  --border-radius: 8px;
 }
 
 html,
@@ -30,6 +31,10 @@ body {
   font-family: "PT Mono", sans-serif;
   color: var(--custom-black);
   font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
 }
 
 a {
@@ -43,13 +48,4 @@ ul {
 
 * {
   box-sizing: border-box;
-}
-
-.title {
-  font-size: 4rem;
-}
-
-.title .dot {
-  color: var(--primary);
-  font-size: 1em;
 }

@@ -16,7 +16,7 @@
   height: 100%;
 }
 
-.Left {
+.Hero .Left {
   display: flex;
   align-items: flex-start;
   flex-flow: column;
@@ -24,7 +24,7 @@
   width: 45%;
 }
 
-.Right {
+.Hero .Right {
   width: 55%;
 }
 
@@ -114,6 +114,7 @@
   background-color: var(--background-grey);
   min-height: 500px;
   padding: 100px 0;
+  display: flex;
 }
 
 .CoursePreview .PerspectiveWrapper {
@@ -121,9 +122,9 @@
 }
 
 .CoursePreview .HomepageCodeEditorWrapper {
-  width: 500px;
+  width: 600px;
   height: 500px;
-  transform: rotateY(35deg);
+  transform: rotateY(30deg);
   box-shadow: var(--light-shadow);
   animation: fadeInFromBottom ease-in 0.4s;
   position: relative;
@@ -139,4 +140,65 @@
     opacity: 1;
     transform: rotateY(35deg) translateY(0);
   }
+}
+
+.ButtonReplica {
+  height: 60px;
+  width: 120px;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  outline: none;
+  border-radius: var(--border-radius);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.6rem;
+  position: absolute;
+  top: -20px;
+  right: -25px;
+  transition: position 0.4s opacity 0.4s;
+  box-shadow: var(--light-shadow);
+}
+
+.QuestionReplica {
+  width: 220px;
+  height: 120px;
+  border-radius: var(--border-radius);
+  background-color: white;
+  box-shadow: var(--light-shadow);
+  position: absolute;
+  bottom: -40px;
+  left: -30px;
+  padding: 15px;
+}
+
+.QuestionReplicaTitle {
+  font-size: 1.6rem;
+  margin: 0;
+  margin-bottom: 5px;
+}
+
+.QuestionReplicaText,
+.QuestionReplicaDate {
+  font-size: 1.2rem;
+  color: var(--placeholder-grey);
+}
+
+.QuestionReplicaDate {
+  color: var(--primary);
+  padding-top: 15px;
+}
+
+.CoursePreview .Right {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  height: 100%;
+  min-height: 500px;
+}
+
+.CoursePreview .Right p {
+  color: var(--placeholder-grey);
 }
