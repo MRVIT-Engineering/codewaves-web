@@ -128,6 +128,8 @@
   box-shadow: var(--light-shadow);
   animation: fadeInFromBottom ease-in 0.4s;
   position: relative;
+  background-color: var(--monakai-bg);
+  border-radius: var(--border-radius);
 }
 
 @keyframes fadeInFromBottom {
@@ -140,54 +142,6 @@
     opacity: 1;
     transform: rotateY(35deg) translateY(0);
   }
-}
-
-.ButtonReplica {
-  height: 60px;
-  width: 120px;
-  background-color: var(--primary);
-  color: white;
-  border: none;
-  outline: none;
-  border-radius: var(--border-radius);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.6rem;
-  position: absolute;
-  top: -20px;
-  right: -25px;
-  transition: position 0.4s opacity 0.4s;
-  box-shadow: var(--light-shadow);
-}
-
-.QuestionReplica {
-  width: 220px;
-  height: 120px;
-  border-radius: var(--border-radius);
-  background-color: white;
-  box-shadow: var(--light-shadow);
-  position: absolute;
-  bottom: -40px;
-  left: -30px;
-  padding: 15px;
-}
-
-.QuestionReplicaTitle {
-  font-size: 1.6rem;
-  margin: 0;
-  margin-bottom: 5px;
-}
-
-.QuestionReplicaText,
-.QuestionReplicaDate {
-  font-size: 1.2rem;
-  color: var(--placeholder-grey);
-}
-
-.QuestionReplicaDate {
-  color: var(--primary);
-  padding-top: 15px;
 }
 
 .CoursePreview .Right {
