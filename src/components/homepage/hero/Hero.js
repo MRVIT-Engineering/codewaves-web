@@ -1,9 +1,9 @@
 import React from "react";
-import heroImage from "../../assets/images/homepage/hero.png";
-import classes from "../../assets/css/Homepage.module.css";
-import Button from "../../components/ui-elements/buttons/PrimaryButton";
-import Wrapper from "../ui-elements/containers/Wrapper";
-import { Headline } from "../ui-elements/common/Headline";
+import heroImage from "../../../assets/images/homepage/hero.png";
+import classes from "../../../assets/css/Homepage.module.css";
+import Button from "../../ui-elements/buttons/PrimaryButton";
+import Wrapper from "../../ui-elements/containers/Wrapper";
+import { Headline } from "../../ui-elements/common/Headline";
 
 import Typewriter from "react-simple-typewriter";
 import "react-simple-typewriter/dist/index.css";

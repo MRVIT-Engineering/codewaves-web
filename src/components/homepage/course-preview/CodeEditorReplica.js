@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { lineColors } from "../../../constants/colors/editorReplicaLineColors";
+// import { props.colorTheme } from "../../../constants/colors/editorReplicaprops.colorTheme";
 
 const StyledContainer = styled.div`
   width: 100%;
@@ -31,66 +31,66 @@ export const CodeEditorReplica = (props) => {
   return (
     <StyledContainer bgColor={props.codeEditorTheme}>
       <CodeRow>
-        <CodeLine width="20" color={lineColors.grey} />
-        <CodeLine width="14" color={lineColors.grey} />
+        <CodeLine width="20" color={props.colorTheme.grey} />
+        <CodeLine width="14" color={props.colorTheme.grey} />
       </CodeRow>
       <CodeRow>
-        <CodeLine width="17" color={lineColors.grey} />
-        <CodeLine width="9" color={lineColors.grey} />
-        <CodeLine width="12" color={lineColors.grey} />
+        <CodeLine width="17" color={props.colorTheme.grey} />
+        <CodeLine width="9" color={props.colorTheme.grey} />
+        <CodeLine width="12" color={props.colorTheme.grey} />
       </CodeRow>
 
       {/* We use CodeRow as a separator. 
       No use in another component as this is just for visual effects */}
       <CodeRow />
       <CodeRow>
-        <CodeLine width="20" color={lineColors.pink} />
-        <CodeLine width="15" color={lineColors.grey} />
-        <CodeLine width="18" color={lineColors.grey} />
+        <CodeLine width="20" color={props.colorTheme.pink} />
+        <CodeLine width="15" color={props.colorTheme.grey} />
+        <CodeLine width="18" color={props.colorTheme.grey} />
       </CodeRow>
       <CodeRow>
-        <CodeLine width="17" color={lineColors.pink} />
-        <CodeLine width="12" color={lineColors.grey} />
-        <CodeLine width="15" color={lineColors.grey} />
+        <CodeLine width="17" color={props.colorTheme.pink} />
+        <CodeLine width="12" color={props.colorTheme.grey} />
+        <CodeLine width="15" color={props.colorTheme.grey} />
       </CodeRow>
       <CodeRow>
-        <CodeLine width="19" color={lineColors.pink} />
-        <CodeLine width="24" color={lineColors.blue} />
+        <CodeLine width="19" color={props.colorTheme.pink} />
+        <CodeLine width="24" color={props.colorTheme.blue} />
       </CodeRow>
       <CodeRow>
-        <CodeLine width="20" color={lineColors.grey} />
-        <CodeLine width="45" color={lineColors.grey} />
+        <CodeLine width="20" color={props.colorTheme.grey} />
+        <CodeLine width="45" color={props.colorTheme.grey} />
       </CodeRow>
 
       <CodeRow />
 
       <CodeRow>
-        <CodeLine width="22" color={lineColors.pink} />
-        <CodeLine width="16" color={lineColors.purple} />
-        <CodeLine width="15" color={lineColors.blue} />
-        <CodeLine width="25" color={lineColors.yellow} />
+        <CodeLine width="22" color={props.colorTheme.pink} />
+        <CodeLine width="16" color={props.colorTheme.purple} />
+        <CodeLine width="15" color={props.colorTheme.blue} />
+        <CodeLine width="25" color={props.colorTheme.yellow} />
       </CodeRow>
       <CodeRow>
-        <CodeLine width="17" color={lineColors.pink} />
-        <CodeLine width="12" color={lineColors.green} />
-        <CodeLine width="15" color={lineColors.yellow} />
+        <CodeLine width="17" color={props.colorTheme.pink} />
+        <CodeLine width="12" color={props.colorTheme.green} />
+        <CodeLine width="15" color={props.colorTheme.yellow} />
       </CodeRow>
       <CodeRow />
       <CodeRow>
-        <CodeLine width="20" color={lineColors.pink} />
-        <CodeLine width="15" color={lineColors.yellow} />
-        <CodeLine width="18" color={lineColors.grey} />
+        <CodeLine width="20" color={props.colorTheme.pink} />
+        <CodeLine width="15" color={props.colorTheme.yellow} />
+        <CodeLine width="18" color={props.colorTheme.grey} />
       </CodeRow>
       <CodeRow>
-        <CodeLine width="15" color={lineColors.pink} />
-        <CodeLine width="10" color={lineColors.blue} />
-        <CodeLine width="14" color={lineColors.grey} />
+        <CodeLine width="15" color={props.colorTheme.pink} />
+        <CodeLine width="10" color={props.colorTheme.blue} />
+        <CodeLine width="14" color={props.colorTheme.grey} />
       </CodeRow>
       <CodeRow />
 
       <CodeRow>
-        <CodeLine width="18" color={lineColors.pink} />
-        <CodeLine width="12" color={lineColors.green} />
+        <CodeLine width="18" color={props.colorTheme.pink} />
+        <CodeLine width="12" color={props.colorTheme.green} />
       </CodeRow>
     </StyledContainer>
   );

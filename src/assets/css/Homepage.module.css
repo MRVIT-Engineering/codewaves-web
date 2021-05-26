@@ -117,7 +117,7 @@
   display: flex;
 }
 
-.CoursePreview .PerspectiveWrapper {
+.PerspectiveWrapper {
   perspective: 1500px;
 }
 
@@ -126,22 +126,9 @@
   height: 480px;
   transform: rotateY(30deg);
   box-shadow: var(--light-shadow);
-  animation: fadeInFromBottom ease-in 0.4s;
   position: relative;
   background-color: var(--monakai-bg);
   border-radius: var(--border-radius);
-}
-
-@keyframes fadeInFromBottom {
-  0% {
-    opacity: 0;
-    transform: rotateY(35deg) translateY(200px);
-  }
-
-  100% {
-    opacity: 1;
-    transform: rotateY(35deg) translateY(0);
-  }
 }
 
 .CoursePreview .Right {

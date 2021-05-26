@@ -1,7 +1,9 @@
-import Hero from "../../components/homepage/Hero";
+import Hero from "../../components/homepage/hero/Hero";
 import HomepageNav from "../../components/navigation/HomepageNav";
 import Carousel from "../../components/homepage/carousel/Carousel";
 import CoursePreview from "../../components/homepage/course-preview/CoursePreview";
+import PlaygroundPreview from "../../components/homepage/playground-preview/PlaygroundPreview";
+
 export default function HomepageView() {
   return (
     <>
@@ -9,6 +11,7 @@ export default function HomepageView() {
       <Hero />
       <Carousel />
       <CoursePreview />
+      <PlaygroundPreview />
     </>
   );
 }
