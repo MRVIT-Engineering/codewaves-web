@@ -1,60 +1,9 @@
 /****************************************
-    HERO SECTION + CAROUSEL
+   CAROUSEL ANIMATIONS 
+
+   TODO: Try to move this animations
+   inside styled components.
 ****************************************/
-
-.Hero {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.Left,
-.Right {
-  width: 50%;
-  height: 100%;
-}
-
-.Hero .Left {
-  display: flex;
-  align-items: flex-start;
-  flex-flow: column;
-  padding-left: 5rem;
-  width: 45%;
-}
-
-.Hero .Right {
-  width: 55%;
-}
-
-.HeroImage {
-  width: 100%;
-  height: auto;
-}
-
-.TitleSpan {
-  color: var(--primary);
-}
-
-.ButtonWrapper {
-  margin-top: 50px;
-}
-
-.Carousel {
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  max-width: 1900px;
-  margin: auto;
-}
-
-.Line {
-  width: 100%;
-  display: flex;
-}
 
 .AnimatedLine {
   min-width: 100%;
@@ -104,43 +53,4 @@
   100% {
     transform: translateX(-200%);
   }
-}
-
-/****************************************
-    COURSE PREVIEW SECTION
-****************************************/
-
-.CoursePreview {
-  background-color: var(--background-grey);
-  min-height: 500px;
-  padding: 250px 0;
-  display: flex;
-}
-
-.PerspectiveWrapper {
-  perspective: 1500px;
-}
-
-.CoursePreview .HomepageCodeEditorWrapper {
-  width: 580px;
-  height: 480px;
-  transform: rotateY(30deg);
-  box-shadow: var(--light-shadow);
-  position: relative;
-  background-color: var(--monakai-bg);
-  border-radius: var(--border-radius);
-}
-
-.CoursePreview .Right {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-direction: column;
-  height: 100%;
-  min-height: 500px;
-  padding-left: 75px;
-}
-
-.CoursePreview .Right p {
-  color: var(--placeholder-grey);
 }

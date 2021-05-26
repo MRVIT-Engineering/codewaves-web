@@ -1,18 +1,25 @@
 import React from "react";
-import classes from "../../../assets/css/Homepage.module.css";
 import styled from "styled-components";
 import { Headline } from "../../ui-elements/common/Headline";
 import { Separator } from "../../ui-elements/common/Separator";
-import { GreyParagraph } from "../../ui-elements/common/GreyParagraph";
+import { GreyParagraph } from "../../ui-elements/common/Paragraph";
 import { CodeEditorReplica } from "../course-preview/CodeEditorReplica";
 import { TerminalReplica } from "./TerminalReplica";
 import { lightLineColors } from "../../../constants/colors/editorReplicaLineColors";
+import { homepageText } from "../../../constants/text/homepageText";
 import ScrollAnimation from "react-animate-on-scroll";
+import { ScreenSize } from "../../../constants/media-queries/mediaQueris";
 
 const StyledContainer = styled.div`
   display: flex;
   width: 100%;
   padding: 250px 0;
+
+  ${ScreenSize.medium} {
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 const StyledPlaygroundContainer = styled.div`
@@ -22,6 +29,17 @@ const StyledPlaygroundContainer = styled.div`
   display: flex;
   justify-content: space-between;
   background: transparent;
+  margin: 0;
+
+  ${ScreenSize.medium} {
+    transform: rotateY(0);
+    margin: 0 !important;
+    padding: 0;
+  }
+`;
+
+const PerspectiveContainer = styled.div`
+  perspective: 1500px;
 `;
 
 const PlaygroundHalf = styled.div`
@@ -37,13 +55,25 @@ const Left = styled.div`
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
-  padding: 0 50px 0 150px;
+  padding: 0 50px 0 250px;
+
+  ${ScreenSize.medium} {
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 75px;
+  }
 `;
 
 const Right = styled.div`
   width: 50%;
   display: flex;
   flex-direction: column;
+  ${ScreenSize.medium} {
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 export default function PlaygroundPreview() {
@@ -52,18 +82,19 @@ export default function PlaygroundPreview() {
       <Left>
         <ScrollAnimation animateOnce delay={350} animateIn="fadeInLeft">
           <Headline>
-            Experimpent<span className="dot">.</span>
+            {homepageText.playgroundPreview.sectionTitle}
+            <span className="dot">.</span>
           </Headline>
+        </ScrollAnimation>
+        <ScrollAnimation animateOnce delay={350} animateIn="fadeInLeft">
           <Separator />
-          <GreyParagraph>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
-            cupiditate beatae neque. Modi fugiat quis blanditiis ea facere
-            voluptas cum?
-          </GreyParagraph>
+        </ScrollAnimation>
+        <ScrollAnimation animateOnce animateIn="fadeInLeft" delay={350}>
+          <GreyParagraph>{homepageText.playgroundPreview.text}</GreyParagraph>
         </ScrollAnimation>
       </Left>
       <Right>
-        <div className={classes.PerspectiveWrapper}>
+        <PerspectiveContainer>
           <StyledPlaygroundContainer>
             <ScrollAnimation animateOnce animateIn="fadeInUp">
               <PlaygroundHalf>
@@ -79,7 +110,7 @@ export default function PlaygroundPreview() {
               </PlaygroundHalf>
             </ScrollAnimation>
           </StyledPlaygroundContainer>
-        </div>
+        </PerspectiveContainer>
       </Right>
     </StyledContainer>
   );

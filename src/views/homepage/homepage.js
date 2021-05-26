@@ -3,6 +3,7 @@ import HomepageNav from "../../components/navigation/HomepageNav";
 import Carousel from "../../components/homepage/carousel/Carousel";
 import CoursePreview from "../../components/homepage/course-preview/CoursePreview";
 import PlaygroundPreview from "../../components/homepage/playground-preview/PlaygroundPreview";
+import GetStarted from "../../components/homepage/get-started/GetStarted";
 
 export default function HomepageView() {
   return (
@@ -12,6 +13,7 @@ export default function HomepageView() {
       <Carousel />
       <CoursePreview />
       <PlaygroundPreview />
+      <GetStarted />
     </>
   );
 }

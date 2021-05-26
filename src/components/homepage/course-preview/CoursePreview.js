@@ -1,4 +1,3 @@
-import classes from "../../../assets/css/Homepage.module.css";
 import Wrapper from "../../ui-elements/containers/Wrapper";
 import { editorBgColors } from "../../../constants/colors/editorBgColors";
 import { ButtonReplicaComp } from "./ButtonReplica";
@@ -6,47 +5,110 @@ import { CodeEditorReplica } from "./CodeEditorReplica";
 import { QuestionReplicaComp } from "./QuestionReplica";
 import { Headline } from "../../ui-elements/common//Headline";
 import { Separator } from "../../ui-elements/common/Separator";
-import { GreyParagraph } from "../../ui-elements/common/GreyParagraph";
-import PrimaryButton from "../../ui-elements/buttons/PrimaryButton";
+import { GreyParagraph } from "../../ui-elements/common/Paragraph";
+import { Button } from "../../ui-elements/buttons/PrimaryButton";
 import { lineColors } from "../../../constants/colors/editorReplicaLineColors";
-
-import "animate.css/animate.min.css";
+import { homepageText } from "../../../constants/text/homepageText";
 import ScrollAnimation from "react-animate-on-scroll";
+import styled from "styled-components";
+import { ScreenSize } from "../../../constants/media-queries/mediaQueris";
+
+const StyledContainer = styled.div`
+  background-color: var(--background-grey);
+  min-height: 500px;
+  padding: 250px 0;
+  display: flex;
+
+  ${ScreenSize.medium} {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+  }
+`;
+
+const PerspectiveContainer = styled.div`
+  perspective: 1500px;
+`;
+
+const CodeContainer = styled.div`
+  width: 580px;
+  height: 480px;
+  transform: rotateY(30deg);
+  box-shadow: var(--light-shadow);
+  position: relative;
+  background-color: var(--monakai-bg);
+  border-radius: var(--border-radius);
+
+  ${ScreenSize.medium} {
+    transform: rotateY(0);
+  }
+`;
+
+const Left = styled.div`
+  width: 50%;
+
+  ${ScreenSize.medium} {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+  }
+`;
+
+const Right = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  height: 100%;
+  min-height: 500px;
+  width: 50%;
+  padding-left: 75px;
+
+  ${ScreenSize.medium} {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    text-align: center;
+  }
+`;
 
 export default function CoursePreview() {
   return (
-    <div className={classes.CoursePreview}>
+    <StyledContainer>
       <Wrapper>
-        <div className={classes.Left}>
+        <Left>
           <ScrollAnimation animateOnce animateIn="fadeInUp">
-            <div className={classes.PerspectiveWrapper}>
-              <div className={classes.HomepageCodeEditorWrapper}>
+            <PerspectiveContainer>
+              <CodeContainer>
                 <CodeEditorReplica
                   colorTheme={lineColors}
                   codeEditorTheme={editorBgColors.monakai}
                 />
                 <ButtonReplicaComp>REPLY</ButtonReplicaComp>
                 <QuestionReplicaComp />
-              </div>
-            </div>
+              </CodeContainer>
+            </PerspectiveContainer>
           </ScrollAnimation>
-        </div>
-        <div className={classes.Right}>
+        </Left>
+
+        <Right>
           <ScrollAnimation animateOnce animateIn="fadeIn" delay={600}>
             <Headline>
-              Learn from us & the community<span className="dot">.</span>
+              {homepageText.coursePreview.sectionTitle}
+              <span className="dot">.</span>
             </Headline>
-            <Separator />
-            <GreyParagraph>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus
-              natus pariatur, explicabo fugit consequatur laboriosam earum
-              dolorem quia quaerat molestiae quasi libero similique voluptas
-              laudantium minima deleniti quam distinctio ex.
-            </GreyParagraph>
-            <PrimaryButton>start coding now</PrimaryButton>
           </ScrollAnimation>
-        </div>
+          <ScrollAnimation animateIn="fadeIn" animateOnce delay={600}>
+            <Separator />
+          </ScrollAnimation>
+          <ScrollAnimation animateOnce animateIn="fadeIn" delay={600}>
+            <GreyParagraph>{homepageText.coursePreview.text}</GreyParagraph>
+            <Button>start coding now</Button>
+          </ScrollAnimation>
+        </Right>
       </Wrapper>
-    </div>
+    </StyledContainer>
   );
 }

@@ -1,17 +1,32 @@
-import classes from "../../../assets/css/Homepage.module.css";
 import CarouselLine from "./CarouselLine";
 import { Headline } from "../../ui-elements/common/Headline";
+import styled from "styled-components";
+
+const StyledContainer = styled.div`
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  max-width: 1900px;
+  margin: auto;
+`;
+
+const Line = styled.div`
+  width: 100%;
+  display: flex;
+`;
 
 export default function Carousel() {
   return (
-    <div className={classes.Carousel}>
+    <StyledContainer>
       <Headline>
         Learn by doing<span className="dot">.</span>
       </Headline>
-      <div className={classes.Line}>
+      <Line>
         <CarouselLine></CarouselLine>
         <CarouselLine></CarouselLine>
-      </div>
-    </div>
+      </Line>
+    </StyledContainer>
   );
 }

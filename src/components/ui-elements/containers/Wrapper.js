@@ -7,6 +7,8 @@ const Wrapper = styled.div`
   display: inherit;
   justify-content: inherit;
   align-items: inherit;
+  flex-direction: ingerit;
+  flex-flow: inherit;
 `;
 
 export default Wrapper;
