@@ -113,7 +113,7 @@
 .CoursePreview {
   background-color: var(--background-grey);
   min-height: 500px;
-  padding: 100px 0;
+  padding: 250px 0;
   display: flex;
 }
 
@@ -122,8 +122,8 @@
 }
 
 .CoursePreview .HomepageCodeEditorWrapper {
-  width: 600px;
-  height: 500px;
+  width: 580px;
+  height: 480px;
   transform: rotateY(30deg);
   box-shadow: var(--light-shadow);
   animation: fadeInFromBottom ease-in 0.4s;
@@ -151,6 +151,7 @@
   flex-direction: column;
   height: 100%;
   min-height: 500px;
+  padding-left: 75px;
 }
 
 .CoursePreview .Right p {

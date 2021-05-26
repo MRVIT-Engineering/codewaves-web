@@ -1,9 +1,9 @@
 import React from "react";
 import heroImage from "../../assets/images/homepage/hero.png";
 import classes from "../../assets/css/Homepage.module.css";
-
 import Button from "../../components/ui-elements/buttons/PrimaryButton";
 import Wrapper from "../ui-elements/containers/Wrapper";
+import { Headline } from "../ui-elements/common/Headline";
 
 import Typewriter from "react-simple-typewriter";
 import "react-simple-typewriter/dist/index.css";
@@ -13,7 +13,7 @@ export default function Hero() {
     <div className={classes.Hero}>
       <Wrapper>
         <div className={classes.Left}>
-          <h1 className="title">
+          <Headline>
             Start learning <br />{" "}
             <span className={classes.TitleSpan}>
               <Typewriter
@@ -31,7 +31,7 @@ export default function Hero() {
                 ]}
               />
             </span>
-          </h1>
+          </Headline>
           <div className={classes.ButtonWrapper}>
             <Button>get started</Button>
           </div>

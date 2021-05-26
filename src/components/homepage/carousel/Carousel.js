@@ -1,12 +1,13 @@
 import classes from "../../../assets/css/Homepage.module.css";
 import CarouselLine from "./CarouselLine";
+import { Headline } from "../../ui-elements/common/Headline";
 
 export default function Carousel() {
   return (
     <div className={classes.Carousel}>
-      <h1 className="title">
+      <Headline>
         Learn by doing<span className="dot">.</span>
-      </h1>
+      </Headline>
       <div className={classes.Line}>
         <CarouselLine></CarouselLine>
         <CarouselLine></CarouselLine>
