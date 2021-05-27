@@ -2,6 +2,9 @@
 <strong>Codewaves.io Client</strong><br>
 </p>
 
+## ‼️ ATENTION ‼️
+We migrated the codebase to typescript. The latest version is still on c.1.1 branch.
+
 ## Table of contents
 
 - [Quickstart](#quickstart)
