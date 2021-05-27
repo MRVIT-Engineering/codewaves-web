@@ -3,7 +3,7 @@ import { editorBgColors } from "../../../constants/colors/editorBgColors";
 import { ButtonReplicaComp } from "./ButtonReplica";
 import { CodeEditorReplica } from "./CodeEditorReplica";
 import { QuestionReplicaComp } from "./QuestionReplica";
-import { Headline } from "../../ui-elements/common//Headline";
+import { Headline } from "../../ui-elements/common/Headline";
 import { Separator } from "../../ui-elements/common/Separator";
 import { GreyParagraph } from "../../ui-elements/common/Paragraph";
 import { Button } from "../../ui-elements/buttons/PrimaryButton";
@@ -105,7 +105,7 @@ export default function CoursePreview() {
           </ScrollAnimation>
           <ScrollAnimation animateOnce animateIn="fadeIn" delay={600}>
             <GreyParagraph>{homepageText.coursePreview.text}</GreyParagraph>
-            <Button>start coding now</Button>
+            <Button onClick={() => {}}>start coding now</Button>
           </ScrollAnimation>
         </Right>
       </Wrapper>

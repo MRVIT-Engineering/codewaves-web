@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const PrimaryButton = styled.button`
+const StyledButton = styled.button`
   min-width: 200px;
   height: 60px;
   background-color: var(--primary);
@@ -21,8 +21,11 @@ const PrimaryButton = styled.button`
   }
 `;
 
-export const Button = (props) => {
-  return (
-    <PrimaryButton onClick={props.onClick}>{props.children}</PrimaryButton>
-  );
+interface ButtonProps {
+  onClick: () => void;
+  children?: any;
+}
+
+export const Button = (props: ButtonProps) => {
+  return <StyledButton onClick={props.onClick}>{props.children}</StyledButton>;
 };

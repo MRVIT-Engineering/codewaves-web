@@ -4,7 +4,11 @@ import Wrapper from "../ui-elements/containers/Wrapper";
 import { useState, useEffect } from "react";
 import logoBig from "../../assets/images/logos/logo-big.png";
 
-const StyledContainer = styled.header`
+interface DesktopNavProps {
+  isScrolled: boolean;
+}
+
+const StyledContainer = styled.header<DesktopNavProps>`
   width: 100%;
   height: 80px;
   display: flex;
@@ -17,32 +21,32 @@ const StyledContainer = styled.header`
   background-color: white;
   z-index: 1000;
 
-  ul {
-    height: 100%;
-    width: 300px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-
-    li {
-      a {
-        transition: color 0.4s;
-        font-size: 1.6rem;
-
-        &:hover {
-          color: var(--primary);
-        }
-      }
-
-      &:not(:last-child) {
-        margin-right: 25px;
-      }
-    }
-  }
-
   img {
     height: 50px;
     width: auto;
+  }
+`;
+
+const NavList = styled.ul`
+  height: 100%;
+  width: 300px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+`;
+
+const StyledListItem = styled.li`
+  &:not(:last-child) {
+    margin-right: 25px;
+  }
+
+  a {
+    transition: color 0.4s;
+    font-size: 1.6rem;
+
+    &:hover {
+      color: var(--primary);
+    }
   }
 `;
 
@@ -63,14 +67,14 @@ export default function HomepageNav() {
       <Wrapper>
         <img src={logoBig} alt="Codewaves.io logo." />
         <nav>
-          <ul>
-            <li>
+          <NavList>
+            <StyledListItem>
               <Link to="/">Get Started</Link>
-            </li>
-            <li>
+            </StyledListItem>
+            <StyledListItem>
               <Link to="/">Contact Us</Link>
-            </li>
-          </ul>
+            </StyledListItem>
+          </NavList>
         </nav>
       </Wrapper>
     </StyledContainer>

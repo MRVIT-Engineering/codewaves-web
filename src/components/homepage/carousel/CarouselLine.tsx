@@ -8,8 +8,6 @@ import python from "../../../assets/images/homepage/python.png";
 import cpp from "../../../assets/images/homepage/cpp.png";
 import node from "../../../assets/images/homepage/node.png";
 
-// import styled from "styled-components";
-
 export default function CarouselLine() {
   return (
     <div className={classes.AnimatedLine}>

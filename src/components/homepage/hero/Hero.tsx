@@ -65,8 +65,8 @@ export default function Hero() {
                 loop
                 cursor
                 cursorStyle="_"
-                typeSpeed="80"
-                deleteSpeed="70"
+                typeSpeed={80}
+                deleteSpeed={70}
                 words={[
                   "HTML & CSS",
                   "javascript",
@@ -77,8 +77,8 @@ export default function Hero() {
               />
             </span>
           </Headline>
-          <Spacer height="50px" />
-          <Button>get started</Button>
+          <Spacer height={50} />
+          <Button onClick={() => {}}>get started</Button>
         </Left>
         <Right>
           <HeroImage />

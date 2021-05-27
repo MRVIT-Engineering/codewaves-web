@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import { lineColors } from "../../../constants/colors/editorReplicaLineColors";
 
@@ -18,7 +17,7 @@ const CodeRow = styled.div`
   margin-bottom: 10px;
 `;
 
-const CodeLine = styled.div`
+const CodeLine = styled.div<{ width: string }>`
   height: 100%;
   border-radius: 5px;
   width: ${(props) => props.width + "%"};

@@ -20,6 +20,6 @@ const ButtonReplica = styled.div`
   box-shadow: var(--light-shadow);
 `;
 
-export const ButtonReplicaComp = (props) => {
+export const ButtonReplicaComp = (props: { children?: any }) => {
   return <ButtonReplica>{props.children}</ButtonReplica>;
 };

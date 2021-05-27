@@ -2,7 +2,11 @@ import CodeMirror from "@uiw/react-codemirror";
 import "codemirror/keymap/sublime";
 import "codemirror/theme/monokai.css";
 
-export default function StaticCodeEditor(props) {
+interface StaticCodeEditorProps {
+  code: string;
+}
+
+export default function StaticCodeEditor(props: StaticCodeEditorProps) {
   return (
     <CodeMirror
       value={props.code}

@@ -1,8 +1,7 @@
-import React from "react";
 import styled from "styled-components";
 // import { props.colorTheme } from "../../../constants/colors/editorReplicaprops.colorTheme";
 
-const StyledContainer = styled.div`
+const StyledContainer = styled.div<{ bgColor: string }>`
   width: 100%;
   height: 100%;
   background-color: ${(props) =>
@@ -19,7 +18,7 @@ const CodeRow = styled.div`
   margin-bottom: 10px;
 `;
 
-const CodeLine = styled.div`
+const CodeLine = styled.div<{ width: string }>`
   height: 100%;
   border-radius: 5px;
   width: ${(props) => props.width + "%"};
@@ -27,7 +26,12 @@ const CodeLine = styled.div`
   margin: 0 5px;
 `;
 
-export const CodeEditorReplica = (props) => {
+interface CodeEditorReplicaProps {
+  codeEditorTheme: string;
+  colorTheme: any; // this will be a color theme object from constants folder
+}
+
+export const CodeEditorReplica = (props: CodeEditorReplicaProps) => {
   return (
     <StyledContainer bgColor={props.codeEditorTheme}>
       <CodeRow>

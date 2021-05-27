@@ -10,7 +10,12 @@ const Dot = styled.div`
   margin-bottom: 6px;
 `;
 
-const StyledContainer = styled.div`
+const StyledContainer = styled.div<{
+  top?: string;
+  bottom?: string;
+  left?: string;
+  right?: string;
+}>`
   width: 200px;
   height: 200px;
   position: absolute;
@@ -20,7 +25,15 @@ const StyledContainer = styled.div`
   right: ${(props) => props.right};
 `;
 
-export const Dotted = (props) => {
+interface DottedProps {
+  number: number;
+  top?: string;
+  bottom?: string;
+  left?: string;
+  right?: string;
+}
+
+export const Dotted = (props: DottedProps) => {
   const numberOfDots = props.number;
   const dots = [];
   for (let i = 0; i < numberOfDots; i++) dots.push(i);

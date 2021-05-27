@@ -30,7 +30,7 @@ export default function GetStarted() {
         <span style={{ color: "var(--primary)" }}>Codewaves.io</span> today and
         try our basics web development courses for free!
       </WhiteParagraph>
-      <Button>Try it for free!</Button>
+      <Button onClick={() => {}}>Try it for free!</Button>
     </StyledContainer>
   );
 }
