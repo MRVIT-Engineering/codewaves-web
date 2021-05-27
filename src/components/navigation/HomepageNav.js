@@ -4,7 +4,7 @@ import Wrapper from "../ui-elements/containers/Wrapper";
 import { useState, useEffect } from "react";
 import logoBig from "../../assets/images/logos/logo-big.png";
 
-const NavigationComponent = styled.header`
+const StyledContainer = styled.header`
   width: 100%;
   height: 80px;
   display: flex;
@@ -59,7 +59,7 @@ export default function HomepageNav() {
   }, []);
 
   return (
-    <NavigationComponent isScrolled={isScrolled}>
+    <StyledContainer isScrolled={isScrolled}>
       <Wrapper>
         <img src={logoBig} alt="Codewaves.io logo." />
         <nav>
@@ -73,6 +73,6 @@ export default function HomepageNav() {
           </ul>
         </nav>
       </Wrapper>
-    </NavigationComponent>
+    </StyledContainer>
   );
 }
