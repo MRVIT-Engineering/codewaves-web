@@ -1,9 +1,8 @@
-import React from "react";
-import { Button } from "../../ui-elements/buttons/PrimaryButton";
-import { Headline } from "../../ui-elements/common/Headline";
+import { Button } from "../../buttons/PrimaryButton";
+import { Headline } from "../../common/Headline";
 import { ScreenSize } from "../../../constants/media-queries/mediaQueris";
-import { Spacer } from "../../../components/ui-elements/common/Spacer";
-import Wrapper from "../../ui-elements/containers/Wrapper";
+import { Spacer } from "../../common/Spacer";
+import Wrapper from "../../containers/Wrapper";
 import heroImage from "../../../assets/images/homepage/hero.png";
 import styled from "styled-components";
 

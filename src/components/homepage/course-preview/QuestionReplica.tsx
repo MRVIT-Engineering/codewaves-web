@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "../../../assets/css/Homepage.module.css";
-import { Separator } from "../../ui-elements/common/Separator";
+import { Separator } from "../../common/Separator";
 import styled from "styled-components";
 
 const StyledContainer = styled.div`

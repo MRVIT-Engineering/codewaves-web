@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { Headline } from "../../ui-elements/common/Headline";
-import { Separator } from "../../ui-elements/common/Separator";
-import { GreyParagraph } from "../../ui-elements/common/Paragraph";
+import { Headline } from "../../common/Headline";
+import { Separator } from "../../common/Separator";
+import { GreyParagraph } from "../../common/Paragraph";
 import { CodeEditorReplica } from "../course-preview/CodeEditorReplica";
 import { TerminalReplica } from "./TerminalReplica";
 import { lightLineColors } from "../../../constants/colors/editorReplicaLineColors";

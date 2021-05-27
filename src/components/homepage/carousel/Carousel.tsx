@@ -1,5 +1,5 @@
 import CarouselLine from "./CarouselLine";
-import { Headline } from "../../ui-elements/common/Headline";
+import { Headline } from "../../common/Headline";
 import styled from "styled-components";
 
 const StyledContainer = styled.div`

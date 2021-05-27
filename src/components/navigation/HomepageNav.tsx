@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import Wrapper from "../ui-elements/containers/Wrapper";
+import Wrapper from "../containers/Wrapper";
 import { useState, useEffect } from "react";
 import logoBig from "../../assets/images/logos/logo-big.png";
 

@@ -1,8 +1,7 @@
-import React from "react";
 import styled from "styled-components";
-import { Headline } from "../../../components/ui-elements/common/Headline";
-import { Button } from "../../../components/ui-elements/buttons/PrimaryButton";
-import { WhiteParagraph } from "../../../components/ui-elements/common/Paragraph";
+import { Headline } from "../../common/Headline";
+import { Button } from "../../buttons/PrimaryButton";
+import { WhiteParagraph } from "../../common/Paragraph";
 import { Dotted } from "./Dotted";
 
 const StyledContainer = styled.div`

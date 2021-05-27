@@ -1,12 +1,12 @@
-import Wrapper from "../../ui-elements/containers/Wrapper";
+import Wrapper from "../../containers/Wrapper";
 import { editorBgColors } from "../../../constants/colors/editorBgColors";
 import { ButtonReplicaComp } from "./ButtonReplica";
 import { CodeEditorReplica } from "./CodeEditorReplica";
 import { QuestionReplicaComp } from "./QuestionReplica";
-import { Headline } from "../../ui-elements/common/Headline";
-import { Separator } from "../../ui-elements/common/Separator";
-import { GreyParagraph } from "../../ui-elements/common/Paragraph";
-import { Button } from "../../ui-elements/buttons/PrimaryButton";
+import { Headline } from "../../common/Headline";
+import { Separator } from "../../common/Separator";
+import { GreyParagraph } from "../../common/Paragraph";
+import { Button } from "../../buttons/PrimaryButton";
 import { lineColors } from "../../../constants/colors/editorReplicaLineColors";
 import { homepageText } from "../../../constants/text/homepageText";
 import ScrollAnimation from "react-animate-on-scroll";
