@@ -12,7 +12,6 @@ We migrated the codebase to typescript. The latest version is still on c.1.1 bra
 - [System architecture](#system-architecture)
 - [Local setup](#local-setup)
 - [Codestyle & Linting](#codestyle-&-linting)
-- [Testing](#testing)
 - [Deployment](#deployment)
 
 ## Quickstart
@@ -101,7 +100,7 @@ Try to use TypeScript wherever possible. This project still has a mixed JavaScri
 
 ## Deployment
 
-The app is deployed automatically through [Netflify](https://fervent-banach-d110db.netlify.app/).  
+The app is deployed automatically through Netflify. The `dev` branch is the one that is automatically deployed. You can access the deployment [here](https://fervent-banach-d110db.netlify.app/)  
 
 Note that deployments take a few minutes (S3 cache invalidation takes a minute too) and the app bundle might be cached in your browser as well - make sure to clear your cache & hard refresh if you don't see any changes after a successful deployment.
 
