@@ -2,9 +2,6 @@
 <strong>Codewaves.io Client</strong><br>
 </p>
 
-## ‼️ ATENTION ‼️
-We migrated the codebase to typescript. The latest version is still on c.1.1 branch.
-
 ## Table of contents
 
 - [Quickstart](#quickstart)
@@ -12,7 +9,7 @@ We migrated the codebase to typescript. The latest version is still on c.1.1 bra
 - [System architecture](#system-architecture)
 - [Local setup](#local-setup)
 - [Codestyle & Linting](#codestyle-&-linting)
-- [Deployment](#deployment)
+- [Deployment & Git Flow](#deployment)
 
 ## Quickstart
 
@@ -98,9 +95,10 @@ The linked resources above are a great read if you are interested in the reasoni
 
 Try to use TypeScript wherever possible. This project still has a mixed JavaScript / TypeScript codebase for historical reasons, but new modules should be written in TypeScript whenever possible. In the future, we might migrate existing JavaScript code to TypeScript.
 
-## Deployment
+## Deployment & Git Flow
 
-The app is deployed automatically through Netflify. The `dev` branch is the one that is automatically deployed. You can access the deployment [here](https://fervent-banach-d110db.netlify.app/)  
+The app is deployed automatically through Netflify. The `releseas` branch will automatically be deployed on `staging.codewaves.io` and the `master` branch, which represtents production, will be deployed on `www.codewaves.io`. 
 
-Note that deployments take a few minutes (S3 cache invalidation takes a minute too) and the app bundle might be cached in your browser as well - make sure to clear your cache & hard refresh if you don't see any changes after a successful deployment.
+This project follows the git workflow descriped in the [Attlasian Guide](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow).
+
 
