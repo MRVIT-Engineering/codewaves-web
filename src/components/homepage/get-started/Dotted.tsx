@@ -37,7 +37,6 @@ export const Dotted = (props: DottedProps) => {
   const numberOfDots = props.number;
   const dots = [];
   for (let i = 0; i < numberOfDots; i++) dots.push(i);
-  console.log(dots);
 
   return (
     <StyledContainer

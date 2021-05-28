@@ -1,16 +1,17 @@
 import { makeAutoObservable } from "mobx";
 
 export class AppStateStore {
-  isOpened: boolean;
+  isDrawerOpened: boolean;
 
   constructor() {
-    this.isOpened = false;
+    this.isDrawerOpened = false;
     makeAutoObservable(this);
   }
 
-  toggleDrawer() {
-    this.isOpened = !this.isOpened;
-  }
+  toggleDrawer = () => {
+    this.isDrawerOpened = !this.isDrawerOpened;
+    console.log(this.isDrawerOpened);
+  };
 }
 
 export default new AppStateStore();

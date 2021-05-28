@@ -25,6 +25,12 @@
 
   /* Code editor related colors. */
   --monakai-bg: #272822;
+
+  /* Z Indexes */
+  --z-index-bottom: 1;
+  --z-index-middle: 2;
+  --z-index-top: 3;
+  --z-index-skyscraper: 100000;
 }
 
 html,
@@ -51,4 +57,6 @@ ul {
 
 * {
   box-sizing: border-box;
+  /* Giving all the elements z-index: 1; by default */
+  z-index: var(--z-index-bottom);
 }
