@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { useStore } from "../../hooks/useStore";
 import { observer } from "mobx-react-lite";
 import { Link } from "react-router-dom";
-import ScrollAnimation from "react-animate-on-scroll";
 import Wrapper from "../../components/containers/Wrapper";
 import logoWhite from "../../assets/images/logos/logo-small-white.png";
 
