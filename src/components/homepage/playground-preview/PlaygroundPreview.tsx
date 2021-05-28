@@ -23,8 +23,8 @@ const StyledContainer = styled.div`
 `;
 
 const StyledPlaygroundContainer = styled.div`
-  width: 680px;
-  height: 500px;
+  width: 90vw;
+  height: 400px;
   transform: rotateY(-30deg);
   display: flex;
   justify-content: space-between;
@@ -43,7 +43,7 @@ const PerspectiveContainer = styled.div`
 `;
 
 const PlaygroundHalf = styled.div`
-  width: 330px;
+  width: 44vw;
   height: 100%;
   box-shadow: var(--light-shadow);
   border-radius: var(--border-radius);

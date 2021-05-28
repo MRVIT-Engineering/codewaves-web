@@ -1,14 +1,5 @@
 import styled from "styled-components";
-
-const Dot = styled.div`
-  width: 5px;
-  height: 5px;
-  border-radius: 100%;
-  background-color: var(--primary);
-  margin: 0 6px;
-  float: left;
-  margin-bottom: 6px;
-`;
+import { ScreenSize } from "../../../constants/media-queries/mediaQueris";
 
 const StyledContainer = styled.div<{
   top?: string;
@@ -23,6 +14,20 @@ const StyledContainer = styled.div<{
   bottom: ${(props) => props.bottom};
   left: ${(props) => props.left};
   right: ${(props) => props.right};
+
+  ${ScreenSize.medium} {
+    display: none;
+  }
+`;
+
+const Dot = styled.div`
+  width: 5px;
+  height: 5px;
+  border-radius: 100%;
+  background-color: var(--primary);
+  margin: 0 6px;
+  float: left;
+  margin-bottom: 6px;
 `;
 
 interface DottedProps {

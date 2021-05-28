@@ -54,3 +54,9 @@
     transform: translateX(-200%);
   }
 }
+
+@media (max-width: 900px) {
+  .AnimatedLine {
+    min-width: 1200px;
+  }
+}

@@ -33,7 +33,7 @@ const PerspectiveContainer = styled.div`
 
 const CodeContainer = styled.div`
   width: 580px;
-  height: 480px;
+  height: 400px;
   transform: rotateY(30deg);
   box-shadow: var(--light-shadow);
   position: relative;
@@ -42,6 +42,10 @@ const CodeContainer = styled.div`
 
   ${ScreenSize.medium} {
     transform: rotateY(0);
+  }
+
+  ${ScreenSize.small} {
+    width: 80vw;
   }
 `;
 
@@ -71,6 +75,11 @@ const Right = styled.div`
     align-items: center;
     padding: 0;
     text-align: center;
+  }
+
+  ${ScreenSize.small} {
+    padding: 0;
+    width: 100%;
   }
 `;
 
