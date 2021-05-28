@@ -1,7 +1,7 @@
-import React from "react";
 import classes from "../../../assets/css/Homepage.module.css";
-import { Separator } from "../../common/Separator";
 import styled from "styled-components";
+import { Separator } from "../../common/Separator";
+import { ScreenSize } from "../../../constants/media-queries/mediaQueris";
 
 const StyledContainer = styled.div`
   width: 250px;
@@ -13,6 +13,11 @@ const StyledContainer = styled.div`
   bottom: -40px;
   left: -30px;
   padding: 15px;
+
+  ${ScreenSize.small} {
+    width: 220px;
+    height: 90px;
+  }
 `;
 
 const QuestionReplicaTitle = styled.p`
@@ -24,6 +29,12 @@ const QuestionReplicaTitle = styled.p`
 const QuestionReplicaText = styled.p`
   font-size: 1.2rem;
   color: var(--placeholder-grey);
+
+  ${ScreenSize.small} {
+    width: 220px;
+    height: 90px;
+    display: none;
+  }
 `;
 
 const QuestionReplicaDate = styled.p`

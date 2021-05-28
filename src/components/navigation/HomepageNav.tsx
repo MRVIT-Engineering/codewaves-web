@@ -1,14 +1,14 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 import Wrapper from "../containers/Wrapper";
-import { useState, useEffect } from "react";
+import Hamburger from "./Hamburger";
 import logoBig from "../../assets/images/logos/logo-big.png";
+import logoSmall from "../../assets/images/logos/logo-small.svg";
+import { ScreenSize } from "../../constants/media-queries/mediaQueris";
+import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { observer } from "mobx-react-lite";
 
-interface DesktopNavProps {
-  isScrolled: boolean;
-}
-
-const StyledContainer = styled.header<DesktopNavProps>`
+const StyledContainer = styled.header<{ isScrolled: boolean }>`
   width: 100%;
   height: 80px;
   display: flex;
@@ -19,11 +19,25 @@ const StyledContainer = styled.header<DesktopNavProps>`
   top: 0;
   left: 0;
   background-color: white;
-  z-index: 1000;
+  z-index: var(--z-index-middle);
+`;
 
-  img {
-    height: 50px;
-    width: auto;
+const LogoBig = styled.img.attrs({ src: logoBig })`
+  height: 50px;
+  width: auto;
+
+  ${ScreenSize.small} {
+    display: none;
+  }
+`;
+
+const LogoSmall = styled.img.attrs({ src: logoSmall })`
+  height: 30px;
+  width: auto;
+  display: none;
+
+  ${ScreenSize.small} {
+    display: block;
   }
 `;
 
@@ -33,6 +47,10 @@ const NavList = styled.ul`
   display: flex;
   justify-content: flex-end;
   align-items: center;
+
+  ${ScreenSize.small} {
+    display: none;
+  }
 `;
 
 const StyledListItem = styled.li`
@@ -50,7 +68,7 @@ const StyledListItem = styled.li`
   }
 `;
 
-export default function HomepageNav() {
+function HomepageNav() {
   const [isScrolled, toggleScroll] = useState(false);
 
   useEffect(() => {
@@ -65,7 +83,8 @@ export default function HomepageNav() {
   return (
     <StyledContainer isScrolled={isScrolled}>
       <Wrapper>
-        <img src={logoBig} alt="Codewaves.io logo." />
+        <LogoBig alt="Codewaves.io logo." />
+        <LogoSmall alt="Codewaves.io logo." />
         <nav>
           <NavList>
             <StyledListItem>
@@ -75,8 +94,11 @@ export default function HomepageNav() {
               <Link to="/">Contact Us</Link>
             </StyledListItem>
           </NavList>
+          <Hamburger />
         </nav>
       </Wrapper>
     </StyledContainer>
   );
 }
+
+export default observer(HomepageNav);

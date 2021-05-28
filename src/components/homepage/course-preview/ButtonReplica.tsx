@@ -1,5 +1,5 @@
-import React from "react";
 import styled from "styled-components";
+import { ScreenSize } from "../../../constants/media-queries/mediaQueris";
 
 const ButtonReplica = styled.div`
   height: 60px;
@@ -18,6 +18,11 @@ const ButtonReplica = styled.div`
   right: -25px;
   transition: position 0.4s opacity 0.4s;
   box-shadow: var(--light-shadow);
+
+  ${ScreenSize} {
+    height: 50px;
+    width: 100px;
+  }
 `;
 
 export const ButtonReplicaComp = (props: { children?: any }) => {

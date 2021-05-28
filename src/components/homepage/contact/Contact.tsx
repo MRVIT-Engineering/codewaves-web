@@ -6,6 +6,7 @@ import { TextInput } from "../../control/TextInput";
 import { Textarea } from "../../control/Textarea";
 import { Button } from "../../buttons/PrimaryButton";
 import { Spacer } from "../../common/Spacer";
+import Wrapper from "../../containers/Wrapper";
 
 const StyledContainer = styled.div`
   padding: 200px 0%;
@@ -63,32 +64,34 @@ export default function Contact() {
 
   return (
     <StyledContainer>
-      <StyledForm>
-        <Headline>Contact Us</Headline>
-        <Separator />
-        <TextInput
-          error={emailError.error}
-          errorText={emailError.text}
-          onChange={(e) => {
-            setEmail(e.target.value);
-          }}
-          placeholder="Your email address"
-        />
-        {emailError.error ? <ErrorLabel>{emailError.text}</ErrorLabel> : null}
-        <Textarea
-          error={messageError.error}
-          errorText={messageError.text}
-          onChange={(e) => {
-            setMessage(e.target.value);
-          }}
-          placeholder="Tell us what's on your mind"
-        />
-        {messageError.error ? (
-          <ErrorLabel>{messageError.text}</ErrorLabel>
-        ) : null}
-        <Spacer height={25} />
-        <Button onClick={sendMessage}>SEND MESSAGE</Button>
-      </StyledForm>
+      <Wrapper>
+        <StyledForm>
+          <Headline>Contact Us</Headline>
+          <Separator />
+          <TextInput
+            error={emailError.error}
+            errorText={emailError.text}
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+            placeholder="Your email address"
+          />
+          {emailError.error ? <ErrorLabel>{emailError.text}</ErrorLabel> : null}
+          <Textarea
+            error={messageError.error}
+            errorText={messageError.text}
+            onChange={(e) => {
+              setMessage(e.target.value);
+            }}
+            placeholder="Tell us what's on your mind"
+          />
+          {messageError.error ? (
+            <ErrorLabel>{messageError.text}</ErrorLabel>
+          ) : null}
+          <Spacer height={25} />
+          <Button onClick={sendMessage}>SEND MESSAGE</Button>
+        </StyledForm>
+      </Wrapper>
     </StyledContainer>
   );
 }

@@ -5,6 +5,8 @@ import CoursePreview from "../../components/homepage/course-preview/CoursePrevie
 import PlaygroundPreview from "../../components/homepage/playground-preview/PlaygroundPreview";
 import GetStarted from "../../components/homepage/get-started/GetStarted";
 import Contact from "../../components/homepage/contact/Contact";
+import Drawer from "../../components/navigation/Drawer";
+import { Footer } from "../../components/footer/Footer";
 
 export default function HomepageView() {
   return (
@@ -16,6 +18,8 @@ export default function HomepageView() {
       <PlaygroundPreview />
       <GetStarted />
       <Contact />
+      <Drawer />
+      <Footer />
     </>
   );
 }
