@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 import Wrapper from "../../components/containers/Wrapper";
 import { ScreenSize } from "../../constants/media-queries/mediaQueris";
 
-const StyledContainer = styled.div`
+export const StyledContainer = styled.div`
   width: 100%;
   height: 100vh;
   display: flex;
@@ -20,7 +20,7 @@ const StyledContainer = styled.div`
   align-items: center;
 `;
 
-const StyledFormContainer = styled.div`
+export const StyledFormContainer = styled.div`
   width: 500px;
   display: flex;
   justify-content: center;
@@ -32,7 +32,7 @@ const StyledFormContainer = styled.div`
   }
 `;
 
-const StyledAnchor = styled.a`
+export const StyledAnchor = styled.a`
   color: var(--primary);
   transition: color 0.4s;
   cursor: pointer;
@@ -42,9 +42,8 @@ const StyledAnchor = styled.a`
   }
 `;
 
-const Row = styled.div`
+export const Row = styled.div`
   width: 100%;
-  height: 2.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;

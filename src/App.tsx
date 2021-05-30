@@ -1,6 +1,7 @@
 import { Switch, Route } from "react-router-dom";
 import Homepage from "./views/homepage/Homepage";
 import { LoginView } from "./views/auth/LoginView";
+import { RegisterView } from "./views/auth/RegisterView";
 
 function App() {
   return (
@@ -11,6 +12,9 @@ function App() {
         </Route>
         <Route path="/login">
           <LoginView />
+        </Route>
+        <Route path="/register">
+          <RegisterView />
         </Route>
       </Switch>
     </div>
