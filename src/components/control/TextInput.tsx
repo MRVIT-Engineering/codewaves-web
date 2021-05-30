@@ -7,7 +7,7 @@ export interface TextInputProps {
 
 export const TextInput = styled.input<TextInputProps>`
   width: 100%;
-  height: 45px;
+  height: 60px;
   background-color: var(--background-grey);
   outline: none;
   border: none;
@@ -16,11 +16,16 @@ export const TextInput = styled.input<TextInputProps>`
   border-radius: var(--border-radius);
   padding-left: 30px;
   font-family: "PT Mono", sans-serif;
+  font-size: 1.6rem;
   color: var(--custom-black);
   margin-top: 25px;
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
+
+  &:focus {
+    border-color: var(--primary);
+  }
 
   &::placeholder,
   &::-ms-input-placeholder,

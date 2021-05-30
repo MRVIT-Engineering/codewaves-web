@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-export const GreyParagraph = styled.p`
+export const GreyParagraph = styled.p<{ noMargin?: boolean }>`
   color: var(--placeholder-grey);
-  margin: 25px 0;
+  margin: ${(props) => (props.noMargin ? "0" : "25px 0")};
 `;
 
 export const WhiteParagraph = styled.p`
