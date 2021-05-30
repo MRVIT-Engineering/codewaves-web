@@ -1,4 +1,3 @@
-import google from "../../assets/images/logos/google.png";
 import styled from "styled-components";
 import { ButtonProps } from "./PrimaryButton";
 import { FaGoogle } from "react-icons/fa";
