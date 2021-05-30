@@ -33,19 +33,18 @@ const PerspectiveContainer = styled.div`
 
 const CodeContainer = styled.div`
   width: 580px;
-  height: 400px;
+  height: 440px;
   transform: rotateY(30deg);
   box-shadow: var(--light-shadow);
   position: relative;
   background-color: var(--monakai-bg);
   border-radius: var(--border-radius);
 
-  ${ScreenSize.medium} {
-    transform: rotateY(0);
-  }
-
   ${ScreenSize.small} {
     width: 80vw;
+  }
+  ${ScreenSize.medium} {
+    transform: rotateY(0);
   }
 `;
 
@@ -69,17 +68,17 @@ const Right = styled.div`
   width: 50%;
   padding-left: 75px;
 
+  ${ScreenSize.small} {
+    padding: 0;
+    width: 100%;
+  }
+
   ${ScreenSize.medium} {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 0;
     text-align: center;
-  }
-
-  ${ScreenSize.small} {
-    padding: 0;
-    width: 100%;
   }
 `;
 
