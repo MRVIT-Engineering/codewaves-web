@@ -23,8 +23,8 @@ const StyledContainer = styled.div`
 `;
 
 const StyledPlaygroundContainer = styled.div`
-  width: 90vw;
-  height: 400px;
+  width: 700px;
+  height: 470px;
   transform: rotateY(-30deg);
   display: flex;
   justify-content: space-between;
@@ -36,6 +36,10 @@ const StyledPlaygroundContainer = styled.div`
     margin: 0 !important;
     padding: 0;
   }
+
+  ${ScreenSize.small} {
+    width: 90vw;
+  }
 `;
 
 const PerspectiveContainer = styled.div`
@@ -43,10 +47,14 @@ const PerspectiveContainer = styled.div`
 `;
 
 const PlaygroundHalf = styled.div`
-  width: 44vw;
+  width: 340px;
   height: 100%;
   box-shadow: var(--light-shadow);
   border-radius: var(--border-radius);
+
+  ${ScreenSize.small} {
+    width: 44vw;
+  }
 `;
 
 const Left = styled.div`
