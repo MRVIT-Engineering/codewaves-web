@@ -1,70 +1,104 @@
-# Getting Started with Create React App
+<p align="center">
+<strong>Codewaves.io Client</strong><br>
+</p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of contents
 
-## Available Scripts
+- [Quickstart](#quickstart)
+- [Project Structure](#structure)
+- [System architecture](#system-architecture)
+- [Local setup](#local-setup)
+- [Codestyle & Linting](#codestyle-&-linting)
+- [Deployment & Git Flow](#deployment)
 
-In the project directory, you can run:
+## Quickstart
 
-### `npm start`
+Make sure your environment is setup for node.js & react with typescript.  
+Check https://reactjs.org/docs/getting-started.html
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+_Note_: The instructions use `npm` as the node packaging tool.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Clone the repo: `git clone https://github.com/MRVIT-Engineering/codewaves-client-react.git`
+- Switch into the project folder & install dependencies: `npm install`
+- Create an `.env` file in the project's root directory, see [Local setup](#local-setup)
+- Start the app: `npm start`
+- Open http://localhost:3000 to view it in the browser
 
-### `npm test`
+## Structure
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The project itself has a `public` and a `src` directory.  
+All relevant code is inside the `src` directory - `public` is merely used to provide a html skeleton into which the react application will be rendered.
+The project has the following structure:
 
-### `npm run build`
+```
+./.github/workflows/     (github actions for automatic deployment)
+./public/                (html skeleton which loads the react app)
+./src/                   (main directory for all react / js / ts sources)
+ ├─ assets/              (images, icons, fonts and css modules(rare ocasions only))
+ ├─ components/          (react view components)
+ ├─ constants/           (static constants: colors, configs, strings, enums, etc.)
+ ├─ hooks/               (react hooks for shared side-effect logic inside components)
+ ├─ localization/        (localization files for translated strings inside the UI)
+ ├─ models/              (classes & types for domain models)
+ ├─ views/             (navigatable screens which are composed from components)
+ ├─ services/            (non-ui libs & services, i.e. api , filesystem, cache, etc.)
+ ├─ store/               (mobx stores for shared app state & state-manipulation)
+ ├─ App.tsx              (main app, inits router, navigation & stream/show data)
+ ├─ index.tsx            (main entry point, inits dependencies & starts App)
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The other files are mostly configuration or setup files, for packaging and/or linting.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+In essence, most of the time you will either be working on _components_ (for views), _stores_ / _models_ (for state / data logic) or _screens_ (for navigatable app screens composed from multiple _components_).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## System architecture
 
-### `npm run eject`
+In general, the app is roughly organized into these modules:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- view components for rendering UI
+- screens for navigating between different compositions of multiple view components and
+- (most importantly) mobx stores for managing app-state & backend-communication.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+There are some more minor modules (hooks for shared view-logic or services for wrapping often-used code), but these are the core building blocks of the app.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Most business logic happens inside the mobx stores.  
+The stores manage the app state - they hold shared data structured by context into different stores.  
+They also update & mutate the app state through actions (See [mobxjs.org](https://mobx.js.org/README.html) for more information on mobx state management.)  
+So most of the 'heavy' business logic will be found inside the stores, as the dashboard modules should ideally be as slim as possible.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+The data that is being managed inside these stores (and then consequently rendered as an UI via the view components) 
+is communicated from and to the network with our [docviser-backend](https://github.com/MCROEngineering/docviser-api)
 
-## Learn More
+## Local setup
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Once you've run the app as described in the Quickstart section above, you can start modifying code and the app should reload automatically whenever you save your changes (hot-reload is enabled by default).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+During development, you should mostly be using the dev/staging environments of our backend.  
+Create an `.env` file in the projects root directory to setup the api endpoints & access credentials, use this template:
 
-### Code Splitting
+```
+template will be posted when env variables will be necessary
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Codestyle & Linting
 
-### Making a Progressive Web App
+The project adheres to the [AirBnB JavaScript Style Guide](https://github.com/airbnb/javascript/) and linting is setup with [ESLint](https://eslint.org/docs/rules/), extending the `@react-app` ruleset.  
+The major differences from what you might be used to are most likely:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- Indentation: `2` Spaces instead of `4`
+- Style definitions for components on top (above the component definition) in JSX/TSX files
 
-### Advanced Configuration
+You can run the linter via `yarn lint` inside the project folder, or setup your IDE to lint opened / edited files automatically & on-the-fly.  
+The linked resources above are a great read if you are interested in the reasoning behind these linting choices, but should also be your first stop when encountering linting errors.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Try to use TypeScript wherever possible. This project still has a mixed JavaScript / TypeScript codebase for historical reasons, but new modules should be written in TypeScript whenever possible. In the future, we might migrate existing JavaScript code to TypeScript.
 
-### Deployment
+## Deployment & Git Flow
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+The app is deployed automatically through Netflify. The `releseas` branch will automatically be deployed on `staging.codewaves.io` and the `master` branch, which represtents production, will be deployed on `www.codewaves.io`. 
 
-### `npm run build` fails to minify
+This project follows the git workflow descriped in the [Attlasian Guide](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
