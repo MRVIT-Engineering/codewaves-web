@@ -92,7 +92,7 @@ export const LoginView = () => {
           <GoogleButton fullWidth onClick={() => {}}>
             Login with google
           </GoogleButton>
-          <GreyParagraph>or</GreyParagraph>
+          <GreyParagraph noMargin>or</GreyParagraph>
           <Link to="/register">
             <StyledAnchor>Create a new account</StyledAnchor>
           </Link>

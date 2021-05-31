@@ -1,11 +1,17 @@
 import { Switch, Route } from "react-router-dom";
-import Homepage from "./views/homepage/Homepage";
 import { LoginView } from "./views/auth/LoginView";
-import { RegisterView } from "./views/auth/RegisterView";
+import Homepage from "./views/homepage/Homepage";
+import RegisterView from "./views/auth/RegisterView";
+
+// Notifications animations.
+import ReactNotification from "react-notifications-component";
+import "react-notifications-component/dist/theme.css";
+import "animate.css/animate.min.css";
 
 function App() {
   return (
     <div className="App">
+      <ReactNotification />
       <Switch>
         <Route exact path="/">
           <Homepage />
