@@ -63,7 +63,7 @@ const Left = styled.div`
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
-  padding: 0 50px 0 250px;
+  padding: 0 100px 0 200px;
 
   ${ScreenSize.medium} {
     padding: 0;
@@ -77,7 +77,10 @@ const Left = styled.div`
 const Right = styled.div`
   width: 50%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-left: -50px;
+
   ${ScreenSize.medium} {
     justify-content: center;
     align-items: center;

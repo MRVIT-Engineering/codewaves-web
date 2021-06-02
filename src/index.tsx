@@ -1,10 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter as Router } from "react-router-dom";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-
 import "./index.css";
+import { BrowserRouter as Router } from "react-router-dom";
+import axios from "axios";
+
+axios.defaults.baseURL = "http://localhost:8082";
+
+axios.interceptors.response.use((response) => {
+  console.log(response);
+  return response;
+});
 
 ReactDOM.render(
   <Router>

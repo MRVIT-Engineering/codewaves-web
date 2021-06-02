@@ -50,6 +50,13 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+  color: var(--primary);
+  transition: color 0.4s;
+  cursor: pointer;
+}
+
+a:hover {
+  color: var(--primary-dark);
 }
 
 ul {

@@ -8,13 +8,8 @@ import { Button } from "../../components/buttons/PrimaryButton";
 import { GoogleButton } from "../../components/buttons/GoogleButton";
 import { TextInput } from "../../components/control/TextInput";
 import { GreyParagraph } from "../../components/common/Paragraph";
-import { showNotification } from "../../services/notifications";
-import {
-  StyledContainer,
-  StyledFormContainer,
-  StyledAnchor,
-  Row,
-} from "./LoginView";
+import { Link } from "react-router-dom";
+import { StyledContainer, StyledFormContainer, Row } from "./LoginView";
 
 const Half = styled.div`
   width: calc(50% - 12.5px);
@@ -48,12 +43,6 @@ const RegisterView = () => {
 
   const register = () => {
     if (validateInputs()) {
-      showNotification(
-        "Account Created",
-        "You created your account! Check your inbox for the activation link.",
-        "top-left",
-        "success"
-      );
     }
   };
 
@@ -122,7 +111,7 @@ const RegisterView = () => {
           register with google
         </GoogleButton>
         <GreyParagraph>or</GreyParagraph>
-        <StyledAnchor>Login with existing account.</StyledAnchor>
+        <Link to="/login">Login with existing account.</Link>
       </StyledFormContainer>
     </StyledContainer>
   );

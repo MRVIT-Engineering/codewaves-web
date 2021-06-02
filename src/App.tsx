@@ -1,5 +1,5 @@
 import { Switch, Route } from "react-router-dom";
-import { LoginView } from "./views/auth/LoginView";
+import LoginView from "./views/auth/LoginView";
 import Homepage from "./views/homepage/Homepage";
 import RegisterView from "./views/auth/RegisterView";
 
