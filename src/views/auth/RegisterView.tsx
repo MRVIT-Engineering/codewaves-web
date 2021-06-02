@@ -8,6 +8,7 @@ import { Button } from "../../components/buttons/PrimaryButton";
 import { GoogleButton } from "../../components/buttons/GoogleButton";
 import { TextInput } from "../../components/control/TextInput";
 import { GreyParagraph } from "../../components/common/Paragraph";
+import { showNotification } from "../../services/notifications";
 import {
   StyledContainer,
   StyledFormContainer,
@@ -47,6 +48,12 @@ const RegisterView = () => {
 
   const register = () => {
     if (validateInputs()) {
+      showNotification(
+        "Account Created",
+        "You created your account! Check your inbox for the activation link.",
+        "top-left",
+        "success"
+      );
     }
   };
 
