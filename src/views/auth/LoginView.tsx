@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 import { TextInput } from "../../components/control/TextInput";
 import { Spacer } from "../../components/common/Spacer";
 import { Separator } from "../../components/common/Separator";
@@ -9,10 +10,13 @@ import { Headline } from "../../components/common/Headline";
 import { GreyParagraph } from "../../components/common/Paragraph";
 import { Checkbox } from "../../components/control/Checkbox";
 import { Link } from "react-router-dom";
-import Wrapper from "../../components/containers/Wrapper";
 import { ScreenSize } from "../../constants/media-queries/mediaQueris";
+import { useStore } from "../../hooks/useStore";
+import { observer } from "mobx-react-lite";
+import { withLoading } from "../../components/hoc/withLoading";
+import Wrapper from "../../components/containers/Wrapper";
 
-const StyledContainer = styled.div`
+export const StyledContainer = styled.div`
   width: 100%;
   height: 100vh;
   display: flex;
@@ -20,7 +24,7 @@ const StyledContainer = styled.div`
   align-items: center;
 `;
 
-const StyledFormContainer = styled.div`
+export const StyledFormContainer = styled.div`
   width: 500px;
   display: flex;
   justify-content: center;
@@ -32,19 +36,8 @@ const StyledFormContainer = styled.div`
   }
 `;
 
-const StyledAnchor = styled.a`
-  color: var(--primary);
-  transition: color 0.4s;
-  cursor: pointer;
-
-  &:hover {
-    color: var(--primary-dark);
-  }
-`;
-
-const Row = styled.div`
+export const Row = styled.div`
   width: 100%;
-  height: 2.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -58,10 +51,20 @@ const SecondaryRow = styled.div`
   align-items: center;
 `;
 
-export const LoginView = () => {
+const LoginView = () => {
   const [isRememberMe, setRememberMe] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const { authStore } = useStore();
+  const history = useHistory();
+
   const toggler = () => {
     setRememberMe(!isRememberMe);
+  };
+
+  const login = async () => {
+    let response = await authStore.login(email, password);
+    if (!response.data.wrongCredentials) history.push("/learning");
   };
 
   return (
@@ -70,8 +73,20 @@ export const LoginView = () => {
         <StyledFormContainer>
           <Headline>Login</Headline>
           <Separator />
-          <TextInput type="email" placeholder="Email or username" />
-          <TextInput type="password" placeholder="Your password" />
+          <TextInput
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+            type="email"
+            placeholder="Email or username"
+          />
+          <TextInput
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+            type="password"
+            placeholder="Your password"
+          />
           <Spacer height={25} />
 
           <Row>
@@ -80,13 +95,11 @@ export const LoginView = () => {
               <GreyParagraph noMargin> Remember me</GreyParagraph>
             </SecondaryRow>
 
-            <Link to="forgot-password">
-              <StyledAnchor>Forgot password</StyledAnchor>
-            </Link>
+            <Link to="forgot-password">Forgot password</Link>
           </Row>
 
           <Spacer height={25} />
-          <Button fullWidth onClick={() => {}}>
+          <Button fullWidth onClick={login}>
             LOGIN
           </Button>
           <Spacer height={25} />
@@ -94,11 +107,11 @@ export const LoginView = () => {
             Login with google
           </GoogleButton>
           <GreyParagraph>or</GreyParagraph>
-          <Link to="/register">
-            <StyledAnchor>Create a new account</StyledAnchor>
-          </Link>
+          <Link to="/register">Create a new account</Link>
         </StyledFormContainer>
       </Wrapper>
     </StyledContainer>
   );
 };
+
+export default withLoading(observer(LoginView));

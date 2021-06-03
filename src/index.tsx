@@ -1,10 +1,22 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter as Router } from "react-router-dom";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-
 import "./index.css";
+import { BrowserRouter as Router, useHistory } from "react-router-dom";
+import axios from "axios";
+
+axios.defaults.baseURL = "http://localhost:8081";
+axios.defaults.withCredentials = true;
+
+axios.interceptors.response.use((response) => {
+  if (response.status === 401) {
+    console.log("[interceptors]: we need to redirect to the login page.");
+    let history = useHistory();
+    history.push("/login");
+  }
+  return response;
+});
 
 ReactDOM.render(
   <Router>
