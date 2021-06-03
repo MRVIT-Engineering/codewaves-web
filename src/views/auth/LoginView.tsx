@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 import { TextInput } from "../../components/control/TextInput";
 import { Spacer } from "../../components/common/Spacer";
 import { Separator } from "../../components/common/Separator";
@@ -11,8 +12,9 @@ import { Checkbox } from "../../components/control/Checkbox";
 import { Link } from "react-router-dom";
 import { ScreenSize } from "../../constants/media-queries/mediaQueris";
 import { useStore } from "../../hooks/useStore";
-import Wrapper from "../../components/containers/Wrapper";
 import { observer } from "mobx-react-lite";
+import { withLoading } from "../../components/hoc/withLoading";
+import Wrapper from "../../components/containers/Wrapper";
 
 export const StyledContainer = styled.div`
   width: 100%;
@@ -54,13 +56,15 @@ const LoginView = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { authStore } = useStore();
+  const history = useHistory();
+
   const toggler = () => {
     setRememberMe(!isRememberMe);
   };
 
   const login = async () => {
     let response = await authStore.login(email, password);
-    // console.log(response);
+    if (!response.data.wrongCredentials) history.push("/learning");
   };
 
   return (
@@ -110,4 +114,4 @@ const LoginView = () => {
   );
 };
 
-export default observer(LoginView);
+export default withLoading(observer(LoginView));

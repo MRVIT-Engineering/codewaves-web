@@ -1,19 +1,19 @@
-import { makeAutoObservable } from "mobx";
+import { makeAutoObservable, runInAction } from "mobx";
 import axios from "axios";
 
 export class AuthStore {
+  isLogInLoading: boolean = false;
+
   constructor() {
     makeAutoObservable(this);
   }
 
   async login(email: string, password: string) {
+    this.isLogInLoading = true;
     let response = await axios.post("/auth/login", { email, password });
-    console.log("Response from the authStore", response);
-  }
-
-  async testCookie() {
-    let res = await axios.post("/auth/protected_route", {});
-    console.log(res);
-    return res;
+    runInAction(() => {
+      this.isLogInLoading = false;
+    });
+    return response;
   }
 }
