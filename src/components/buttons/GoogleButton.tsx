@@ -33,7 +33,7 @@ const StyledSpan = styled.span`
 
 export const GoogleButton = (props: ButtonProps) => {
   return (
-    <StyledButton fullWidth={props.fullWidth}>
+    <StyledButton fullWidth={props.fullWidth} onClick={props.onClick}>
       <StyledSpan>
         <FaGoogle />{" "}
       </StyledSpan>

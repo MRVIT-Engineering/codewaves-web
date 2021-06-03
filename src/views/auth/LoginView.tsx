@@ -67,6 +67,10 @@ const LoginView = () => {
     if (!response.data.wrongCredentials) history.push("/learning");
   };
 
+  const googleLogin = async () => {
+    authStore.loginWithGoogle();
+  };
+
   return (
     <StyledContainer>
       <Wrapper>
@@ -103,7 +107,7 @@ const LoginView = () => {
             LOGIN
           </Button>
           <Spacer height={25} />
-          <GoogleButton fullWidth onClick={() => {}}>
+          <GoogleButton fullWidth onClick={googleLogin}>
             Login with google
           </GoogleButton>
           <GreyParagraph>or</GreyParagraph>

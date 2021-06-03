@@ -16,4 +16,10 @@ export class AuthStore {
     });
     return response;
   }
+
+  async loginWithGoogle() {
+    console.log("trying to log in with google");
+    let response = await axios.get("/auth/login_google");
+    console.log(response);
+  }
 }
