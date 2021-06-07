@@ -1,5 +1,5 @@
 import { makeAutoObservable, runInAction } from "mobx";
-import axios from "axios";
+import axios from "../config/axios";
 
 export class AuthStore {
   isLogInLoading: boolean = false;
@@ -15,11 +15,5 @@ export class AuthStore {
       this.isLogInLoading = false;
     });
     return response;
-  }
-
-  async loginWithGoogle() {
-    console.log("trying to log in with google");
-    let response = await axios.get("/auth/login_google");
-    console.log(response);
   }
 }

@@ -25,7 +25,6 @@ const RegisterView = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
-  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [inputWithError, setInputWithError] = useState(-1);
@@ -34,7 +33,6 @@ const RegisterView = () => {
     if (firstName === "") return setInputWithError(0);
     if (lastName === "") return setInputWithError(1);
     if (email === "") return setInputWithError(2);
-    if (username === "") return setInputWithError(3);
     if (password === "") return setInputWithError(4);
     if (confirmPassword === "") return setInputWithError(5);
     if (password !== confirmPassword) return setInputWithError(5);
@@ -43,6 +41,8 @@ const RegisterView = () => {
 
   const register = () => {
     if (validateInputs()) {
+      // why the fuck is this logic incomplete\
+      // TODO: call authStore logic for registration.
     }
   };
 
@@ -78,13 +78,6 @@ const RegisterView = () => {
           }}
           placeholder="Email address"
           type="email"
-        />
-        <TextInput
-          error={inputWithError === 3}
-          onChange={(e) => {
-            setUsername(e.target.value);
-          }}
-          placeholder="Username"
         />
         <TextInput
           error={inputWithError === 4}

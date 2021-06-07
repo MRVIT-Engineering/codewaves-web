@@ -1,5 +1,5 @@
 import { makeAutoObservable } from "mobx";
-import API from "../config/axios/index";
+import ApiConfig from "../config/axios";
 
 export class AppStateStore {
   isDrawerOpened: boolean;
@@ -7,13 +7,12 @@ export class AppStateStore {
 
   constructor() {
     this.isDrawerOpened = false;
-    this.api = API;
+    this.api = ApiConfig;
     makeAutoObservable(this);
   }
 
   toggleDrawer = () => {
     this.isDrawerOpened = !this.isDrawerOpened;
-    console.log(this.isDrawerOpened);
   };
 }
 
