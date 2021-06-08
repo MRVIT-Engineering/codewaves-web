@@ -9,7 +9,11 @@ import { GoogleButton } from "../../components/buttons/GoogleButton";
 import { TextInput } from "../../components/control/TextInput";
 import { GreyParagraph } from "../../components/common/Paragraph";
 import { Link } from "react-router-dom";
+import { useStore } from "../../hooks/useStore";
+import { withLoading } from "../../components/hoc/withLoading";
 import { StyledContainer, StyledFormContainer, Row } from "./LoginView";
+import { useHistory } from "react-router-dom";
+import { showNotification } from "../../services/notifications";
 
 const Half = styled.div`
   width: calc(50% - 12.5px);
@@ -22,27 +26,42 @@ const Half = styled.div`
 `;
 
 const RegisterView = () => {
+  const { authStore } = useStore();
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
-  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [inputWithError, setInputWithError] = useState(-1);
+  const history = useHistory();
 
   const validateInputs = () => {
     if (firstName === "") return setInputWithError(0);
     if (lastName === "") return setInputWithError(1);
     if (email === "") return setInputWithError(2);
-    if (username === "") return setInputWithError(3);
     if (password === "") return setInputWithError(4);
     if (confirmPassword === "") return setInputWithError(5);
     if (password !== confirmPassword) return setInputWithError(5);
     return true;
   };
 
-  const register = () => {
+  const register = async () => {
     if (validateInputs()) {
+      let response = await authStore.register(
+        firstName,
+        lastName,
+        email,
+        password
+      );
+
+      if (response.data.success) history.push("/learning");
+      else
+        showNotification(
+          "Oh no...",
+          "Something went wrong with your registration. We are on it? Please try again later",
+          "top-right",
+          "danger"
+        );
     }
   };
 
@@ -80,13 +99,6 @@ const RegisterView = () => {
           type="email"
         />
         <TextInput
-          error={inputWithError === 3}
-          onChange={(e) => {
-            setUsername(e.target.value);
-          }}
-          placeholder="Username"
-        />
-        <TextInput
           error={inputWithError === 4}
           onChange={(e) => {
             setPassword(e.target.value);
@@ -107,9 +119,7 @@ const RegisterView = () => {
           create account
         </Button>
         <Spacer height={25} />
-        <GoogleButton fullWidth onClick={() => {}}>
-          register with google
-        </GoogleButton>
+        <GoogleButton fullWidth>register with google</GoogleButton>
         <GreyParagraph>or</GreyParagraph>
         <Link to="/login">Login with existing account.</Link>
       </StyledFormContainer>
@@ -117,4 +127,4 @@ const RegisterView = () => {
   );
 };
 
-export default observer(RegisterView);
+export default withLoading(observer(RegisterView));

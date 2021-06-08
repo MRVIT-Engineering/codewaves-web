@@ -65,6 +65,9 @@ const LoginView = () => {
   const login = async () => {
     let response = await authStore.login(email, password);
     if (!response.data.wrongCredentials) history.push("/learning");
+    else {
+      // TODO: implement logic for
+    }
   };
 
   return (
@@ -103,9 +106,7 @@ const LoginView = () => {
             LOGIN
           </Button>
           <Spacer height={25} />
-          <GoogleButton fullWidth onClick={() => {}}>
-            Login with google
-          </GoogleButton>
+          <GoogleButton fullWidth>Login with google</GoogleButton>
           <GreyParagraph>or</GreyParagraph>
           <Link to="/register">Create a new account</Link>
         </StyledFormContainer>

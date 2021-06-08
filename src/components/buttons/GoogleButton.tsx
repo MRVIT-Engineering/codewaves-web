@@ -1,9 +1,12 @@
 import styled from "styled-components";
-import { ButtonProps } from "./PrimaryButton";
 import { FaGoogle } from "react-icons/fa";
 
-const StyledButton = styled.button<{ fullWidth?: boolean }>`
+const StyledAnchor = styled.a<{ fullWidth?: boolean }>`
   min-width: ${(props) => (props.fullWidth ? "100%" : " 200px")};
+`;
+
+const StyledButton = styled.button`
+  min-width: 100%;
   height: 60px;
   background-color: #e73537;
   color: white;
@@ -31,13 +34,23 @@ const StyledSpan = styled.span`
   margin-right: 20px;
 `;
 
-export const GoogleButton = (props: ButtonProps) => {
+interface GoogleButtonProps {
+  fullWidth?: boolean;
+  children?: any;
+}
+
+export const GoogleButton = (props: GoogleButtonProps) => {
   return (
-    <StyledButton fullWidth={props.fullWidth}>
-      <StyledSpan>
-        <FaGoogle />{" "}
-      </StyledSpan>
-      {props.children}
-    </StyledButton>
+    <StyledAnchor
+      fullWidth={props.fullWidth}
+      href={"http://localhost:8081/auth/login_google"}
+    >
+      <StyledButton>
+        <StyledSpan>
+          <FaGoogle />{" "}
+        </StyledSpan>
+        {props.children}
+      </StyledButton>
+    </StyledAnchor>
   );
 };
