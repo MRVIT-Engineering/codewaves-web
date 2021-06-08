@@ -10,7 +10,7 @@ API.interceptors.response.use(
     return response;
   },
   (error) => {
-    if (error.response.status == 401) {
+    if (error.response.status === 401) {
       console.log("we've got a fucking 401");
     }
   }

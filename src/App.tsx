@@ -13,7 +13,7 @@ import "animate.css/animate.min.css";
 
 function App() {
   const {
-    authStore: { isLogInLoading },
+    authStore: { isLogInLoading, isRegistrationLoading },
   } = useStore();
   return (
     <div className="App">
@@ -26,7 +26,7 @@ function App() {
           <LoginView loading={isLogInLoading} />
         </Route>
         <Route path="/register">
-          <RegisterView />
+          <RegisterView loading={isRegistrationLoading} />
         </Route>
         <Route path="/learning">
           <CoursesView />

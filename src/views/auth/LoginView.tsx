@@ -64,17 +64,10 @@ const LoginView = () => {
 
   const login = async () => {
     let response = await authStore.login(email, password);
-    // console.log(response);
     if (!response.data.wrongCredentials) history.push("/learning");
     else {
       // TODO: implement logic for
     }
-  };
-
-  const googleLogin = async () => {
-    const loginUrl = "http://localhost:8081/auth/login_google";
-    const newWindow = window.open(loginUrl, "_blank", "width=500,height=600");
-    // authStore.loginWithGoogle();
   };
 
   return (
@@ -113,9 +106,7 @@ const LoginView = () => {
             LOGIN
           </Button>
           <Spacer height={25} />
-          <GoogleButton fullWidth onClick={googleLogin}>
-            Login with google
-          </GoogleButton>
+          <GoogleButton fullWidth>Login with google</GoogleButton>
           <GreyParagraph>or</GreyParagraph>
           <Link to="/register">Create a new account</Link>
         </StyledFormContainer>
