@@ -1,12 +1,15 @@
 import styled from "styled-components";
+import { observer } from "mobx-react-lite";
+import { useState, useEffect } from "react";
+
+import { ScreenSize } from "../../constants/media-queries/mediaQueris";
+
 import Wrapper from "../containers/Wrapper";
 import Hamburger from "./Hamburger";
 import logoBig from "../../assets/images/logos/logo-big.png";
 import logoSmall from "../../assets/images/logos/logo-small.svg";
-import { ScreenSize } from "../../constants/media-queries/mediaQueris";
-import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
-import { observer } from "mobx-react-lite";
+import { HomepageList } from "./lists/HomepageList";
+import { AppList } from "./lists/AppList";
 
 const StyledContainer = styled.header<{ isScrolled: boolean }>`
   width: 100%;
@@ -41,34 +44,11 @@ const LogoSmall = styled.img.attrs({ src: logoSmall })`
   }
 `;
 
-const NavList = styled.ul`
-  height: 100%;
-  width: 300px;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
+interface HomepageNavPorps {
+  appView?: boolean;
+}
 
-  ${ScreenSize.small} {
-    display: none;
-  }
-`;
-
-const StyledListItem = styled.li`
-  &:not(:last-child) {
-    margin-right: 25px;
-  }
-
-  a {
-    transition: color 0.4s;
-    font-size: 1.6rem;
-
-    &:hover {
-      color: var(--primary);
-    }
-  }
-`;
-
-function HomepageNav() {
+function HomepageNav(props: HomepageNavPorps) {
   const [isScrolled, toggleScroll] = useState(false);
 
   useEffect(() => {
@@ -86,14 +66,7 @@ function HomepageNav() {
         <LogoBig alt="Codewaves.io logo." />
         <LogoSmall alt="Codewaves.io logo." />
         <nav>
-          <NavList>
-            <StyledListItem>
-              <Link to="/">Get Started</Link>
-            </StyledListItem>
-            <StyledListItem>
-              <Link to="/">Contact Us</Link>
-            </StyledListItem>
-          </NavList>
+          {props.appView ? <AppList /> : <HomepageList />}
           <Hamburger />
         </nav>
       </Wrapper>
