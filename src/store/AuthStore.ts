@@ -4,6 +4,8 @@ import API from "../config/axios";
 export class AuthStore {
   isLogInLoading: boolean = false;
   isRegistrationLoading: boolean = false;
+  loginError: boolean = false;
+  loginErrorMessage: string = "";
 
   constructor() {
     makeAutoObservable(this);
@@ -12,10 +14,23 @@ export class AuthStore {
   async login(email: string, password: string) {
     this.isLogInLoading = true;
     let response = await API.post("/auth/login", { email, password });
+
+    if (response.data.wrongAuthCredentials) {
+      runInAction(() => {
+        this.loginError = true;
+        this.loginErrorMessage = response.data.message;
+      });
+    }
+
     runInAction(() => {
       this.isLogInLoading = false;
     });
     return response;
+  }
+
+  setEmptyFieldsError() {
+    this.loginError = true;
+    this.loginErrorMessage = "Please fill in all the fields bellow.";
   }
 
   async register(

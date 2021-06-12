@@ -18,6 +18,7 @@
   --warning: #ffba00;
   --danger: #e73537;
   --danger-dark: #b71c1d;
+  --danger-contrast-light: #f9c0c1;
 
   /* General variables */
   --light-shadow: 0px 3px 15px rgba(0, 0, 0, 0.4);

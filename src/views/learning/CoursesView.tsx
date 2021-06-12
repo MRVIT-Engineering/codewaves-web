@@ -1,31 +1,22 @@
-// import { useEffect, useState } from "react";
 import styled from "styled-components";
 
+import { Headline } from "../../components/common/Headline";
+import { Separator } from "../../components/common/Separator";
+
 const StyledContainer = styled.div`
-  text-align: center;
+  max-width: 1900px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
 `;
 
 export const CoursesView = () => {
-  // const [loading, setLoading] = useState(true);
-
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setLoading(false);
-  //   }, 3000);
-  //   checkIfLoggedIn();
-  // }, []);
-
-  // const checkIfLoggedIn = async () => {
-  //   try {
-  //     let response = await axios.post("/auth/test");
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
   return (
     <StyledContainer>
-      <h2>This is the course library</h2>
+      <Headline>Web Dev Library</Headline>
+      <Separator />
     </StyledContainer>
   );
 };

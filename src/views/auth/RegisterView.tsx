@@ -1,6 +1,11 @@
 import styled from "styled-components";
-import { observer } from "mobx-react-lite";
 import { useState } from "react";
+import { observer } from "mobx-react-lite";
+import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
+
+import { Routes } from "../../constants/routes";
+
 import { Headline } from "../../components/common/Headline";
 import { Separator } from "../../components/common/Separator";
 import { Spacer } from "../../components/common/Spacer";
@@ -8,11 +13,13 @@ import { Button } from "../../components/buttons/PrimaryButton";
 import { GoogleButton } from "../../components/buttons/GoogleButton";
 import { TextInput } from "../../components/control/TextInput";
 import { GreyParagraph } from "../../components/common/Paragraph";
-import { Link } from "react-router-dom";
 import { useStore } from "../../hooks/useStore";
 import { withLoading } from "../../components/hoc/withLoading";
-import { StyledContainer, StyledFormContainer, Row } from "./LoginView";
-import { useHistory } from "react-router-dom";
+import {
+  StyledContainer,
+  StyledFormContainer,
+  Row,
+} from "../../components/login/LoginForm";
 import { showNotification } from "../../services/notifications";
 
 const Half = styled.div`
@@ -53,9 +60,15 @@ const RegisterView = () => {
         email,
         password
       );
-
-      if (response.data.success) history.push("/learning");
-      else
+      if (response.status === 200) {
+        showNotification(
+          "Great!",
+          "Check your email for your confirmation link in order to get started!",
+          "top-right",
+          "success"
+        );
+        history.push(Routes.Login);
+      } else
         showNotification(
           "Oh no...",
           "Something went wrong with your registration. We are on it? Please try again later",
