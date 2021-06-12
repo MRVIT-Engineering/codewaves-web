@@ -54,6 +54,8 @@ const RegisterView = () => {
         password
       );
 
+      console.log(validateInputs());
+
       if (response.data.success) history.push("/learning");
       else
         showNotification(
