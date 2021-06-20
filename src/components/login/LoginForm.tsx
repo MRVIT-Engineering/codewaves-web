@@ -74,7 +74,7 @@ const LoginForm = () => {
 
     let response = await authStore.login(email, password);
 
-    if (response.data.accountNotActivated)
+    if (response.data.accountNotActive)
       return showNotification(
         "Account not activated",
         response.data.message,
