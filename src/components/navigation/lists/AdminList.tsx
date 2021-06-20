@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-import { NavigationRoutes } from "../../../constants/routes";
+import { Routes } from "../../../constants/routes";
 
 const StyledContainer = styled.ul`
   width: 100%;
@@ -31,25 +31,25 @@ export const AdminNavList = () => {
   return (
     <StyledContainer>
       <ListItem>
-        <Link to={NavigationRoutes.AdminDashboard}> Home </Link>
+        <Link to={Routes.AdminDashboard}> Home </Link>
       </ListItem>
       <ListItem>
-        <Link to={NavigationRoutes.AdminCourses}> Courses </Link>
+        <Link to={Routes.AdminCourses}> Courses </Link>
       </ListItem>
       <ListItem>
-        <Link to={NavigationRoutes.AdminAddCourse}> Add Course </Link>
+        <Link to={Routes.AdminAddCourse}> Add Course </Link>
       </ListItem>
       <ListItem>
-        <Link to={NavigationRoutes.AdminAlgos}> Algos </Link>
+        <Link to={Routes.AdminAlgos}> Algos </Link>
       </ListItem>
       <ListItem>
-        <Link to={NavigationRoutes.AdminAddAlgo}> Add Algo </Link>
+        <Link to={Routes.AdminAddAlgo}> Add Algo </Link>
       </ListItem>
       <ListItem>
-        <Link to={NavigationRoutes.AdminProblems}> Problems </Link>
+        <Link to={Routes.AdminProblems}> Problems </Link>
       </ListItem>
       <ListItem>
-        <Link to={NavigationRoutes.AdminAddProblem}> Add Problem </Link>
+        <Link to={Routes.AdminAddProblem}> Add Problem </Link>
       </ListItem>
     </StyledContainer>
   );
