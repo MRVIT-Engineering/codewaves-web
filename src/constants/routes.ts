@@ -13,4 +13,8 @@ export enum Routes {
   AdminAddCourse = "/admin/dashboard/add_course",
   AdminAddAlgo = "/admin/dashboard/add_algo",
   AdminAddProblem = "/admin/dashboard/add_problem",
+
+  // Playground routes
+  // Playgrounds = "/playgrounds",
+  Playground = "/playgrounds/:id",
 }

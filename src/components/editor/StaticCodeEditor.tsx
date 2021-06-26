@@ -7,9 +7,10 @@ interface StaticCodeEditorProps {
 }
 
 export default function StaticCodeEditor(props: StaticCodeEditorProps) {
+  const { code } = props;
   return (
     <CodeMirror
-      value={props.code}
+      value={code}
       options={{
         theme: "monokai",
         tabSize: 2,

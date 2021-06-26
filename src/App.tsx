@@ -6,16 +6,19 @@ import "animate.css/animate.min.css";
 
 import { Routes } from "./constants/routes";
 
+import { useStore } from "./hooks/useStore";
+import { PrivateAdminRoute } from "./components/routes/ProtectedAdminRoute";
+import { AppContainer } from "./components/containers/AppContainer";
+import { AdminScreen } from "./views/admin/AdminScreen";
+import { AdminNavHoc } from "./components/hoc/AdminNavHoc";
+
+// In app screens.
 import LoginView from "./views/auth/LoginView";
 import Homepage from "./views/homepage/Homepage";
 import RegisterView from "./views/auth/RegisterView";
 import HomepageNav from "./components/navigation/HomepageNav";
-import { useStore } from "./hooks/useStore";
 import { CoursesView } from "./views/learning/CoursesView";
-import { AppContainer } from "./components/containers/AppContainer";
-import { AdminScreen } from "./views/admin/AdminScreen";
-import { AdminNavHoc } from "./components/hoc/AdminNavHoc";
-import { PrivateAdminRoute } from "./components/routes/ProtectedAdminRoute";
+import { PlaygroundScreen } from "./views/playground/PlaygroundScreen";
 
 function App() {
   const {
@@ -70,6 +73,9 @@ function App() {
               <CoursesView />
             </Route>
           </AppContainer>
+        </Route>
+        <Route exact path={Routes.Playground}>
+          <PlaygroundScreen />
         </Route>
       </Switch>
     </div>
