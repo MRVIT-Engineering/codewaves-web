@@ -23,4 +23,3 @@ ReactDOM.render(
 );
 
 reportWebVitals();
-console.log(typeof process.env.REACT_APP_AUTH0_DOMAIN);

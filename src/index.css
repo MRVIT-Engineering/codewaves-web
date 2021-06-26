@@ -65,6 +65,13 @@ ul {
 
 * {
   box-sizing: border-box;
-  /* Giving all the elements z-index: 1; by default */
-  z-index: var(--z-index-bottom);
+  /* 
+  IMPORTANT: this fucks up the codemirror line numbers 
+  so for now we'll leave it like this 
+  */
+  /* z-index: var(--z-index-bottom); */
+}
+
+.CodeMirror {
+  border-radius: 0;
 }
