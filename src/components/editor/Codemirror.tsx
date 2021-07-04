@@ -4,9 +4,18 @@ import styled from "styled-components";
 import CodeMirror from "@uiw/react-codemirror";
 import "codemirror/addon/display/autorefresh";
 import "codemirror/addon/comment/comment";
+// Codemirror hint addons
+import "codemirror/addon/hint/show-hint.css";
+import "codemirror/addon/hint/show-hint.js";
+import "codemirror/addon/hint/javascript-hint.js";
+// Codemirror edit addons
+import "codemirror/addon/edit/closetag.js";
 import "codemirror/addon/edit/matchbrackets";
+import "codemirror/addon/edit/closebrackets.js";
 import "codemirror/keymap/sublime";
 import "codemirror/theme/material.css";
+// Codemirror mods
+import "codemirror/mode/htmlmixed/htmlmixed";
 
 const StyledContainer = styled.div`
   width: 100%;
@@ -95,6 +104,10 @@ const Editor = (props: EditorProps) => {
             theme,
             mode,
             keyMap: "sublime",
+            extraKeys: { Ctrl: "autocomplete" },
+            matchBrackets: true,
+            autoCloseTags: true,
+            autoCloseBrackets: true,
           }}
           onChange={(editor, change) => {
             editTabCode(editor.getValue());
