@@ -18,7 +18,7 @@ import Homepage from "./views/homepage/Homepage";
 import RegisterView from "./views/auth/RegisterView";
 import HomepageNav from "./components/navigation/HomepageNav";
 import { CoursesView } from "./views/learning/CoursesView";
-import { PlaygroundScreen } from "./views/playground/PlaygroundScreen";
+import PlaygroundScreen from "./views/playground/PlaygroundScreen";
 
 function App() {
   const {
