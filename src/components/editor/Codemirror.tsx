@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { observer } from "mobx-react-lite";
 import { useStore } from "../../hooks/useStore";
 import styled from "styled-components";
@@ -16,7 +15,7 @@ const StyledContainer = styled.div`
 
 const TabsContainer = styled.div`
   width: 100%;
-  height: 40px;
+  height: 50px;
   background-color: #303f44;
   display: flex;
 `;
@@ -34,27 +33,43 @@ const TabComp = styled.div<{ active?: boolean }>`
 
 const EditorContainer = styled.div`
   width: 100%;
-  height: calc(100% - 40px);
+  height: calc(100% - 50px);
+`;
+
+const StyledButton = styled.button`
+  width: 130px;
+  height: 100%;
+  background-color: var(--success);
+  transition: background-color 0.4s;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: "PT Mono";
+  margin-left: auto;
+
+  &:hover {
+    background-color: var(--success-dark);
+  }
 `;
 
 interface EditorProps {
   mode: string;
   theme: string;
+  onRunCode: () => void;
 }
 
 const Editor = (props: EditorProps) => {
-  const { mode, theme } = props;
+  const { mode, theme, onRunCode } = props;
 
   const {
     playgroundStore: { tabs, activeTabIndex, setActiveTabIndex, editTabCode },
   } = useStore();
 
-  useEffect(() => {}, []);
-
   return (
     <StyledContainer>
       <TabsContainer>
-        {tabs?.map((tab, index) => (
+        {tabs.map((tab, index) => (
           <TabComp
             onClick={() => {
               setActiveTabIndex(index);
@@ -65,6 +80,13 @@ const Editor = (props: EditorProps) => {
             {tab.name}
           </TabComp>
         ))}
+        <StyledButton
+          onClick={() => {
+            onRunCode();
+          }}
+        >
+          RUN
+        </StyledButton>
       </TabsContainer>
       <EditorContainer onClick={() => {}}>
         <CodeMirror
