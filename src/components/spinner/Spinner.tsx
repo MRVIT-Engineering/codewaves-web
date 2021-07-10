@@ -12,7 +12,7 @@ const StyledContainer = styled.div`
 export const Spinner = () => {
   return (
     <StyledContainer>
-      <SyncSpinner color={"#827ffe"} size={15} margin={2} />
+      <SyncSpinner color={"#827ffe"} size={12} margin={2} />
     </StyledContainer>
   );
 };
