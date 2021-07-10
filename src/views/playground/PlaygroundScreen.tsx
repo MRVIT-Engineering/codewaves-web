@@ -1,9 +1,9 @@
-import styled from "styled-components";
-import { observer } from "mobx-react-lite";
+import styled from 'styled-components';
+import { observer } from 'mobx-react-lite';
 
-import Editor from "../../components/editor/Codemirror";
-import { Browser } from "../../components/browser/Browser";
-import { useStore } from "../../hooks/useStore";
+import Editor from '../../components/editor/Codemirror';
+import { Browser } from '../../components/browser/Browser';
+import { useStore } from '../../hooks/useStore';
 
 const StyledContainer = styled.div`
   width: 100%;

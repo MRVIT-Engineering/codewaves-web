@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 interface SpacerProps {
   width?: number;
@@ -6,6 +6,6 @@ interface SpacerProps {
 }
 
 export const Spacer = styled.div<SpacerProps>`
-  width: ${(props) => props.width + "px"};
-  height: ${(props) => props.height + "px"};
+  width: ${props => `${props.width}px`};
+  height: ${props => `${props.height}px`};
 `;

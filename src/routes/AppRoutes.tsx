@@ -1,23 +1,23 @@
-import React from "react";
+import React from 'react';
 
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch } from 'react-router-dom';
 
-import { Routes } from "../constants/routes";
+import { Routes } from '../constants/routes';
 
-import { useStore } from "../hooks/useStore";
-import { AdminNavHoc } from "../components/hoc/AdminNavHoc";
-import { PrivateAdminRoute } from "../components/routes/ProtectedAdminRoute";
-import { AppContainer } from "../components/containers/AppContainer";
-import { AdminScreen } from "../views/admin/AdminScreen";
-import LoginView from "../views/auth/LoginView";
-import Homepage from "../views/homepage/Homepage";
-import RegisterView from "../views/auth/RegisterView";
-import HomepageNav from "../components/navigation/HomepageNav";
-import { CoursesView } from "../views/learning/CoursesView";
-import PlaygroundScreen from "../views/playground/PlaygroundScreen";
+import { useStore } from '../hooks/useStore';
+// import { AdminNavHoc } from '../components/hoc/AdminNavHoc';
+// import { PrivateAdminRoute } from '../components/routes/ProtectedAdminRoute';
+import { AppContainer } from '../components/containers/AppContainer';
+import { AdminScreen } from '../views/admin/AdminScreen';
+import LoginView from '../views/auth/LoginView';
+import Homepage from '../views/homepage/Homepage';
+import RegisterView from '../views/auth/RegisterView';
+import HomepageNav from '../components/navigation/HomepageNav';
+import { CoursesView } from '../views/learning/CoursesView';
+import PlaygroundScreen from '../views/playground/PlaygroundScreen';
 // authorization hoc
-import { withAdmin } from "../components/hoc/withAdmin";
-import { AdminDashboardScreen } from "../views/admin/AdminDashboardScreen";
+import { withAdmin } from '../components/hoc/withAdmin';
+import { AdminDashboardScreen } from '../views/admin/AdminDashboardScreen';
 
 export const AppRoutes = () => {
   const {
@@ -38,11 +38,7 @@ export const AppRoutes = () => {
 
       {/* Admin navigation. */}
       <Route exact path={Routes.Admin} component={withAdmin(AdminScreen)} />
-      <Route
-        exact
-        path={Routes.AdminDashboard}
-        component={withAdmin(AdminDashboardScreen)}
-      />
+      <Route exact path={Routes.AdminDashboard} component={withAdmin(AdminDashboardScreen)} />
       {/* <Route exact path={Routes.Admin}>
         <AdminScreen />
       </Route>

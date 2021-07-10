@@ -1,12 +1,12 @@
-import Hero from "../../components/homepage/hero/Hero";
-import HomepageNav from "../../components/navigation/HomepageNav";
-import Carousel from "../../components/homepage/carousel/Carousel";
-import CoursePreview from "../../components/homepage/course-preview/CoursePreview";
-import PlaygroundPreview from "../../components/homepage/playground-preview/PlaygroundPreview";
-import GetStarted from "../../components/homepage/get-started/GetStarted";
-import Contact from "../../components/homepage/contact/Contact";
-import Drawer from "../../components/navigation/Drawer";
-import { Footer } from "../../components/footer/Footer";
+import Hero from '../../components/homepage/hero/Hero';
+import HomepageNav from '../../components/navigation/HomepageNav';
+import Carousel from '../../components/homepage/carousel/Carousel';
+import CoursePreview from '../../components/homepage/course-preview/CoursePreview';
+import PlaygroundPreview from '../../components/homepage/playground-preview/PlaygroundPreview';
+import GetStarted from '../../components/homepage/get-started/GetStarted';
+import Contact from '../../components/homepage/contact/Contact';
+import Drawer from '../../components/navigation/Drawer';
+import { Footer } from '../../components/footer/Footer';
 
 export default function HomepageView() {
   return (

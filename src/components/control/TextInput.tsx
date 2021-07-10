@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export interface TextInputProps {
   error?: boolean;
@@ -11,11 +11,10 @@ export const TextInput = styled.input<TextInputProps>`
   background-color: var(--background-grey);
   outline: none;
   border: none;
-  border: 2px solid
-    ${(props) => (props.error ? "var(--danger)" : "transparent")};
+  border: 2px solid ${props => (props.error ? 'var(--danger)' : 'transparent')};
   border-radius: var(--border-radius);
   padding-left: 30px;
-  font-family: "PT Mono", sans-serif;
+  font-family: 'PT Mono', sans-serif;
   font-size: 1.6rem;
   color: var(--custom-black);
   margin-top: 25px;

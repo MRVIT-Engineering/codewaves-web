@@ -1,6 +1,6 @@
-import CarouselLine from "./CarouselLine";
-import { Headline } from "../../common/Headline";
-import styled from "styled-components";
+import styled from 'styled-components';
+import CarouselLine from './CarouselLine';
+import { Headline } from '../../common/Headline';
 
 const StyledContainer = styled.div`
   display: flex;
@@ -24,8 +24,8 @@ export default function Carousel() {
         Learn by doing<span className="dot">.</span>
       </Headline>
       <Line>
-        <CarouselLine></CarouselLine>
-        <CarouselLine></CarouselLine>
+        <CarouselLine />
+        <CarouselLine />
       </Line>
     </StyledContainer>
   );

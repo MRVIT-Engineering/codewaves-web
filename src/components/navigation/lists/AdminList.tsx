@@ -1,7 +1,7 @@
-import styled from "styled-components";
-import { Link } from "react-router-dom";
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
-import { Routes } from "../../../constants/routes";
+import { Routes } from '../../../constants/routes';
 
 const StyledContainer = styled.ul`
   width: 100%;
@@ -27,30 +27,28 @@ const ListItem = styled.li`
   }
 `;
 
-export const AdminNavList = () => {
-  return (
-    <StyledContainer>
-      <ListItem>
-        <Link to={Routes.AdminDashboard}> Home </Link>
-      </ListItem>
-      <ListItem>
-        <Link to={Routes.AdminCourses}> Courses </Link>
-      </ListItem>
-      <ListItem>
-        <Link to={Routes.AdminAddCourse}> Add Course </Link>
-      </ListItem>
-      <ListItem>
-        <Link to={Routes.AdminAlgos}> Algos </Link>
-      </ListItem>
-      <ListItem>
-        <Link to={Routes.AdminAddAlgo}> Add Algo </Link>
-      </ListItem>
-      <ListItem>
-        <Link to={Routes.AdminProblems}> Problems </Link>
-      </ListItem>
-      <ListItem>
-        <Link to={Routes.AdminAddProblem}> Add Problem </Link>
-      </ListItem>
-    </StyledContainer>
-  );
-};
+export const AdminNavList = () => (
+  <StyledContainer>
+    <ListItem>
+      <Link to={Routes.AdminDashboard}> Home </Link>
+    </ListItem>
+    <ListItem>
+      <Link to={Routes.AdminCourses}> Courses </Link>
+    </ListItem>
+    <ListItem>
+      <Link to={Routes.AdminAddCourse}> Add Course </Link>
+    </ListItem>
+    <ListItem>
+      <Link to={Routes.AdminAlgos}> Algos </Link>
+    </ListItem>
+    <ListItem>
+      <Link to={Routes.AdminAddAlgo}> Add Algo </Link>
+    </ListItem>
+    <ListItem>
+      <Link to={Routes.AdminProblems}> Problems </Link>
+    </ListItem>
+    <ListItem>
+      <Link to={Routes.AdminAddProblem}> Add Problem </Link>
+    </ListItem>
+  </StyledContainer>
+);

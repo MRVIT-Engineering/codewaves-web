@@ -1,11 +1,10 @@
-import styled from "styled-components";
-import { BiDuplicate } from "react-icons/bi";
-import { MdOpenInBrowser } from "react-icons/md";
+import styled from 'styled-components';
+import { BiDuplicate } from 'react-icons/bi';
+import { MdOpenInBrowser } from 'react-icons/md';
 
-import Iframe from "./Iframe";
-import { Icon } from "../icon/Icon";
-import { PrimaryText } from "../../utils/style/styledComponents";
-import { GreyText } from "../../utils/style/styledComponents";
+import Iframe from './Iframe';
+import { Icon } from '../icon/Icon';
+import { PrimaryText, GreyText } from '../../utils/style/styledComponents';
 
 const StyledContainer = styled.div`
   width: 100%;
@@ -42,31 +41,29 @@ const StyledParagraph = styled.p`
   padding: 0;
 `;
 
-export const Browser = () => {
-  return (
-    <StyledContainer>
-      <SearchContainer>
+export const Browser = () => (
+  <StyledContainer>
+    <SearchContainer>
+      <Icon
+        size={24}
+        onClick={() => {
+          console.log('Open in new tab.');
+        }}
+        icon={<MdOpenInBrowser />}
+      />
+      <StyledInput>
+        <StyledParagraph>
+          <PrimaryText>https://</PrimaryText>codewaves.io/
+          <GreyText>playgrounds/play_sdad978d18d198</GreyText>
+        </StyledParagraph>
         <Icon
-          size={24}
           onClick={() => {
-            console.log("Open in new tab.");
+            console.log('URL copied to clipboard');
           }}
-          icon={<MdOpenInBrowser />}
+          icon={<BiDuplicate />}
         />
-        <StyledInput>
-          <StyledParagraph>
-            <PrimaryText>https://</PrimaryText>codewaves.io/
-            <GreyText>playgrounds/play_sdad978d18d198</GreyText>
-          </StyledParagraph>
-          <Icon
-            onClick={() => {
-              console.log("URL copied to clipboard");
-            }}
-            icon={<BiDuplicate />}
-          />
-        </StyledInput>
-      </SearchContainer>
-      <Iframe id="web-preview" />
-    </StyledContainer>
-  );
-};
+      </StyledInput>
+    </SearchContainer>
+    <Iframe id="web-preview" />
+  </StyledContainer>
+);

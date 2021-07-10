@@ -1,8 +1,9 @@
-import { makeAutoObservable } from "mobx";
-import ApiConfig from "../config/axios";
+import { makeAutoObservable } from 'mobx';
+import ApiConfig from '../config/axios';
 
 export class AppStateStore {
   isDrawerOpened: boolean;
+
   api: any;
 
   constructor() {

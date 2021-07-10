@@ -1,8 +1,8 @@
-import { useEffect } from "react";
-import styled from "styled-components";
-import { observer } from "mobx-react-lite";
+import { useEffect } from 'react';
+import styled from 'styled-components';
+import { observer } from 'mobx-react-lite';
 
-import { useStore } from "../../hooks/useStore";
+import { useStore } from '../../hooks/useStore';
 
 const Frame = styled.iframe`
   width: 100%;

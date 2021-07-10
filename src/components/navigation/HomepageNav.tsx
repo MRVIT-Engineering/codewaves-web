@@ -1,15 +1,15 @@
-import styled from "styled-components";
-import { observer } from "mobx-react-lite";
-import { useState, useEffect } from "react";
+import styled from 'styled-components';
+import { observer } from 'mobx-react-lite';
+import { useState, useEffect } from 'react';
 
-import { ScreenSize } from "../../constants/media-queries/mediaQueris";
+import { ScreenSize } from '../../constants/media-queries/mediaQueris';
 
-import Wrapper from "../containers/Wrapper";
-import Hamburger from "./Hamburger";
-import logoBig from "../../assets/images/logos/logo-big.png";
-import logoSmall from "../../assets/images/logos/logo-small.svg";
-import { HomepageList } from "./lists/HomepageList";
-import { AppList } from "./lists/AppList";
+import Wrapper from '../containers/Wrapper';
+import Hamburger from './Hamburger';
+import logoBig from '../../assets/images/logos/logo-big.png';
+import logoSmall from '../../assets/images/logos/logo-small.svg';
+import { HomepageList } from './lists/HomepageList';
+import { AppList } from './lists/AppList';
 
 const StyledContainer = styled.header<{ isScrolled: boolean }>`
   width: 100%;
@@ -17,7 +17,7 @@ const StyledContainer = styled.header<{ isScrolled: boolean }>`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: ${(props) => (props.isScrolled ? "var(--light-shadow)" : "none")};
+  box-shadow: ${props => (props.isScrolled ? 'var(--light-shadow)' : 'none')};
   position: fixed;
   top: 0;
   left: 0;
@@ -57,7 +57,7 @@ function HomepageNav(props: HomepageNavPorps) {
       else toggleScroll(false);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
   }, []);
 
   return (

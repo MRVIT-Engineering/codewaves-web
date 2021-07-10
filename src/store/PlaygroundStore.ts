@@ -1,11 +1,13 @@
-import { makeAutoObservable } from "mobx";
-import autoBind from "auto-bind";
+import { makeAutoObservable } from 'mobx';
+import autoBind from 'auto-bind';
 
-import { Tab } from "../constants/types/Tab";
+import { Tab } from '../constants/types/Tab';
 
 export class PlaygroundStore {
   activeTabIndex: number = 0;
-  code: string = "";
+
+  code: string = '';
+
   tabs: Tab[] = [];
 
   constructor() {
@@ -27,23 +29,23 @@ export class PlaygroundStore {
   }
 
   getCodeByLanguage(language: string) {
-    let tab = this.tabs.find((t) => t.language === language);
+    const tab = this.tabs.find(t => t.language === language);
     if (tab) return tab.code;
-    else return "";
+    return '';
   }
 
   _getTabs(playgroundId?: string) {
     const tabs: Tab[] = [
       {
-        name: "index.html",
+        name: 'index.html',
         code: `<h1>This is html from the fucking store</h1>`,
-        language: "html",
+        language: 'html',
       },
-      { code: `* {color: red;}`, language: "css", name: "main.css" },
+      { code: `* {color: red;}`, language: 'css', name: 'main.css' },
       {
         code: "console.log('Testing web coimpiler from store')",
-        language: "js",
-        name: "main.js",
+        language: 'js',
+        name: 'main.js',
       },
     ];
     this.tabs = tabs;

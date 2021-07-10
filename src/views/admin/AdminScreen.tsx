@@ -1,7 +1,7 @@
-import styled from "styled-components";
-import { useAuth0 } from "@auth0/auth0-react";
+import styled from 'styled-components';
+import { useAuth0 } from '@auth0/auth0-react';
 
-import { Button } from "../../components/buttons/PrimaryButton";
+import { Button } from '../../components/buttons/PrimaryButton';
 
 const StyledContainer = styled.div`
   height: 100vh;

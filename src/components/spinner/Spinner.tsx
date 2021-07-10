@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import SyncSpinner from "react-spinners/SyncLoader";
+import styled from 'styled-components';
+import SyncSpinner from 'react-spinners/SyncLoader';
 
 const StyledContainer = styled.div`
   width: 100%;
@@ -9,10 +9,8 @@ const StyledContainer = styled.div`
   align-items: center;
 `;
 
-export const Spinner = () => {
-  return (
-    <StyledContainer>
-      <SyncSpinner color={"#827ffe"} size={12} margin={2} />
-    </StyledContainer>
-  );
-};
+export const Spinner = () => (
+  <StyledContainer>
+    <SyncSpinner color="#827ffe" size={12} margin={2} />
+  </StyledContainer>
+);

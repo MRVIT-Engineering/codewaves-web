@@ -1,9 +1,9 @@
-import styled from "styled-components";
-import { Headline } from "../../common/Headline";
-import { Button } from "../../buttons/PrimaryButton";
-import { WhiteParagraph } from "../../common/Paragraph";
-import { Dotted } from "./Dotted";
-import Wrapper from "../../containers/Wrapper";
+import styled from 'styled-components';
+import { Headline } from '../../common/Headline';
+import { Button } from '../../buttons/PrimaryButton';
+import { WhiteParagraph } from '../../common/Paragraph';
+import { Dotted } from './Dotted';
+import Wrapper from '../../containers/Wrapper';
 
 const StyledContainer = styled.div`
   background-color: #140f2b;
@@ -28,9 +28,8 @@ export default function GetStarted() {
           Add programming to your skillset<span className="dot">!</span>
         </Headline>
         <WhiteParagraph>
-          Get started with{" "}
-          <span style={{ color: "var(--primary)" }}>Codewaves.io</span> today
-          and try our basics web development courses for free!
+          Get started with <span style={{ color: 'var(--primary)' }}>Codewaves.io</span> today and try our basics web
+          development courses for free!
         </WhiteParagraph>
         <Button onClick={() => {}}>Try it for free!</Button>
       </Wrapper>

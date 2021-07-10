@@ -1,12 +1,12 @@
-import styled from "styled-components";
-import { useState } from "react";
-import { Headline } from "../../common/Headline";
-import { Separator } from "../../common/Separator";
-import { TextInput } from "../../control/TextInput";
-import { Textarea } from "../../control/Textarea";
-import { Button } from "../../buttons/PrimaryButton";
-import { Spacer } from "../../common/Spacer";
-import Wrapper from "../../containers/Wrapper";
+import styled from 'styled-components';
+import { useState } from 'react';
+import { Headline } from '../../common/Headline';
+import { Separator } from '../../common/Separator';
+import { TextInput } from '../../control/TextInput';
+import { Textarea } from '../../control/Textarea';
+import { Button } from '../../buttons/PrimaryButton';
+import { Spacer } from '../../common/Spacer';
+import Wrapper from '../../containers/Wrapper';
 
 const StyledContainer = styled.div`
   padding: 200px 0%;
@@ -31,26 +31,25 @@ const ErrorLabel = styled.label`
 `;
 
 export default function Contact() {
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
-  const [emailError, setEmailError] = useState({ error: false, text: "" });
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+  const [emailError, setEmailError] = useState({ error: false, text: '' });
   const [messageError, setMessageError] = useState({
     error: false,
-    text: "",
+    text: '',
   });
 
   const clearFieldErrors = () => {
-    setEmailError({ error: false, text: "" });
-    setMessageError({ error: false, text: "" });
+    setEmailError({ error: false, text: '' });
+    setMessageError({ error: false, text: '' });
   };
 
   const validatedFields = () => {
-    if (email === "")
-      return setEmailError({ error: true, text: "You missed this one!" });
-    if (message === "")
+    if (email === '') return setEmailError({ error: true, text: 'You missed this one!' });
+    if (message === '')
       return setMessageError({
         error: true,
-        text: "What would you like to chat about?",
+        text: 'What would you like to chat about?',
       });
     return true;
   };
@@ -58,7 +57,7 @@ export default function Contact() {
   const sendMessage = () => {
     clearFieldErrors();
     if (validatedFields()) {
-      console.log("Sending motherfucking messages my dudes!");
+      console.log('Sending motherfucking messages my dudes!');
     }
   };
 
@@ -71,7 +70,7 @@ export default function Contact() {
           <TextInput
             error={emailError.error}
             errorText={emailError.text}
-            onChange={(e) => {
+            onChange={e => {
               setEmail(e.target.value);
             }}
             placeholder="Your email address"
@@ -80,14 +79,12 @@ export default function Contact() {
           <Textarea
             error={messageError.error}
             errorText={messageError.text}
-            onChange={(e) => {
+            onChange={e => {
               setMessage(e.target.value);
             }}
             placeholder="Tell us what's on your mind"
           />
-          {messageError.error ? (
-            <ErrorLabel>{messageError.text}</ErrorLabel>
-          ) : null}
+          {messageError.error ? <ErrorLabel>{messageError.text}</ErrorLabel> : null}
           <Spacer height={25} />
           <Button onClick={sendMessage}>SEND MESSAGE</Button>
         </StyledForm>

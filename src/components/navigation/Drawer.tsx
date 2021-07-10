@@ -1,9 +1,9 @@
-import styled from "styled-components";
-import { useStore } from "../../hooks/useStore";
-import { observer } from "mobx-react-lite";
-import { Link } from "react-router-dom";
-import Wrapper from "../../components/containers/Wrapper";
-import logoWhite from "../../assets/images/logos/logo-small-white.png";
+import styled from 'styled-components';
+import { observer } from 'mobx-react-lite';
+import { Link } from 'react-router-dom';
+import { useStore } from '../../hooks/useStore';
+import Wrapper from '../../components/containers/Wrapper';
+import logoWhite from '../../assets/images/logos/logo-small-white.png';
 
 const StyledDrawer = styled.div<{ visible: boolean }>`
   width: 100%;
@@ -11,8 +11,8 @@ const StyledDrawer = styled.div<{ visible: boolean }>`
   background-color: var(--primary);
   box-shadow: var(--light-shadow);
   position: fixed;
-  top: ${(props) => (props.visible ? 0 : "-100vh")};
-  left: ${(props) => (props.visible ? 0 : "-100vh")};
+  top: ${props => (props.visible ? 0 : '-100vh')};
+  left: ${props => (props.visible ? 0 : '-100vh')};
   clip-path: ellipse(75% 80vh at 5% 3%);
   z-index: var(--z-index-top);
   transition: all 0.4s;

@@ -1,23 +1,23 @@
-import styled from "styled-components";
-import { observer } from "mobx-react-lite";
-import { useState } from "react";
-import { useHistory } from "react-router";
-import { Link } from "react-router-dom";
+import styled from 'styled-components';
+import { observer } from 'mobx-react-lite';
+import { useState } from 'react';
+import { useHistory } from 'react-router';
+import { Link } from 'react-router-dom';
 
-import { ScreenSize } from "../../constants/media-queries/mediaQueris";
+import { ScreenSize } from '../../constants/media-queries/mediaQueris';
 
-import { useStore } from "../../hooks/useStore";
-import Wrapper from "../containers/Wrapper";
-import { Headline } from "../common/Headline";
-import { Separator } from "../common/Separator";
-import { TextInput } from "../control/TextInput";
-import { Checkbox } from "../control/Checkbox";
-import { GreyParagraph } from "../common/Paragraph";
-import { Spacer } from "../common/Spacer";
-import { Button } from "../buttons/PrimaryButton";
-import { GoogleButton } from "../buttons/GoogleButton";
-import { showNotification } from "../../services/notifications";
-import { Routes } from "../../constants/routes";
+import { useStore } from '../../hooks/useStore';
+import Wrapper from '../containers/Wrapper';
+import { Headline } from '../common/Headline';
+import { Separator } from '../common/Separator';
+import { TextInput } from '../control/TextInput';
+import { Checkbox } from '../control/Checkbox';
+import { GreyParagraph } from '../common/Paragraph';
+import { Spacer } from '../common/Spacer';
+import { Button } from '../buttons/PrimaryButton';
+import { GoogleButton } from '../buttons/GoogleButton';
+import { showNotification } from '../../services/notifications';
+import { Routes } from '../../constants/routes';
 
 export const StyledContainer = styled.div`
   width: 100%;
@@ -64,23 +64,18 @@ const ErrorContainer = styled.div`
 
 const LoginForm = () => {
   const [isRememberMe, setRememberMe] = useState(false);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const { authStore } = useStore();
   const history = useHistory();
 
   const login = async () => {
-    if (email === "" || password === "") return authStore.setEmptyFieldsError();
+    if (email === '' || password === '') return authStore.setEmptyFieldsError();
 
-    let response = await authStore.login(email, password);
+    const response = await authStore.login(email, password);
 
     if (response.data.accountNotActive)
-      return showNotification(
-        "Account not activated",
-        response.data.message,
-        "top-right",
-        "danger"
-      );
+      return showNotification('Account not activated', response.data.message, 'top-right', 'danger');
 
     if (!response.data.wrongAuthCredentials) {
       history.push(Routes.CourseLibrary);
@@ -98,18 +93,16 @@ const LoginForm = () => {
           <Headline>Login</Headline>
           <Separator />
           <Spacer height={25} />
-          {authStore.loginError ? (
-            <ErrorContainer>{authStore.loginErrorMessage}</ErrorContainer>
-          ) : null}
+          {authStore.loginError ? <ErrorContainer>{authStore.loginErrorMessage}</ErrorContainer> : null}
           <TextInput
-            onChange={(e) => {
+            onChange={e => {
               setEmail(e.target.value);
             }}
             type="email"
             placeholder="Email or username"
           />
           <TextInput
-            onChange={(e) => {
+            onChange={e => {
               setPassword(e.target.value);
             }}
             type="password"

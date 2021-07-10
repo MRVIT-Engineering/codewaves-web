@@ -1,6 +1,6 @@
-import CodeMirror from "@uiw/react-codemirror";
-import "codemirror/keymap/sublime";
-import "codemirror/theme/monokai.css";
+import CodeMirror from '@uiw/react-codemirror';
+import 'codemirror/keymap/sublime';
+import 'codemirror/theme/monokai.css';
 
 interface StaticCodeEditorProps {
   code: string;
@@ -12,10 +12,10 @@ export default function StaticCodeEditor(props: StaticCodeEditorProps) {
     <CodeMirror
       value={code}
       options={{
-        theme: "monokai",
+        theme: 'monokai',
         tabSize: 2,
-        keyMap: "sublime",
-        mode: "jsx",
+        keyMap: 'sublime',
+        mode: 'jsx',
         readOnly: true,
       }}
     />

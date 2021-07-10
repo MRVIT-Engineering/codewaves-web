@@ -1,11 +1,12 @@
-import { makeAutoObservable } from "mobx";
-import autoBind from "auto-bind";
+import { makeAutoObservable } from 'mobx';
+import autoBind from 'auto-bind';
 
-import { PlaygroundStore } from "./PlaygroundStore";
+import { PlaygroundStore } from './PlaygroundStore';
 
 export class CompilerStore {
   playgroundStore: PlaygroundStore;
-  webOutput: string = "";
+
+  webOutput: string = '';
 
   constructor(playgroundStore: PlaygroundStore) {
     this.playgroundStore = playgroundStore;
@@ -16,9 +17,9 @@ export class CompilerStore {
 
   compileWeb() {
     this.webOutput = `<html><head><style>${this.playgroundStore.getCodeByLanguage(
-      "css"
+      'css'
     )}</style></head><body>${this.playgroundStore.getCodeByLanguage(
-      "html"
-    )}<script>${this.playgroundStore.getCodeByLanguage("js")}</script></body>`;
+      'html'
+    )}<script>${this.playgroundStore.getCodeByLanguage('js')}</script></body>`;
   }
 }

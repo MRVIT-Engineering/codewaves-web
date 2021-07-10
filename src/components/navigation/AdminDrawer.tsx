@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import { AdminNavList } from "./lists/AdminList";
+import { AdminNavList } from './lists/AdminList';
 
 const Drawer = styled.div`
   width: 25vw;
@@ -9,10 +9,8 @@ const Drawer = styled.div`
   box-shadow: var(--inset-light-shadow);
 `;
 
-export const AdminDrawer = () => {
-  return (
-    <Drawer>
-      <AdminNavList />
-    </Drawer>
-  );
-};
+export const AdminDrawer = () => (
+  <Drawer>
+    <AdminNavList />
+  </Drawer>
+);

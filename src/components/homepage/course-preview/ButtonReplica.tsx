@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { ScreenSize } from "../../../constants/media-queries/mediaQueris";
+import styled from 'styled-components';
+import { ScreenSize } from '../../../constants/media-queries/mediaQueris';
 
 const ButtonReplica = styled.div`
   height: 60px;
@@ -25,6 +25,4 @@ const ButtonReplica = styled.div`
   }
 `;
 
-export const ButtonReplicaComp = (props: { children?: any }) => {
-  return <ButtonReplica>{props.children}</ButtonReplica>;
-};
+export const ButtonReplicaComp = (props: { children?: any }) => <ButtonReplica>{props.children}</ButtonReplica>;

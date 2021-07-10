@@ -1,17 +1,17 @@
-import Wrapper from "../../containers/Wrapper";
-import { editorBgColors } from "../../../constants/colors/editorBgColors";
-import { ButtonReplicaComp } from "./ButtonReplica";
-import { CodeEditorReplica } from "./CodeEditorReplica";
-import { QuestionReplicaComp } from "./QuestionReplica";
-import { Headline } from "../../common/Headline";
-import { Separator } from "../../common/Separator";
-import { GreyParagraph } from "../../common/Paragraph";
-import { Button } from "../../buttons/PrimaryButton";
-import { lineColors } from "../../../constants/colors/editorReplicaLineColors";
-import { homepageText } from "../../../constants/text/homepageText";
-import ScrollAnimation from "react-animate-on-scroll";
-import styled from "styled-components";
-import { ScreenSize } from "../../../constants/media-queries/mediaQueris";
+import ScrollAnimation from 'react-animate-on-scroll';
+import styled from 'styled-components';
+import Wrapper from '../../containers/Wrapper';
+import { editorBgColors } from '../../../constants/colors/editorBgColors';
+import { ButtonReplicaComp } from './ButtonReplica';
+import { CodeEditorReplica } from './CodeEditorReplica';
+import { QuestionReplicaComp } from './QuestionReplica';
+import { Headline } from '../../common/Headline';
+import { Separator } from '../../common/Separator';
+import { GreyParagraph } from '../../common/Paragraph';
+import { Button } from '../../buttons/PrimaryButton';
+import { lineColors } from '../../../constants/colors/editorReplicaLineColors';
+import { homepageText } from '../../../constants/text/homepageText';
+import { ScreenSize } from '../../../constants/media-queries/mediaQueris';
 
 const StyledContainer = styled.div`
   background-color: var(--background-grey);
@@ -90,10 +90,7 @@ export default function CoursePreview() {
           <ScrollAnimation animateOnce animateIn="fadeInUp">
             <PerspectiveContainer>
               <CodeContainer>
-                <CodeEditorReplica
-                  colorTheme={lineColors}
-                  codeEditorTheme={editorBgColors.monakai}
-                />
+                <CodeEditorReplica colorTheme={lineColors} codeEditorTheme={editorBgColors.monakai} />
                 <ButtonReplicaComp>REPLY</ButtonReplicaComp>
                 <QuestionReplicaComp />
               </CodeContainer>

@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import { Headline } from "../../components/common/Headline";
-import { Separator } from "../../components/common/Separator";
+import { Headline } from '../../components/common/Headline';
+import { Separator } from '../../components/common/Separator';
 
 const StyledContainer = styled.div`
   max-width: 1900px;
@@ -12,11 +12,9 @@ const StyledContainer = styled.div`
   flex-flow: column;
 `;
 
-export const CoursesView = () => {
-  return (
-    <StyledContainer>
-      <Headline>Web Dev Library</Headline>
-      <Separator />
-    </StyledContainer>
-  );
-};
+export const CoursesView = () => (
+  <StyledContainer>
+    <Headline>Web Dev Library</Headline>
+    <Separator />
+  </StyledContainer>
+);

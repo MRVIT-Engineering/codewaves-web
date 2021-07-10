@@ -1,7 +1,7 @@
-import classes from "../../../assets/css/Homepage.module.css";
-import styled from "styled-components";
-import { Separator } from "../../common/Separator";
-import { ScreenSize } from "../../../constants/media-queries/mediaQueris";
+import styled from 'styled-components';
+import classes from '../../../assets/css/Homepage.module.css';
+import { Separator } from '../../common/Separator';
+import { ScreenSize } from '../../../constants/media-queries/mediaQueris';
 
 const StyledContainer = styled.div`
   width: 250px;
@@ -53,15 +53,11 @@ export default function QuestionReplica() {
   );
 }
 
-export const QuestionReplicaComp = () => {
-  return (
-    <StyledContainer>
-      <QuestionReplicaTitle>John Snow</QuestionReplicaTitle>
-      <Separator />
-      <QuestionReplicaText>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-      </QuestionReplicaText>
-      <QuestionReplicaDate>12/12/1000</QuestionReplicaDate>
-    </StyledContainer>
-  );
-};
+export const QuestionReplicaComp = () => (
+  <StyledContainer>
+    <QuestionReplicaTitle>John Snow</QuestionReplicaTitle>
+    <Separator />
+    <QuestionReplicaText>Lorem ipsum dolor sit amet consectetur adipisicing elit.</QuestionReplicaText>
+    <QuestionReplicaDate>12/12/1000</QuestionReplicaDate>
+  </StyledContainer>
+);

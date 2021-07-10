@@ -1,12 +1,12 @@
-import classes from "../../../assets/css/Homepage.module.css";
-import html from "../../../assets/images/homepage/html-icon.svg";
-import css from "../../../assets/images/homepage/css-icon.svg";
-import js from "../../../assets/images/homepage/js-icon.svg";
-import jquery from "../../../assets/images/homepage/jquery-vertical.svg";
-import bootstrap from "../../../assets/images/homepage/bootstrap-logo.png";
-import python from "../../../assets/images/homepage/python.png";
-import cpp from "../../../assets/images/homepage/cpp.png";
-import node from "../../../assets/images/homepage/node.png";
+import classes from '../../../assets/css/Homepage.module.css';
+import html from '../../../assets/images/homepage/html-icon.svg';
+import css from '../../../assets/images/homepage/css-icon.svg';
+import js from '../../../assets/images/homepage/js-icon.svg';
+import jquery from '../../../assets/images/homepage/jquery-vertical.svg';
+import bootstrap from '../../../assets/images/homepage/bootstrap-logo.png';
+import python from '../../../assets/images/homepage/python.png';
+import cpp from '../../../assets/images/homepage/cpp.png';
+import node from '../../../assets/images/homepage/node.png';
 
 export default function CarouselLine() {
   return (

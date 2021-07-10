@@ -1,14 +1,14 @@
-import React from "react";
-import styled from "styled-components";
-import { Headline } from "../../common/Headline";
-import { Separator } from "../../common/Separator";
-import { GreyParagraph } from "../../common/Paragraph";
-import { CodeEditorReplica } from "../course-preview/CodeEditorReplica";
-import { TerminalReplica } from "./TerminalReplica";
-import { lightLineColors } from "../../../constants/colors/editorReplicaLineColors";
-import { homepageText } from "../../../constants/text/homepageText";
-import ScrollAnimation from "react-animate-on-scroll";
-import { ScreenSize } from "../../../constants/media-queries/mediaQueris";
+import React from 'react';
+import styled from 'styled-components';
+import ScrollAnimation from 'react-animate-on-scroll';
+import { Headline } from '../../common/Headline';
+import { Separator } from '../../common/Separator';
+import { GreyParagraph } from '../../common/Paragraph';
+import { CodeEditorReplica } from '../course-preview/CodeEditorReplica';
+import { TerminalReplica } from './TerminalReplica';
+import { lightLineColors } from '../../../constants/colors/editorReplicaLineColors';
+import { homepageText } from '../../../constants/text/homepageText';
+import { ScreenSize } from '../../../constants/media-queries/mediaQueris';
 
 const StyledContainer = styled.div`
   display: flex;
@@ -109,10 +109,7 @@ export default function PlaygroundPreview() {
           <StyledPlaygroundContainer>
             <ScrollAnimation animateOnce animateIn="fadeInUp">
               <PlaygroundHalf>
-                <CodeEditorReplica
-                  colorTheme={lightLineColors}
-                  codeEditorTheme="white"
-                />
+                <CodeEditorReplica colorTheme={lightLineColors} codeEditorTheme="white" />
               </PlaygroundHalf>
             </ScrollAnimation>
             <ScrollAnimation delay={300} animateOnce animateIn="fadeInUp">

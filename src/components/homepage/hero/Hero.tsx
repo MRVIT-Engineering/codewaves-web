@@ -1,13 +1,13 @@
-import { Button } from "../../buttons/PrimaryButton";
-import { Headline } from "../../common/Headline";
-import { ScreenSize } from "../../../constants/media-queries/mediaQueris";
-import { Spacer } from "../../common/Spacer";
-import Wrapper from "../../containers/Wrapper";
-import heroImage from "../../../assets/images/homepage/hero.png";
-import styled from "styled-components";
+import styled from 'styled-components';
+import Typewriter from 'react-simple-typewriter';
+import { Button } from '../../buttons/PrimaryButton';
+import { Headline } from '../../common/Headline';
+import { ScreenSize } from '../../../constants/media-queries/mediaQueris';
+import { Spacer } from '../../common/Spacer';
+import Wrapper from '../../containers/Wrapper';
+import heroImage from '../../../assets/images/homepage/hero.png';
 
-import Typewriter from "react-simple-typewriter";
-import "react-simple-typewriter/dist/index.css";
+import 'react-simple-typewriter/dist/index.css';
 
 const StyledContainer = styled.div`
   width: 100%;
@@ -46,7 +46,7 @@ const Right = styled.div`
 
 const HeroImage = styled.img.attrs({
   src: heroImage,
-  alt: "Hero.",
+  alt: 'Hero.',
 })`
   width: 100%;
   height: auto;
@@ -58,7 +58,7 @@ export default function Hero() {
       <Wrapper>
         <Left>
           <Headline>
-            Start learning <br />{" "}
+            Start learning <br />{' '}
             <span className="dot">
               <Typewriter
                 loop
@@ -66,13 +66,7 @@ export default function Hero() {
                 cursorStyle="_"
                 typeSpeed={80}
                 deleteSpeed={70}
-                words={[
-                  "HTML & CSS",
-                  "javascript",
-                  "c++ & algorithms",
-                  "python",
-                  "and much more",
-                ]}
+                words={['HTML & CSS', 'javascript', 'c++ & algorithms', 'python', 'and much more']}
               />
             </span>
           </Headline>
