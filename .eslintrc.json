@@ -26,6 +26,6 @@
     "react/prop-types": "off",
     "react-hooks/exhaustive-deps": "off",
     "object-curly-spacing": ["warn", "always"],
-    "react/react-in-jsx-scope": "off"
+    "@typescript-eslint/no-unused-vars": 1
   }
 }

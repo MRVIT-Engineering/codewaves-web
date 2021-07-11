@@ -3,10 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-scripts start && npm run lint",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "test:unit": "react-scripts test --env=jsdom --testPathPattern=unit",
+    "test:e2e": "react-scripts test --testPathPattern=e2e --testPathIgnorePatterns=e2e/constants",
     "lint": "eslint ./src",
     "lint-fix": "eslint ./src --fix",
     "init-husky": "npx husky-init && npm install",
@@ -19,17 +20,6 @@
     "singleQuote": true,
     "trailingComma": "es5",
     "arrowParens": "avoid"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.{ts,tsx,json,html,css}": [
-      "prettier --write",
-      "git add"
-    ]
   },
   "browserslist": {
     "production": [
@@ -85,10 +75,7 @@
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.23.4",
-    "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-prettier": "^3.4.0",
-    "eslint-plugin-react": "^7.24.0",
-    "eslint-plugin-react-hooks": "^4.2.0",
     "husky": "^7.0.1",
     "lint-staged": "^11.0.0",
     "prettier": "^2.3.2",

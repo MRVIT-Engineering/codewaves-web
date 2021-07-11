@@ -5,19 +5,18 @@ import { Route, Switch } from 'react-router-dom';
 import { Routes } from '../constants/routes';
 
 import { useStore } from '../hooks/useStore';
-// import { AdminNavHoc } from '../components/hoc/AdminNavHoc';
-// import { PrivateAdminRoute } from '../components/routes/ProtectedAdminRoute';
-import { AppContainer } from '../components/containers/AppContainer';
 import { AdminScreen } from '../views/admin/AdminScreen';
 import LoginView from '../views/auth/LoginView';
 import Homepage from '../views/homepage/Homepage';
 import RegisterView from '../views/auth/RegisterView';
-import HomepageNav from '../components/navigation/HomepageNav';
 import { CoursesView } from '../views/learning/CoursesView';
 import PlaygroundScreen from '../views/playground/PlaygroundScreen';
+import { AdminDashboardScreen } from '../views/admin/AdminDashboardScreen';
 // authorization hoc
 import { withAdmin } from '../components/hoc/withAdmin';
-import { AdminDashboardScreen } from '../views/admin/AdminDashboardScreen';
+// import { withAuth } from '../components/hoc/withAuth';
+import { withAuthAndNavigation } from '../components/hoc/withAuth';
+import { withAdminNavigation } from '../components/hoc/withAdminNavigation';
 
 export const AppRoutes = () => {
   const {
@@ -37,42 +36,12 @@ export const AppRoutes = () => {
       </Route>
 
       {/* Admin navigation. */}
-      <Route exact path={Routes.Admin} component={withAdmin(AdminScreen)} />
-      <Route exact path={Routes.AdminDashboard} component={withAdmin(AdminDashboardScreen)} />
-      {/* <Route exact path={Routes.Admin}>
-        <AdminScreen />
-      </Route>
-      <PrivateAdminRoute exact path={Routes.AdminDashboard}>
-        <AdminNavHoc>General codewaves.io stats</AdminNavHoc>
-      </PrivateAdminRoute>
-      <PrivateAdminRoute exact path={Routes.AdminCourses}>
-        <AdminNavHoc>Codewaves.io courses</AdminNavHoc>
-      </PrivateAdminRoute>
-      <PrivateAdminRoute exact path={Routes.AdminAddCourse}>
-        <AdminNavHoc>Add new codewaves.io course</AdminNavHoc>
-      </PrivateAdminRoute>
-      <PrivateAdminRoute exact path={Routes.AdminAlgos}>
-        <AdminNavHoc>Codewaves.io algo list</AdminNavHoc>
-      </PrivateAdminRoute>
-      <PrivateAdminRoute exact path={Routes.AdminAddAlgo}>
-        <AdminNavHoc>Add new algo.</AdminNavHoc>
-      </PrivateAdminRoute>
-      <PrivateAdminRoute exact path={Routes.AdminProblems}>
-        <AdminNavHoc>Codewaves algo problems.</AdminNavHoc>
-      </PrivateAdminRoute>
-      <PrivateAdminRoute exact path={Routes.AdminAddProblem}>
-        <AdminNavHoc>Add codewaves.io problem</AdminNavHoc>
-      </PrivateAdminRoute> */}
+      <Route exact path={Routes.Admin} component={AdminScreen} />
+      <Route exact path={Routes.AdminDashboard} component={withAdmin(withAdminNavigation(AdminDashboardScreen))} />
 
       {/* Navigation for the actual codewaves app. */}
-      <Route path={Routes.CourseLibrary}>
-        <HomepageNav appView />
-        <AppContainer>
-          <Route exact path={Routes.CourseLibrary}>
-            <CoursesView />
-          </Route>
-        </AppContainer>
-      </Route>
+      <Route exact path={Routes.CourseLibrary} component={withAuthAndNavigation(CoursesView)} />
+
       <Route exact path={Routes.Playground}>
         <PlaygroundScreen />
       </Route>
