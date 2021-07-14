@@ -18,6 +18,6 @@ export class ApiConfig {
     };
 
     const response = await axios(config);
-    return response.data;
+    return response;
   }
 }

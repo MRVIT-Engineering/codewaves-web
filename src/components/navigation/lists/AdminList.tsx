@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router';
 
 import { Routes } from '../../../constants/routes';
 
@@ -12,10 +13,10 @@ const StyledContainer = styled.ul`
   flex-flow: column;
 `;
 
-const ListItem = styled.li`
+const ListItem = styled.li<{ active: boolean }>`
   width: 100%;
   height: 45px;
-  color: var(--custom-black);
+  color: ${props => (props.active ? 'var(--primary)' : 'var(--customBlack)')};
   cursor: pointer;
   padding-left: 50px;
   display: flex;
@@ -27,28 +28,29 @@ const ListItem = styled.li`
   }
 `;
 
-export const AdminNavList = () => (
-  <StyledContainer>
-    <ListItem>
-      <Link to={Routes.AdminDashboard}> Home </Link>
-    </ListItem>
-    <ListItem>
-      <Link to={Routes.AdminCourses}> Courses </Link>
-    </ListItem>
-    <ListItem>
-      <Link to={Routes.AdminAddCourse}> Add Course </Link>
-    </ListItem>
-    <ListItem>
-      <Link to={Routes.AdminAlgos}> Algos </Link>
-    </ListItem>
-    <ListItem>
-      <Link to={Routes.AdminAddAlgo}> Add Algo </Link>
-    </ListItem>
-    <ListItem>
-      <Link to={Routes.AdminProblems}> Problems </Link>
-    </ListItem>
-    <ListItem>
-      <Link to={Routes.AdminAddProblem}> Add Problem </Link>
-    </ListItem>
-  </StyledContainer>
-);
+const links = [
+  { name: 'Home', to: Routes.AdminDashboard },
+  { name: 'Courses', to: Routes.AdminCourses },
+  { name: 'Add Course', to: Routes.AdminAddCourse },
+  { name: 'Algos', to: Routes.AdminAlgos },
+  { name: 'Add Algo', to: Routes.AdminAddAlgo },
+  { name: 'Problems', to: Routes.AdminProblems },
+  { name: 'Add Problem', to: Routes.AdminAddProblem },
+];
+
+const AdminNavList = (props: any) => {
+  const {
+    match: { path },
+  } = props;
+  return (
+    <StyledContainer>
+      {links.map(link => (
+        <ListItem key={link.to} active={path === link.to}>
+          <Link to={link.to}>{link.name}</Link>
+        </ListItem>
+      ))}
+    </StyledContainer>
+  );
+};
+
+export default withRouter(AdminNavList);

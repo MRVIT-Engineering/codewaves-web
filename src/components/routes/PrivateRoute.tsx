@@ -11,9 +11,8 @@ export const PrivateRoute = ({ children, ...routeProps }: RouteProps) => {
 
   useEffect(() => {
     (async function () {
-      const response = await userApi.checkIfLoggedIn();
-      console.log(response);
-      setIsAuthenticated(response);
+      const { data, status } = await userApi.checkIfLoggedIn();
+      if (status === 200) setIsAuthenticated(data);
     })();
   }, []);
 

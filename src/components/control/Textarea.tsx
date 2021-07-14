@@ -10,10 +10,15 @@ export const Textarea = styled.textarea<TextInputProps>`
   border: none;
   border: 2px solid ${props => (props.error ? 'var(--danger)' : 'transparent')};
   border-radius: var(--border-radius);
-  padding: 30px 0 0 30px;
+  padding: 16px 0 0 30px;
   font-family: 'PT Mono', sans-serif;
   color: var(--custom-black);
   margin-top: 25px;
+  font-size: 1.6rem;
+
+  &:focus {
+    border-color: var(--primary);
+  }
 
   &::placeholder,
   &::-ms-input-placeholder,

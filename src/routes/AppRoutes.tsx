@@ -12,9 +12,9 @@ import RegisterView from '../views/auth/RegisterView';
 import { CoursesView } from '../views/learning/CoursesView';
 import PlaygroundScreen from '../views/playground/PlaygroundScreen';
 import { AdminDashboardScreen } from '../views/admin/AdminDashboardScreen';
+import { AdminAddCourseScreen } from '../views/admin/AdminAddCourse';
 // authorization hoc
 import { withAdmin } from '../components/hoc/withAdmin';
-// import { withAuth } from '../components/hoc/withAuth';
 import { withAuthAndNavigation } from '../components/hoc/withAuth';
 import { withAdminNavigation } from '../components/hoc/withAdminNavigation';
 
@@ -38,6 +38,7 @@ export const AppRoutes = () => {
       {/* Admin navigation. */}
       <Route exact path={Routes.Admin} component={AdminScreen} />
       <Route exact path={Routes.AdminDashboard} component={withAdmin(withAdminNavigation(AdminDashboardScreen))} />
+      <Route exact path={Routes.AdminAddCourse} component={withAdmin(withAdminNavigation(AdminAddCourseScreen))} />
 
       {/* Navigation for the actual codewaves app. */}
       <Route exact path={Routes.CourseLibrary} component={withAuthAndNavigation(CoursesView)} />
