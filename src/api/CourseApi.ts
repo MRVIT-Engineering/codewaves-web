@@ -13,4 +13,8 @@ export class CourseApi {
   addCourse(data: any) {
     return this.apiConfig.sendRequest('POST', '/course', data);
   }
+
+  listCourses() {
+    return this.apiConfig.sendRequest('GET', '/course', null);
+  }
 }

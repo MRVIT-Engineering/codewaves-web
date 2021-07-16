@@ -35,6 +35,15 @@
   --z-index-skyscraper: 100000;
 }
 
+* {
+  box-sizing: border-box;
+  /* 
+  IMPORTANT: this fucks up the codemirror line numbers 
+  so for now we'll leave it like this 
+  */
+  /* z-index: var(--z-index-bottom); */
+}
+
 html,
 body {
   padding: 0;
@@ -46,6 +55,10 @@ body {
 
 body {
   font-size: 1.6rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 16px;
 }
 
 a {
@@ -63,15 +76,10 @@ ul {
   list-style: none;
 }
 
-* {
-  box-sizing: border-box;
-  /* 
-  IMPORTANT: this fucks up the codemirror line numbers 
-  so for now we'll leave it like this 
-  */
-  /* z-index: var(--z-index-bottom); */
-}
+
 
 .CodeMirror {
   border-radius: 0;
 }
+
+
