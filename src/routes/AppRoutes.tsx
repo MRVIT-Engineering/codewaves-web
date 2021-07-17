@@ -14,6 +14,7 @@ import PlaygroundScreen from '../views/playground/PlaygroundScreen';
 import { AdminDashboardScreen } from '../views/admin/AdminDashboardScreen';
 import { AdminAddCourseScreen } from '../views/admin/AdminAddCourse';
 import { CoursesList } from '../views/admin/CoursesList';
+import AdminEditCourseScreen from '../views/admin/AdminCourseEdit';
 import CoursePreview from '../views/admin/CoursePreview';
 // authorization hoc
 import { withAdmin } from '../components/hoc/withAdmin';
@@ -43,6 +44,7 @@ export const AppRoutes = () => {
       <Route exact path={Routes.AdminAddCourse} component={withAdmin(withAdminNavigation(AdminAddCourseScreen))} />
       <Route exact path={Routes.AdminGetCourses} component={withAdmin(withAdminNavigation(CoursesList))} />
       <Route exact path={`${Routes.CoursePreview}/:id`} component={withAdmin(withAdminNavigation(CoursePreview))} />
+      <Route exact path={`${Routes.CourseEdit}/:id`} component={withAdmin(withAdminNavigation(AdminEditCourseScreen))} />
 
       {/* Navigation for the actual codewaves app. */}
       <Route exact path={Routes.CourseLibrary} component={withAuthAndNavigation(CoursesView)} />

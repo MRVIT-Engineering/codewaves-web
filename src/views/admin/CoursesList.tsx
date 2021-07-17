@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
-import { AiOutlineDelete } from 'react-icons/ai';
 
 import { useEffect, useState } from 'react';
 import { Routes } from '../../constants/routes';
@@ -63,7 +62,6 @@ export const CoursesList = () => {
             }}
           >
             <h4>{course.title}</h4>
-            <AiOutlineDelete color={'var(--danger)'} size={24} />
           </StyledCard>
         ))}
       </StyledContainer>

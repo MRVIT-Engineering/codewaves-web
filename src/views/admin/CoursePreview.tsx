@@ -1,42 +1,21 @@
 import { useState } from 'react';
-import styled from 'styled-components';
-import { withRouter } from 'react-router';
-import { useLocation } from 'react-router';
+import { useLocation, useHistory } from 'react-router';
+import { observer } from 'mobx-react-lite';
+import { AiOutlineDelete, AiOutlineEdit } from 'react-icons/ai';
+
+import { Routes } from '../../constants/routes';
 
 import { Spacer } from '../../components/common/Spacer';
 import { Separator } from '../../components/common/Separator';
 import { Icon } from '../../components/icon/Icon';
-import { AiOutlineDelete, AiOutlineEdit } from 'react-icons/ai';
-
-const StyledTab = styled.div<{ active?: boolean }>`
-  border-radius: 20px;
-  height: 20px;
-  padding: 15px;
-  border: 1px solid lightgrey;
-  display: flex;
-  align-items: center;
-  background-color: ${props => (props.active ? 'var(--primary)' : 'white')};
-  color: ${props => (props.active ? 'white' : 'var(--custom-black)')};
-  margin-right: 16px;
-
-  &:hover {
-    cursor: pointer;
-  }
-`;
-
-const Row = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
-const Colored = styled.span`
-  color: var(--primary);
-`;
+import { PrimaryText, Row, StyledTab } from '../../utils/style/styledComponents';
+import { useStore } from '../../hooks/useStore';
 
 const CoursePreview = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const { state }: any = useLocation();
-  console.log(location);
+  const { courseStore } = useStore();
+  const history = useHistory();
 
   return (
     <>
@@ -44,8 +23,14 @@ const CoursePreview = () => {
         <h1>{state.title}</h1>
         <Spacer width={32} />
         <Icon
-          onClick={() => {
-            console.log('');
+          onClick={async () => {
+            const { status } = await courseStore.deleteCourse(state._id);
+            if (status === 200) {
+              alert('Course deleted');
+              history.push(Routes.AdminCourses);
+            } else {
+              alert('There was a problem deleting');
+            }
           }}
           hoverColor={'var(--danger-dark)'}
           color={'var(--danger)'}
@@ -55,7 +40,7 @@ const CoursePreview = () => {
         <Spacer width={16} />
         <Icon
           onClick={() => {
-            console.log('');
+            history.push(`${Routes.CourseEdit}/${state._id}`, state);
           }}
           icon={<AiOutlineEdit />}
           size={24}
@@ -93,7 +78,7 @@ const CoursePreview = () => {
       {activeIndex === 0 && (
         <div>
           <p>
-            <Colored>Description</Colored>: {state.description}
+            <PrimaryText>Description</PrimaryText>: {state.description}
           </p>
         </div>
       )}
@@ -101,4 +86,4 @@ const CoursePreview = () => {
   );
 };
 
-export default withRouter(CoursePreview);
+export default observer(CoursePreview);
