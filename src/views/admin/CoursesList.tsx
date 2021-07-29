@@ -1,12 +1,14 @@
 import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
-
 import { useEffect, useState } from 'react';
+
 import { Routes } from '../../constants/routes';
 
+import { Breadcrumbs } from '../../components/breadcrumbs/Breadcrumbs';
 import { Separator } from '../../components/common/Separator';
 import { useStore } from '../../hooks/useStore';
 import { Spacer } from '../../components/common/Spacer';
+import { Headline } from '../../components/common/Headline';
 
 const StyledContainer = styled.div`
   width: 100%;
@@ -50,9 +52,10 @@ export const CoursesList = () => {
 
   return (
     <>
-      <h1>Codewaves courses</h1>
+      <Breadcrumbs mainSection={'Dashboard'} crumbs={['Courses']} />
+      <Headline>Codewaves courses</Headline>
       <Separator />
-      <Spacer height={16} />
+      <Spacer height={32} />
       <StyledContainer>
         {courses.map(course => (
           <StyledCard

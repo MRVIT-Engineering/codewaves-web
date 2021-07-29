@@ -16,6 +16,7 @@ import { AdminAddCourseScreen } from '../views/admin/AdminAddCourse';
 import { CoursesList } from '../views/admin/CoursesList';
 import AdminEditCourseScreen from '../views/admin/AdminCourseEdit';
 import CoursePreview from '../views/admin/CoursePreview';
+import AddLectureScreen from '../views/admin/AddLecture';
 // authorization hoc
 import { withAdmin } from '../components/hoc/withAdmin';
 import { withAuthAndNavigation } from '../components/hoc/withAuth';
@@ -45,6 +46,7 @@ export const AppRoutes = () => {
       <Route exact path={Routes.AdminGetCourses} component={withAdmin(withAdminNavigation(CoursesList))} />
       <Route exact path={`${Routes.CoursePreview}/:id`} component={withAdmin(withAdminNavigation(CoursePreview))} />
       <Route exact path={`${Routes.CourseEdit}/:id`} component={withAdmin(withAdminNavigation(AdminEditCourseScreen))} />
+      <Route exact path={`${Routes.AddLecture}/:id`} component={withAdmin(withAdminNavigation(AddLectureScreen))} />
 
       {/* Navigation for the actual codewaves app. */}
       <Route exact path={Routes.CourseLibrary} component={withAuthAndNavigation(CoursesView)} />

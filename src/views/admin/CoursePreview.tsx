@@ -10,6 +10,8 @@ import { Separator } from '../../components/common/Separator';
 import { Icon } from '../../components/icon/Icon';
 import { PrimaryText, Row, StyledTab } from '../../utils/style/styledComponents';
 import { useStore } from '../../hooks/useStore';
+import { Breadcrumbs } from '../../components/breadcrumbs/Breadcrumbs';
+import { Headline } from '../../components/common/Headline';
 
 const CoursePreview = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -19,8 +21,9 @@ const CoursePreview = () => {
 
   return (
     <>
+      <Breadcrumbs mainSection={'Dashboard'} crumbs={['Courses', state.title]} />
       <Row>
-        <h1>{state.title}</h1>
+        <Headline>{state.title}</Headline>
         <Spacer width={32} />
         <Icon
           onClick={async () => {

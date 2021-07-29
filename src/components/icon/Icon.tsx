@@ -18,7 +18,7 @@ const StyledIconContainer = styled.span<{ size?: number; color?: string; hoverCo
 interface IconProps {
   size?: number;
   icon: ReactElement;
-  onClick: () => void;
+  onClick?: () => void;
   color?: string;
   hoverColor?: string;
 }
@@ -31,7 +31,7 @@ export const Icon = (props: IconProps) => {
       color={color}
       hoverColor={hoverColor}
       onClick={() => {
-        onClick();
+        onClick && onClick();
       }}
       size={size}
     >

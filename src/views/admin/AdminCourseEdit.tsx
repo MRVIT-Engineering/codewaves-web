@@ -1,21 +1,24 @@
-import { useState } from 'react';
 import styled from 'styled-components';
-import { useLocation } from 'react-router';
+import { useState, useEffect } from 'react';
 import { observer } from 'mobx-react-lite';
 import { AiOutlinePlus } from 'react-icons/ai';
+import { withRouter } from 'react-router';
+import { useHistory } from 'react-router';
 
-import { difficultyOptions } from '../../constants/types/SelectOption';
+import { Routes } from '../../constants/routes';
 
 import { Separator } from '../../components/common/Separator';
-import { TextInput } from '../../components/control/TextInput';
-import { Textarea } from '../../components/control/Textarea';
-import { Select } from '../../components/control/Select';
 import { Spacer } from '../../components/common/Spacer';
-import { Button } from '../../components/buttons/PrimaryButton';
-import { useStore } from '../../hooks/useStore';
 import { StyledTab, Row } from '../../utils/style/styledComponents';
 import { Headline, HeadlineSmall } from '../../components/typography/Headlines';
+import { EditCourseForm } from '../../components/forms/EditCourseForm';
+import AddSectionForm from '../../components/forms/AddSectionForm';
 import { Icon } from '../../components/icon/Icon';
+import { useStore } from '../../hooks/useStore';
+import { Spinner } from '../../components/spinner/Spinner';
+import { AppModal } from '../../components/modal/AppModal';
+import { AddLectureForm } from '../../components/forms/AddLectureForm';
+import { Breadcrumbs } from '../../components/breadcrumbs/Breadcrumbs';
 
 const StyledContainer = styled.div`
   width: 500px;
@@ -41,22 +44,42 @@ const StyledCard = styled.div<{ add?: boolean }>`
   }
 `;
 
-const AdminEditCourseScreen = () => {
-  const { state }: any = useLocation();
-  const INITIAL_FORM_STATE = {
-    title: state.title,
-    description: state.description,
-    difficulty: state.difficulty,
-  };
-  const [formData, setFormData] = useState<any>(INITIAL_FORM_STATE);
-  const [activeIndex, setActiveIndex] = useState(0);
-  const { courseStore } = useStore();
+const SectionContainer = styled.div`
+  margin-bottom: 32px;
+`;
 
-  return (
+const AdminEditCourseScreen = ({ match }: any) => {
+  const [course, setCourse] = useState<any>();
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [loading, setLoading] = useState(true);
+  const [openLectureModal, setOpenLectureModal] = useState(false);
+  const { courseStore } = useStore();
+  const history = useHistory();
+
+  useEffect(() => {
+    (async () => {
+      const { data, status } = await courseStore.getCourse(match.params.id);
+      if (status === 200) setCourse(data);
+      else alert('Could not get the course');
+      setLoading(false);
+    })();
+  }, []);
+
+  const handleCloseModal = () => {
+    setOpenLectureModal(false);
+  };
+
+  return loading ? (
+    <Spinner />
+  ) : (
     <>
-      <Headline>Edit: {state.title}</Headline>
+      <AppModal title={'Add new lecture'} opened={openLectureModal} handleClose={handleCloseModal}>
+        <AddLectureForm />
+      </AppModal>
+      <Breadcrumbs mainSection={'Dashboard'} crumbs={['Courses', courseStore.course.title, 'Edit']} />
+      <Headline>{courseStore.course.title}</Headline>
       <Separator />
-      <Spacer height={16} />
+      <Spacer height={32} />
       <Row>
         <StyledTab
           active={activeIndex === 0}
@@ -72,59 +95,42 @@ const AdminEditCourseScreen = () => {
             setActiveIndex(1);
           }}
         >
-          Lectures
-        </StyledTab>{' '}
+          Sections
+        </StyledTab>
       </Row>
       <Spacer height={32} />
       <StyledContainer>
-        {activeIndex === 0 && (
-          <div>
-            <TextInput
-              placeholder="Course Title"
-              value={formData.title}
-              onChange={e => {
-                setFormData({ ...formData, title: e.target.value });
-              }}
-            />
-            <Textarea
-              placeholder="Description"
-              value={formData.description}
-              onChange={e => {
-                setFormData({ ...formData, description: e.target.value });
-              }}
-            />
-            <Select
-              options={difficultyOptions}
-              value={formData.difficulty}
-              onChange={e => {
-                setFormData({ ...formData, difficulty: e.target.value });
-              }}
-            />
-            <Spacer height={25} />
-
-            <Button
-              onClick={async () => {
-                const { status } = await courseStore.updateCourse(state._id, formData);
-                if (status === 200) alert('Updated succesfully!');
-              }}
-            >
-              SAVE
-            </Button>
-          </div>
-        )}
+        {activeIndex === 0 && <EditCourseForm />}
         {activeIndex === 1 && (
-          <Row>
-            <StyledCard>
-              <HeadlineSmall>Lecture 1.0</HeadlineSmall>
-            </StyledCard>
-            <StyledCard add>
-              <Icon onClick={() => {}} icon={<AiOutlinePlus />} size={24} />
-            </StyledCard>
-          </Row>
+          <div>
+            <AddSectionForm courseData={course} />
+            <Spacer height={32} />
+            {courseStore.course.sections.map((s: any) => (
+              <SectionContainer key={s._id}>
+                <HeadlineSmall>{s.title}</HeadlineSmall>
+                <Spacer height={16} />
+                <Row>
+                  <StyledCard
+                    add
+                    onClick={() => {
+                      history.push(`${Routes.AddLecture}/${s._id}`, { sectionTitle: s.title, courseTitle: course.title });
+                    }}
+                  >
+                    <Icon icon={<AiOutlinePlus />} size={24} />
+                  </StyledCard>
+                  {s.lectures.map((l: any, index: number) => (
+                    <StyledCard key={index}>
+                      <HeadlineSmall>{l.title}</HeadlineSmall>
+                    </StyledCard>
+                  ))}
+                </Row>
+              </SectionContainer>
+            ))}
+          </div>
         )}
       </StyledContainer>
     </>
   );
 };
 
-export default observer(AdminEditCourseScreen);
+export default withRouter(observer(AdminEditCourseScreen));

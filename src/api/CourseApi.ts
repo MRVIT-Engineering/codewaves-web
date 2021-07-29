@@ -14,8 +14,16 @@ export class CourseApi {
     return this.apiConfig.sendRequest('POST', '/course', data);
   }
 
+  addSection(data: any) {
+    return this.apiConfig.sendRequest('POST', '/course/new_section', data);
+  }
+
   updateCourse(id: string, data: any) {
     return this.apiConfig.sendRequest('PUT', `/course/${id}`, data);
+  }
+
+  getCourseById(id: string) {
+    return this.apiConfig.sendRequest('GET', `/course/${id}`, null);
   }
 
   listCourses() {

@@ -16,6 +16,7 @@ export enum Routes {
   AdminGetCourses = '/admin/dashboard/courses',
   CoursePreview = '/admin/dashboard/courses',
   CourseEdit = '/admin/dashboard/edit_course',
+  AddLecture = '/admin/dashbaord/add_lecture',
 
   // Playground routes
   Playground = '/playgrounds/:id',

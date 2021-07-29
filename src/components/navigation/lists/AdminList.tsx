@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
 
+import logoSmall from '../../../assets/images/logos/logo-small.svg';
 import { Routes } from '../../../constants/routes';
 
 const StyledContainer = styled.ul`

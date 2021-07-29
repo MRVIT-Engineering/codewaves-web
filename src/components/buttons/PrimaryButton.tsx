@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const StyledButton = styled.button<{ fullWidth?: boolean }>`
-  min-width: ${(props) => (props.fullWidth ? "100%" : " 200px")};
+  min-width: ${props => (props.fullWidth ? '100%' : ' 200px')};
   height: 60px;
   background-color: var(--primary);
   color: white;
@@ -10,9 +10,10 @@ const StyledButton = styled.button<{ fullWidth?: boolean }>`
   border-radius: var(--border-radius);
   text-transform: uppercase;
   cursor: pointer;
-  font-family: "PT Mono", sans-serif;
+  font-family: 'PT Mono', sans-serif;
   font-size: 1.6rem;
   transition: all 0.4s;
+  padding: 16px;
 
   &:hover {
     transform: translateY(-5px);

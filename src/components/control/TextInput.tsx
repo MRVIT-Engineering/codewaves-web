@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export interface TextInputProps {
   error?: boolean;
   errorText?: string;
+  noMargin?: boolean;
 }
 
 export const TextInput = styled.input<TextInputProps>`
@@ -17,7 +18,7 @@ export const TextInput = styled.input<TextInputProps>`
   font-family: 'PT Mono', sans-serif;
   font-size: 1.6rem;
   color: var(--custom-black);
-  margin-top: 25px;
+  margin-top: ${props => (props.noMargin ? '0' : '16px')};
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
