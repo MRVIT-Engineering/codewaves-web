@@ -7,22 +7,27 @@ import { useHistory } from 'react-router';
 
 import { Routes } from '../../constants/routes';
 
+import EditCourseForm from '../../components/forms/EditCourseForm';
+import AddSectionForm from '../../components/forms/AddSectionForm';
 import { Separator } from '../../components/common/Separator';
 import { Spacer } from '../../components/common/Spacer';
-import { StyledTab, Row } from '../../utils/style/styledComponents';
+import { StyledTab } from '../../utils/style/styledComponents';
 import { Headline, HeadlineSmall } from '../../components/typography/Headlines';
-import { EditCourseForm } from '../../components/forms/EditCourseForm';
-import AddSectionForm from '../../components/forms/AddSectionForm';
 import { Icon } from '../../components/icon/Icon';
 import { useStore } from '../../hooks/useStore';
 import { Spinner } from '../../components/spinner/Spinner';
-import { AppModal } from '../../components/modal/AppModal';
-import { AddLectureForm } from '../../components/forms/AddLectureForm';
 import { Breadcrumbs } from '../../components/breadcrumbs/Breadcrumbs';
 
 const StyledContainer = styled.div`
-  width: 500px;
+  width: 100%;
   overflow: auto;
+`;
+
+const Row = styled.div`
+  width: 100%;
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
 `;
 
 const StyledCard = styled.div<{ add?: boolean }>`
@@ -31,7 +36,7 @@ const StyledCard = styled.div<{ add?: boolean }>`
   display: flex;
   justify-content: ${props => (props.add ? 'center' : 'flex-start')};
   align-items: center;
-  width: 240px;
+  min-width: 200px;
   border-radius: 8px;
   background-color: var(--background-grey);
   border: ${props => (props.add ? '2px dashed var(--placeholder-grey)' : '1px solid var(--custom-grey)')};
@@ -52,7 +57,6 @@ const AdminEditCourseScreen = ({ match }: any) => {
   const [course, setCourse] = useState<any>();
   const [activeIndex, setActiveIndex] = useState(0);
   const [loading, setLoading] = useState(true);
-  const [openLectureModal, setOpenLectureModal] = useState(false);
   const { courseStore } = useStore();
   const history = useHistory();
 
@@ -65,17 +69,10 @@ const AdminEditCourseScreen = ({ match }: any) => {
     })();
   }, []);
 
-  const handleCloseModal = () => {
-    setOpenLectureModal(false);
-  };
-
   return loading ? (
     <Spinner />
   ) : (
     <>
-      <AppModal title={'Add new lecture'} opened={openLectureModal} handleClose={handleCloseModal}>
-        <AddLectureForm />
-      </AppModal>
       <Breadcrumbs mainSection={'Dashboard'} crumbs={['Courses', courseStore.course.title, 'Edit']} />
       <Headline>{courseStore.course.title}</Headline>
       <Separator />
@@ -113,7 +110,10 @@ const AdminEditCourseScreen = ({ match }: any) => {
                   <StyledCard
                     add
                     onClick={() => {
-                      history.push(`${Routes.AddLecture}/${s._id}`, { sectionTitle: s.title, courseTitle: course.title });
+                      history.push(`${Routes.AddLecture}/${s._id}`, {
+                        sectionTitle: s.title,
+                        courseTitle: course.title,
+                      });
                     }}
                   >
                     <Icon icon={<AiOutlinePlus />} size={24} />

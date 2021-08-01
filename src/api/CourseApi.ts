@@ -14,10 +14,6 @@ export class CourseApi {
     return this.apiConfig.sendRequest('POST', '/course', data);
   }
 
-  addSection(data: any) {
-    return this.apiConfig.sendRequest('POST', '/course/new_section', data);
-  }
-
   updateCourse(id: string, data: any) {
     return this.apiConfig.sendRequest('PUT', `/course/${id}`, data);
   }
@@ -32,5 +28,13 @@ export class CourseApi {
 
   deleteCourse(id: string) {
     return this.apiConfig.sendRequest('DELETE', `/course/${id}`, null);
+  }
+
+  addSection(data: any) {
+    return this.apiConfig.sendRequest('POST', '/section', data);
+  }
+
+  updateSection(id: string, data: any) {
+    return this.apiConfig.sendRequest('PUT', '/section/add_lecture', { id, data });
   }
 }

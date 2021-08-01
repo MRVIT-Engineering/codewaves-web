@@ -8,7 +8,7 @@ import { Breadcrumbs } from '../../components/breadcrumbs/Breadcrumbs';
 import { Separator } from '../../components/common/Separator';
 import { useStore } from '../../hooks/useStore';
 import { Spacer } from '../../components/common/Spacer';
-import { Headline } from '../../components/common/Headline';
+import { Headline } from '../../components/typography/Headlines';
 
 const StyledContainer = styled.div`
   width: 100%;

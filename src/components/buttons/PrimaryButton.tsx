@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const StyledButton = styled.button<{ fullWidth?: boolean }>`
+const StyledButton = styled.button<{ fullWidth?: boolean; type?: 'success' | 'danger' }>`
   min-width: ${props => (props.fullWidth ? '100%' : ' 200px')};
   height: 60px;
   background-color: var(--primary);
@@ -26,6 +26,7 @@ export interface ButtonProps {
   onClick: () => void;
   fullWidth?: boolean;
   children?: any;
+  type?: 'success' | 'danger';
 }
 
 export const Button = (props: ButtonProps) => {

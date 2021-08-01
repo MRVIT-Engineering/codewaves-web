@@ -2,13 +2,15 @@ import autoBind from 'auto-bind';
 import { makeAutoObservable, runInAction } from 'mobx';
 import { CourseApi } from '../api/CourseApi';
 
-import { SublectureType } from '../constants/types/Sublecture';
+import { STATUS_CODES } from '../constants/statusCodes/StatusCodes';
+import { Sublecture } from '../constants/types/Sublecture';
+import { Lecture } from '../models/Lecture';
 
 export class CourseStore {
   course: any = {};
   courses: any[] = [];
   courseApi: CourseApi;
-  sublectures: SublectureType[] = [];
+  sublectures: Sublecture[] = [];
 
   constructor(courseApi: CourseApi) {
     makeAutoObservable(this);
@@ -17,8 +19,17 @@ export class CourseStore {
     autoBind(this);
   }
 
-  addSublecture(data: SublectureType) {
+  addSublecture(data: Sublecture) {
     this.sublectures = [...this.sublectures, data];
+  }
+
+  async addLecture(sectionId: string, lectureData: Lecture) {
+    const { status, data } = await this.courseApi.updateSection(sectionId, {
+      ...lectureData,
+      sublectures: this.sublectures,
+    });
+    if (status === STATUS_CODES.success) return data;
+    else return false;
   }
 
   async addSection(sectionData: any) {

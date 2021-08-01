@@ -1,3 +1,4 @@
+import styled from 'styled-components';
 import { useState } from 'react';
 
 import { useStore } from '../../hooks/useStore';
@@ -12,6 +13,11 @@ const INITIAL_FORM_STATE = {
   lectures: [],
 };
 
+const StyledContainer = styled.div`
+  width: 500px;
+  display: flex;
+`;
+
 const AddSectionForm = ({ courseData }: any) => {
   const [formData, setFormData] = useState<any>(INITIAL_FORM_STATE);
   const { courseStore } = useStore();
@@ -21,27 +27,29 @@ const AddSectionForm = ({ courseData }: any) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <Row>
-        <TextInput
-          noMargin
-          placeholder="Section title"
-          value={formData.title}
-          onChange={e => {
-            setFormData({ ...formData, title: e.target.value });
-          }}
-        />
-        <Spacer width={16} />
-        <Button
-          onClick={async () => {
-            const { status } = await courseStore.addSection({ id: courseData._id, data: formData });
-            console.log('Status for adding a section', status);
-          }}
-        >
-          add section
-        </Button>
-      </Row>
-    </form>
+    <StyledContainer>
+      <form onSubmit={handleSubmit}>
+        <Row>
+          <TextInput
+            noMargin
+            placeholder={'Section title'}
+            value={formData.title}
+            onChange={e => {
+              setFormData({ ...formData, title: e.target.value });
+            }}
+          />
+          <Spacer width={16} />
+          <Button
+            onClick={async () => {
+              const { status } = await courseStore.addSection({ id: courseData._id, data: formData });
+              console.log('Status for adding a section', status);
+            }}
+          >
+            add section
+          </Button>
+        </Row>
+      </form>
+    </StyledContainer>
   );
 };
 

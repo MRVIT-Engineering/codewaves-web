@@ -1,6 +1,12 @@
-type CodeSublecture = {
+interface CodeSublecture {
   language: string;
   code: string;
-};
+  type?: number;
+}
 
-export type SublectureType = string | CodeSublecture;
+interface TextSublecture {
+  text: string;
+  type?: number;
+}
+
+export type Sublecture = CodeSublecture | TextSublecture;
