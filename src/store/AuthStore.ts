@@ -3,11 +3,8 @@ import API from '../config/axios';
 
 export class AuthStore {
   isLogInLoading: boolean = false;
-
   isRegistrationLoading: boolean = false;
-
   loginError: boolean = false;
-
   loginErrorMessage: string = '';
 
   constructor() {

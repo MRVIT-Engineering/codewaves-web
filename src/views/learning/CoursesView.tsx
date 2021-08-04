@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { Headline } from '../../components/common/Headline';
+import { Headline } from '../../components/typography/Headlines';
 import { Separator } from '../../components/common/Separator';
 
 const StyledContainer = styled.div`

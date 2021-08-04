@@ -4,11 +4,12 @@ import { observer } from 'mobx-react-lite';
 import { SublectureTypes } from '../../constants/enums/SublectureType';
 
 import { Textarea } from '../control/Textarea';
-import { TextInput } from '../control/TextInput';
+import { Select } from '../control/Select';
 import { Button } from '../buttons/PrimaryButton';
 import { Spacer } from '../common/Spacer';
 import { HeadlineSmall } from '../typography/Headlines';
 import { useStore } from '../../hooks/useStore';
+import { ProgrammingLanguages } from '../../constants/options/LanguagesOptions';
 
 const AddSublectureForm = () => {
   const [textSublecture, setTextSublecture] = useState({ text: '' });
@@ -39,8 +40,8 @@ const AddSublectureForm = () => {
       </Button>
       <Spacer height={60} />
       <HeadlineSmall>Code Sublecture </HeadlineSmall>
-      <TextInput
-        placeholder={'Programming language'}
+      <Select
+        options={ProgrammingLanguages}
         value={codeSublecture.language}
         onChange={e => {
           setCodeSublecture({ ...codeSublecture, language: e.target.value });

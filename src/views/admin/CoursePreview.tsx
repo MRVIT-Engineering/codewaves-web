@@ -11,7 +11,7 @@ import { Icon } from '../../components/icon/Icon';
 import { PrimaryText, Row, StyledTab } from '../../utils/style/styledComponents';
 import { useStore } from '../../hooks/useStore';
 import { Breadcrumbs } from '../../components/breadcrumbs/Breadcrumbs';
-import { Headline } from '../../components/common/Headline';
+import { Headline } from '../../components/typography/Headlines';
 
 const CoursePreview = () => {
   const [activeIndex, setActiveIndex] = useState(0);

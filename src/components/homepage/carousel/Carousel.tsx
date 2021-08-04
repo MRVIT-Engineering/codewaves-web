@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import CarouselLine from './CarouselLine';
-import { Headline } from '../../common/Headline';
+import { Headline } from '../../typography/Headlines';
 
 const StyledContainer = styled.div`
   display: flex;

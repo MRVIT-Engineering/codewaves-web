@@ -1,10 +1,12 @@
 import styled from 'styled-components';
 
-const StyledButton = styled.button<{ fullWidth?: boolean; type?: 'success' | 'danger' }>`
+import { Spinner } from '../spinner/Spinner';
+
+const StyledButton = styled.button<{ fullWidth?: boolean; bgColor?: string }>`
   min-width: ${props => (props.fullWidth ? '100%' : ' 200px')};
   height: 60px;
-  background-color: var(--primary);
-  color: white;
+  background-color: ${props => `var(--${props.bgColor})`};
+  color: #fff;
   outline: none;
   border: none;
   border-radius: var(--border-radius);
@@ -14,11 +16,14 @@ const StyledButton = styled.button<{ fullWidth?: boolean; type?: 'success' | 'da
   font-size: 1.6rem;
   transition: all 0.4s;
   padding: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   &:hover {
     transform: translateY(-5px);
     box-shadow: var(--light-shadow);
-    background-color: var(--primary-dark);
+    background-color: ${props => `var(--${props.bgColor}-dark)`};
   }
 `;
 
@@ -27,12 +32,14 @@ export interface ButtonProps {
   fullWidth?: boolean;
   children?: any;
   type?: 'success' | 'danger';
+  loading?: boolean;
+  color?: string;
 }
 
-export const Button = (props: ButtonProps) => {
+export const Button = ({ fullWidth, onClick, loading, children, color }: ButtonProps) => {
   return (
-    <StyledButton fullWidth={props.fullWidth} onClick={props.onClick}>
-      {props.children}
+    <StyledButton bgColor={color || 'primary'} disabled={loading} fullWidth={fullWidth} onClick={onClick}>
+      {loading ? <Spinner size={8} color={'#ffffff'} /> : children}
     </StyledButton>
   );
 };

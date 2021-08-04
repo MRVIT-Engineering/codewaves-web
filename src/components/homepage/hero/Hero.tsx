@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Typewriter from 'react-simple-typewriter';
 import { Button } from '../../buttons/PrimaryButton';
-import { Headline } from '../../common/Headline';
+import { Headline } from '../../typography/Headlines';
 import { ScreenSize } from '../../../constants/media-queries/mediaQueris';
 import { Spacer } from '../../common/Spacer';
 import Wrapper from '../../containers/Wrapper';

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { useState } from 'react';
-import { Headline } from '../../common/Headline';
+import { Headline } from '../../typography/Headlines';
 import { Separator } from '../../common/Separator';
 import { TextInput } from '../../control/TextInput';
 import { Textarea } from '../../control/Textarea';

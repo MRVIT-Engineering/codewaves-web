@@ -5,7 +5,7 @@ import { useHistory, Link } from 'react-router-dom';
 
 import { Routes } from '../../constants/routes';
 
-import { Headline } from '../../components/common/Headline';
+import { Headline } from '../../components/typography/Headlines';
 import { Separator } from '../../components/common/Separator';
 import { Spacer } from '../../components/common/Spacer';
 import { Button } from '../../components/buttons/PrimaryButton';

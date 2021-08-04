@@ -3,7 +3,12 @@ import styled from 'styled-components';
 export const Row = styled.div`
   display: flex;
   align-items: center;
-  overflow: visible;
+`;
+
+export const RowWithWrap = styled.div`
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
 `;
 
 export const PrimaryText = styled.span`
@@ -26,6 +31,24 @@ export const StyledTab = styled.div<{ active?: boolean }>`
   margin-right: 16px;
 
   &:hover {
+    cursor: pointer;
+  }
+`;
+
+export const StyledCard = styled.div`
+  width: 240px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  margin: 0 16px 16px 0;
+  padding: 16px;
+  transition: border-color 0.4s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--background-grey);
+
+  &:hover {
+    border-color: var(--primary);
     cursor: pointer;
   }
 `;

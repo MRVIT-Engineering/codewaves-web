@@ -8,7 +8,7 @@ import { ScreenSize } from '../../constants/media-queries/mediaQueris';
 
 import { useStore } from '../../hooks/useStore';
 import Wrapper from '../containers/Wrapper';
-import { Headline } from '../common/Headline';
+import { Headline } from '../typography/Headlines';
 import { Separator } from '../common/Separator';
 import { TextInput } from '../control/TextInput';
 import { Checkbox } from '../control/Checkbox';

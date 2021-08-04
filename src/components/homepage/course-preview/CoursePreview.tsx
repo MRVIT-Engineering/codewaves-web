@@ -5,7 +5,7 @@ import { editorBgColors } from '../../../constants/colors/editorBgColors';
 import { ButtonReplicaComp } from './ButtonReplica';
 import { CodeEditorReplica } from './CodeEditorReplica';
 import { QuestionReplicaComp } from './QuestionReplica';
-import { Headline } from '../../common/Headline';
+import { Headline } from '../../typography/Headlines';
 import { Separator } from '../../common/Separator';
 import { GreyParagraph } from '../../common/Paragraph';
 import { Button } from '../../buttons/PrimaryButton';

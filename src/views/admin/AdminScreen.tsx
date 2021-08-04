@@ -27,9 +27,7 @@ export const AdminScreen = () => {
       <FormContainer>
         <Button
           onClick={() => {
-            loginWithRedirect({
-              // redirectUri: "http://localhost:3000/admin/dashboard",
-            });
+            loginWithRedirect();
           }}
         >
           admin login

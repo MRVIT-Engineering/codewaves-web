@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import ScrollAnimation from 'react-animate-on-scroll';
-import { Headline } from '../../common/Headline';
+import { Headline } from '../../typography/Headlines';
 import { Separator } from '../../common/Separator';
 import { GreyParagraph } from '../../common/Paragraph';
 import { CodeEditorReplica } from '../course-preview/CodeEditorReplica';
