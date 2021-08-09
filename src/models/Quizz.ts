@@ -1,18 +1,7 @@
-export enum QuizzOptionType {
-  Text = 1,
-  Code = 2,
-}
-
-export type QuizzOption = {
-  text?: string;
-  code?: string;
-  language?: string;
-  correct: boolean;
-  type: QuizzOptionType;
-};
-
+import { QuizzOption } from '../constants/types/QuizzOption';
 export interface Quizz {
+  _id?: string;
   title: string;
-  questions: string;
+  question: string;
   options: QuizzOption[];
 }

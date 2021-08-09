@@ -13,12 +13,14 @@ export class QuizzStore {
   }
 
   async addQuizz(quizzData: any) {
-    const response = await this.api.addQuizz(quizzData);
-    return response;
+    return this.api.addQuizz(quizzData);
   }
 
   async getQuizzes() {
-    const response = await this.api.getQuizzes();
-    return response;
+    return this.api.getQuizzes();
+  }
+
+  async getQuizzById(id: string) {
+    return this.api.getQuizzById(id);
   }
 }

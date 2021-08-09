@@ -2,22 +2,23 @@ import CodeMirror from '@uiw/react-codemirror';
 import 'codemirror/keymap/sublime';
 import 'codemirror/theme/monokai.css';
 
-interface StaticCodeEditorProps {
+export interface StaticCodeEditorProps {
   code: string;
+  mode?: string;
 }
 
-export default function StaticCodeEditor(props: StaticCodeEditorProps) {
-  const { code } = props;
+export const StaticCodeEditor = ({ code, mode }: StaticCodeEditorProps) => {
   return (
     <CodeMirror
       value={code}
       options={{
+        lineNumbers: false,
         theme: 'monokai',
         tabSize: 2,
         keyMap: 'sublime',
-        mode: 'jsx',
+        mode: mode || 'jsx',
         readOnly: true,
       }}
     />
   );
-}
+};

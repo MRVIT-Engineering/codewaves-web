@@ -40,9 +40,7 @@ interface SelectProps {
 export const Select = ({ options, value, onChange }: SelectProps) => {
   return (
     <StyledSelect value={value} onChange={onChange}>
-      <option selected value={''}>
-        Choose an option
-      </option>
+      <option value={''}>Choose an option</option>
       {options.map(option => (
         <option key={option.value} value={option.value}>
           {option.label}

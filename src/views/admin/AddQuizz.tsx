@@ -4,7 +4,8 @@ import { useState } from 'react';
 import { STATUS_CODES } from '../../constants/statusCodes/StatusCodes';
 import { ProgrammingLanguages } from '../../constants/options/LanguagesOptions';
 import { CodeAnswer } from '../../constants/types/CodeAnswer';
-import { QuizzOption, QuizzOptionType } from '../../models/Quizz';
+import { QuizzOption } from '../../constants/types/QuizzOption';
+import { QuizzOptionType } from '../../constants/enums/QuizzOptionType';
 
 import { Headline, HeadlineSmall } from '../../components/typography/Headlines';
 import { Breadcrumbs } from '../../components/breadcrumbs/Breadcrumbs';
