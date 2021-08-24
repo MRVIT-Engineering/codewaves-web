@@ -13,7 +13,6 @@ const StyledSelect = styled.select`
   font-family: 'PT Mono', sans-serif;
   font-size: 1.6rem;
   color: var(--custom-black);
-  margin-top: 25px;
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
@@ -35,12 +34,13 @@ interface SelectProps {
   options: SelectOption[];
   value: string;
   onChange: (e: any) => void;
+  placeholder?: string;
 }
 
-export const Select = ({ options, value, onChange }: SelectProps) => {
+export const Select = ({ options, value, onChange, placeholder }: SelectProps) => {
   return (
     <StyledSelect value={value} onChange={onChange}>
-      <option value={''}>Choose an option</option>
+      <option value={''}>{placeholder || 'Choose an option'}</option>
       {options.map(option => (
         <option key={option.value} value={option.value}>
           {option.label}

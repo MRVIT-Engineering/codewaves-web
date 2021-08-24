@@ -3,14 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "react-scripts start && npm run lint",
+    "start": "react-scripts start && yarn run lint",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "test:unit": "react-scripts test --env=jsdom --testPathPattern=unit",
     "test:e2e": "react-scripts test --testPathPattern=e2e --testPathIgnorePatterns=e2e/constants",
     "lint": "eslint ./src",
     "lint-fix": "eslint ./src --fix",
-    "init-husky": "npx husky-init && npm install",
+    "init-husky": "npx husky-init && yarn install",
     "prepare": "husky install"
   },
   "prettier": {

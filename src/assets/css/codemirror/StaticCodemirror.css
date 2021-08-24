@@ -1,5 +1,10 @@
-.CodeMirror {
+#quizzAnswerEditorContainer .CodeMirror {
  text-align: center;
  vertical-align: center;
  padding-top: 16px;
+}
+
+.CodeMirror {
+  flex: 1;
+  height: 100%;
 }

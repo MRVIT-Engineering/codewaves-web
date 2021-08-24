@@ -82,7 +82,7 @@ const QuizzPreviewScreen = ({ match }: any) => {
 
   return (
     <StyledContainer>
-      <Breadcrumbs mainSection={'Dashboard'} crumbs={['Quizzes', 'Quizz Preview']} />
+      <Breadcrumbs mainSection={'Dashboard'} crumbs={['Quizzes', 'Quizz Preview', quizz.title]} />
       <Headline>{quizz!.title}</Headline>
       <Separator />
       <p>

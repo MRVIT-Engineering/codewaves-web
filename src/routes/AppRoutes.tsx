@@ -12,6 +12,9 @@ import Homepage from '../views/homepage/Homepage';
 import RegisterView from '../views/auth/RegisterView';
 import QuizzPreview from '../views/admin/QuizzPreview';
 import AddLectureScreen from '../views/admin/AddLecture';
+import AdminAlgosScreen from '../views/admin/AlgosScreen';
+import AlgoPreviewScreen from '../views/admin/AlgoPreviewScreen';
+import AddAlgoScreen from '../views/admin/AddAlgoScreen';
 import { useStore } from '../hooks/useStore';
 import { AdminScreen } from '../views/admin/AdminScreen';
 import { CoursesList } from '../views/admin/CoursesList';
@@ -57,6 +60,13 @@ export const AppRoutes = () => {
       <Route exact path={Routes.AdminQuizzes} component={withAdmin(withAdminNavigation(AdminQuizzesScreen))} />
       <Route exact path={Routes.AddQuizz} component={withAdmin(withAdminNavigation(AddQuizzScreen))} />
       <Route exact path={`${Routes.QuizzPreview}/:id`} component={withAdmin(withAdminNavigation(QuizzPreview))} />
+      <Route exact path={Routes.AdminAlgos} component={withAdmin(withAdminNavigation(AdminAlgosScreen))} />
+      <Route exact path={Routes.AdminAddAlgo} component={withAdmin(withAdminNavigation(AddAlgoScreen))} />
+      <Route
+        exact
+        path={`${Routes.AdminAlgoPreview}/:id`}
+        component={withAdmin(withAdminNavigation(AlgoPreviewScreen))}
+      />
 
       {/* Navigation for the actual codewaves app. */}
       <Route exact path={Routes.CourseLibrary} component={withAuthAndNavigation(CoursesView)} />

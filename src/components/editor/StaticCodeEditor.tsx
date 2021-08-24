@@ -5,14 +5,15 @@ import 'codemirror/theme/monokai.css';
 export interface StaticCodeEditorProps {
   code: string;
   mode?: string;
+  lineNumbers?: boolean;
 }
 
-export const StaticCodeEditor = ({ code, mode }: StaticCodeEditorProps) => {
+export const StaticCodeEditor = ({ code, mode, lineNumbers }: StaticCodeEditorProps) => {
   return (
     <CodeMirror
       value={code}
       options={{
-        lineNumbers: false,
+        lineNumbers: lineNumbers,
         theme: 'monokai',
         tabSize: 2,
         keyMap: 'sublime',

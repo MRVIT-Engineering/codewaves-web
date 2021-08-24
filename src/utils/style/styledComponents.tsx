@@ -46,6 +46,7 @@ export const StyledCard = styled.div`
   justify-content: space-between;
   align-items: center;
   background-color: var(--background-grey);
+  box-shadow: var(--lighter-shadow);
 
   &:hover {
     border-color: var(--primary);
