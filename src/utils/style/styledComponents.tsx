@@ -9,6 +9,10 @@ export const RowWithWrap = styled.div`
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+  flex-flow: row;
+  overflow: visible;
+  height: auto;
+  padding: 16;
 `;
 
 export const PrimaryText = styled.span`

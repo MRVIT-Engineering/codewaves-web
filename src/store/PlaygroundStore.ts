@@ -5,9 +5,7 @@ import { Tab } from '../constants/types/Tab';
 
 export class PlaygroundStore {
   activeTabIndex: number = 0;
-
   code: string = '';
-
   tabs: Tab[] = [];
 
   constructor() {
@@ -34,18 +32,16 @@ export class PlaygroundStore {
     return '';
   }
 
+  getActiveTabCode() {
+    return this.tabs[this.activeTabIndex].code;
+  }
+
   _getTabs(playgroundId?: string) {
     const tabs: Tab[] = [
       {
-        name: 'index.html',
-        code: `<h1>This is html from the fucking store</h1>`,
-        language: 'html',
-      },
-      { code: `* {color: red;}`, language: 'css', name: 'main.css' },
-      {
-        code: "console.log('Testing web coimpiler from store')",
-        language: 'js',
-        name: 'main.js',
+        name: 'main.cpp',
+        code: ``,
+        language: 'cpp',
       },
     ];
     this.tabs = tabs;

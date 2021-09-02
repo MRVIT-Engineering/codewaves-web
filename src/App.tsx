@@ -1,4 +1,3 @@
-import React from 'react';
 import { observer } from 'mobx-react-lite';
 import ReactNotification from 'react-notifications-component';
 import 'react-notifications-component/dist/theme.css';

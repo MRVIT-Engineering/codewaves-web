@@ -22,7 +22,7 @@ export default class RootStore {
     this.appStateStore = new AppStateStore();
     this.authStore = new AuthStore();
     this.playgroundStore = new PlaygroundStore();
-    this.compilerStore = new CompilerStore(this.playgroundStore);
+    this.compilerStore = new CompilerStore(this.playgroundStore, this.appStateStore.compilerApi);
     this.courseStore = new CourseStore(this.appStateStore.courseApi);
     this.quizzStore = new QuizzStore(this.appStateStore.quizzApi);
     this.algoStore = new AlgoStore(this.appStateStore.algoApi);

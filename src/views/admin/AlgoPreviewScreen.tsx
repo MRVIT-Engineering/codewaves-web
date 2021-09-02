@@ -30,7 +30,7 @@ const StyledContainer = styled.div`
 `;
 
 const AlgoPreviewSreen = ({ match }: any) => {
-  const [algo, setAlgo] = useState<any>({});
+  const [algo, setAlgo] = useState<any>({ algorithm: [] });
   const [algoLangCode, setAlgoLangCode] = useState('');
   const {
     algoStore: { getAlgo },

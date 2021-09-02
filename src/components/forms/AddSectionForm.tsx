@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 import { useState } from 'react';
+import { withRouter } from 'react-router-dom';
 
 import { useStore } from '../../hooks/useStore';
 import { TextInput } from '../control/TextInput';
 import { Spacer } from '../common/Spacer';
 import { Button } from '../buttons/PrimaryButton';
-import { Row } from '../../utils/style/styledComponents';
-import { withRouter } from 'react-router-dom';
+import { HeadlineSmall } from '../typography/Headlines';
 
 const INITIAL_FORM_STATE = {
   title: '',
@@ -14,8 +14,15 @@ const INITIAL_FORM_STATE = {
 };
 
 const StyledContainer = styled.div`
-  width: 500px;
+  width: 100vw;
   display: flex;
+`;
+
+const Row = styled.div`
+  display: flex;
+  overflow: visible;
+  height: 100px;
+  padding-top: 8px;
 `;
 
 const AddSectionForm = ({ courseData }: any) => {
@@ -29,6 +36,7 @@ const AddSectionForm = ({ courseData }: any) => {
   return (
     <StyledContainer>
       <form onSubmit={handleSubmit}>
+        <HeadlineSmall>Add a new section</HeadlineSmall>
         <Row>
           <TextInput
             noMargin

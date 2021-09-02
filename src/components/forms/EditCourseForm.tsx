@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
-import styled from 'styled-components';
 import { useLocation, withRouter } from 'react-router';
+import styled from 'styled-components';
 
 import { difficultyOptions } from '../../constants/types/SelectOption';
+import { STATUS_CODES } from '../../constants/statusCodes/StatusCodes';
 
 import { useStore } from '../../hooks/useStore';
 import { TextInput } from '../control/TextInput';
@@ -10,7 +11,6 @@ import { Textarea } from '../control/Textarea';
 import { Spacer } from '../common/Spacer';
 import { Button } from '../buttons/PrimaryButton';
 import { Select } from '../control/Select';
-import { STATUS_CODES } from '../../constants/statusCodes/StatusCodes';
 
 const StyledContainer = styled.div`
   width: 600px;
@@ -39,6 +39,7 @@ const EditCourseForm = ({ match }: any) => {
       const { status, data } = await getCourse(match.params.id);
       if (status === STATUS_CODES.success) {
         setFormData({ title: data.title, description: data.description, difficulty: data.difficulty });
+        console.log(data.difficulty);
       } else {
         alert('Could not get the course information!');
       }
@@ -62,6 +63,7 @@ const EditCourseForm = ({ match }: any) => {
             setFormData({ ...formData, description: e.target.value });
           }}
         />
+        <Spacer height={16} />
         <Select
           options={difficultyOptions}
           value={formData.difficulty}
@@ -69,8 +71,7 @@ const EditCourseForm = ({ match }: any) => {
             setFormData({ ...formData, difficulty: e.target.value });
           }}
         />
-        <Spacer height={25} />
-
+        <Spacer height={16} />
         <Button
           onClick={async () => {
             const { status } = await updateCourse(state._id, formData);

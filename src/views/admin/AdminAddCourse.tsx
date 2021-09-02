@@ -46,7 +46,7 @@ export const AdminAddCourseScreen = () => {
 
   return (
     <>
-      <h1>New course</h1>
+      <h1>New Course</h1>
       <Separator />
       <StyledContainer>
         <form
@@ -68,6 +68,7 @@ export const AdminAddCourseScreen = () => {
               setFormData({ ...formData, description: e.target.value });
             }}
           />
+          <Spacer height={16} />
           <Select
             options={difficultyOptions}
             value={formData.difficulty}
@@ -75,14 +76,13 @@ export const AdminAddCourseScreen = () => {
               setFormData({ ...formData, difficulty: e.target.value });
             }}
           />
+
           <Spacer height={25} />
           <input
             type="file"
             name="courseImage"
             onChange={e => {
-              console.log(e.target.files);
-              // @ts-ignore: Object is possibly 'null'.
-              setFormData({ ...formData, courseImage: e.target.files[0] });
+              setFormData({ ...formData, courseImage: e.target.files![0] });
             }}
           />
           <Spacer height={25} />

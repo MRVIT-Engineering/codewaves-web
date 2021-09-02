@@ -1,11 +1,11 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { BrowserRouter as Router } from "react-router-dom";
-import { Auth0Provider } from "@auth0/auth0-react";
-import reportWebVitals from "./reportWebVitals";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { Auth0Provider } from '@auth0/auth0-react';
+import reportWebVitals from './reportWebVitals';
 
-import App from "./App";
-import "./index.css";
+import App from './App';
+import './index.css';
 
 ReactDOM.render(
   <Router>
@@ -19,7 +19,7 @@ ReactDOM.render(
       </Auth0Provider>
     </React.StrictMode>
   </Router>,
-  document.getElementById("root")
+  document.getElementById('root')
 );
 
 reportWebVitals();

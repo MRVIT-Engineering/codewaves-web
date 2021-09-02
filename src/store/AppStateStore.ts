@@ -5,6 +5,7 @@ import { UserApi } from '../api/UserApi';
 import { CourseApi } from '../api/CourseApi';
 import { QuizzApi } from '../api/QuizzApi';
 import { AlgoApi } from '../api/AlgoApi';
+import { CompilerApi } from '../api/CompilerApi';
 export class AppStateStore {
   isDrawerOpened: boolean;
   apiConfig: any;
@@ -12,6 +13,7 @@ export class AppStateStore {
   courseApi: CourseApi;
   quizzApi: QuizzApi;
   algoApi: AlgoApi;
+  compilerApi: CompilerApi;
 
   constructor(codewavesApi: string = process.env.REACT_APP_CODEWAVES_API || 'http://localhost:8081') {
     this.isDrawerOpened = false;
@@ -20,6 +22,7 @@ export class AppStateStore {
     this.courseApi = new CourseApi(this.apiConfig);
     this.quizzApi = new QuizzApi(this.apiConfig);
     this.algoApi = new AlgoApi(this.apiConfig);
+    this.compilerApi = new CompilerApi(this.apiConfig);
     makeAutoObservable(this);
   }
 

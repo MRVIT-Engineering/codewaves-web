@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Route, Switch } from 'react-router-dom';
 
 import { Routes } from '../constants/routes';
@@ -27,6 +25,7 @@ import { AddQuizzScreen } from '../views/admin/AddQuizz';
 import { withAdmin } from '../components/hoc/withAdmin';
 import { withAuthAndNavigation } from '../components/hoc/withAuth';
 import { withAdminNavigation } from '../components/hoc/withAdminNavigation';
+import CompilerPlaygroundScreen from '../views/playground/CompilerPlaygroundScreen';
 
 export const AppRoutes = () => {
   const {
@@ -71,9 +70,8 @@ export const AppRoutes = () => {
       {/* Navigation for the actual codewaves app. */}
       <Route exact path={Routes.CourseLibrary} component={withAuthAndNavigation(CoursesView)} />
 
-      <Route exact path={Routes.Playground}>
-        <PlaygroundScreen />
-      </Route>
+      <Route exact path={Routes.Playground} component={PlaygroundScreen} />
+      <Route exact path={Routes.CompilerPlayground} component={CompilerPlaygroundScreen} />
     </Switch>
   );
 };

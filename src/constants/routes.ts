@@ -26,4 +26,5 @@ export const Routes = {
 
   // Playground routes
   Playground: `/playgrounds/:id`,
+  CompilerPlayground: '/comp_playground',
 };

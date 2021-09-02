@@ -6,8 +6,9 @@ import { BiBookBookmark, BiBookContent, BiCodeCurly, BiListPlus, BiCodeAlt, BiLo
 import { MdPlaylistAdd } from 'react-icons/md';
 import { useAuth0 } from '@auth0/auth0-react';
 
-import logoSmall from '../../../assets/images/logos/logo-big.png';
+import { Colors } from '../../../constants/style/Colors';
 import { Routes } from '../../../constants/routes';
+import logoSmall from '../../../assets/images/logos/logo-big.png';
 
 const StyledContainer = styled.ul`
   width: 100%;
@@ -48,6 +49,10 @@ const ListItem = styled.li<{ active: boolean }>`
   }
 `;
 
+const StyledParagraph = styled.p`
+  color: ${Colors.danger};
+`;
+
 const links = [
   { name: 'Home', to: Routes.AdminDashboard, icon: <AiOutlineHome /> },
   { name: 'Courses', to: Routes.AdminCourses, icon: <BiBookBookmark /> },
@@ -82,9 +87,9 @@ const AdminNavList = (props: any) => {
         }}
         active={false}
       >
-        <p>
-          <BiLogOut /> Logout
-        </p>
+        <StyledParagraph>
+          <BiLogOut color={Colors.danger} /> Logout
+        </StyledParagraph>
       </ListItem>
     </StyledContainer>
   );

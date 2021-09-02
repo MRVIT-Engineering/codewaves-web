@@ -13,11 +13,11 @@ export const Headline = styled.h1`
   }
 `;
 
-export const HeadlineSmall = styled.h1`
+export const HeadlineSmall = styled.h1<{ noMargin?: boolean }>`
   margin: 0;
   padding: 0;
   font-size: 1.8rem;
-  margin-bottom: 16px;
+  margin-bottom: ${props => (props.noMargin ? '0' : '16px')};
 
   ${ScreenSize.small} {
     font-size: 1.6rem;
