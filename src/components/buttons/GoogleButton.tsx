@@ -1,8 +1,8 @@
-import styled from "styled-components";
-import { FaGoogle } from "react-icons/fa";
+import styled from 'styled-components';
+import { FaGoogle } from 'react-icons/fa';
 
 const StyledAnchor = styled.a<{ fullWidth?: boolean }>`
-  min-width: ${(props) => (props.fullWidth ? "100%" : " 200px")};
+  min-width: ${props => (props.fullWidth ? '100%' : ' 200px')};
 `;
 
 const StyledButton = styled.button`
@@ -13,7 +13,7 @@ const StyledButton = styled.button`
   border-radius: var(--border-radius);
   border: none;
   cursor: pointer;
-  font-family: "PT Mono";
+  font-family: 'PT Mono';
   font-size: 1.6rem;
   display: flex;
   justify-content: center;
@@ -41,13 +41,10 @@ interface GoogleButtonProps {
 
 export const GoogleButton = (props: GoogleButtonProps) => {
   return (
-    <StyledAnchor
-      fullWidth={props.fullWidth}
-      href={"http://localhost:8081/auth/login_google"}
-    >
+    <StyledAnchor fullWidth={props.fullWidth} href={'http://localhost:8081/auth/login_google'}>
       <StyledButton>
         <StyledSpan>
-          <FaGoogle />{" "}
+          <FaGoogle />{' '}
         </StyledSpan>
         {props.children}
       </StyledButton>

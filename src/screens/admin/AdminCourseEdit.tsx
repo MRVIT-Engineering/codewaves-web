@@ -13,7 +13,7 @@ import { Separator } from '../../components/common/Separator';
 import { Spacer } from '../../components/common/Spacer';
 import { StyledTab } from '../../utils/style/styledComponents';
 import { Headline, HeadlineSmall } from '../../components/typography/Headlines';
-import { Icon } from '../../components/icon/Icon';
+import Icon from '../../components/icon/Icon';
 import { useStore } from '../../hooks/useStore';
 import { Spinner } from '../../components/spinner/Spinner';
 import { Breadcrumbs } from '../../components/breadcrumbs/Breadcrumbs';

@@ -3,7 +3,7 @@ import { BiDuplicate } from 'react-icons/bi';
 import { MdOpenInBrowser } from 'react-icons/md';
 
 import Iframe from './Iframe';
-import { Icon } from '../icon/Icon';
+import Icon from '../icon/Icon';
 import { PrimaryText, GreyText } from '../../utils/style/styledComponents';
 
 const StyledContainer = styled.div`

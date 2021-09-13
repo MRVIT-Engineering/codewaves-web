@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import styled from 'styled-components';
 import { observer } from 'mobx-react-lite';
 
@@ -14,8 +15,10 @@ const StyledContainer = styled.div`
 
 const TerminalContent = styled.div`
   flex: 1;
+  max-height: calc(100vh - 50px);
   width: 100%;
   padding: 16px 0 0 16px;
+  overflow: auto;
 `;
 
 const TabsContainer = styled.div`
@@ -84,6 +87,10 @@ const Terminal = ({ username, compiler }: TerminalProps) => {
   const {
     compilerStore: { outputs },
   } = useStore();
+
+  useEffect(() => {
+    console.log('New output added', [...outputs]);
+  }, [outputs]);
 
   return (
     <StyledContainer>

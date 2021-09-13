@@ -25,6 +25,9 @@ export const Routes = {
   QuizzPreview: `${DASHBOARD_ROUTE}/quizz_preview`,
 
   // Playground routes
+  Playgrounds: '/playgrounds',
   Playground: `/playgrounds/:id`,
   CompilerPlayground: '/comp_playground',
+
+  TestScreen: '/test',
 };

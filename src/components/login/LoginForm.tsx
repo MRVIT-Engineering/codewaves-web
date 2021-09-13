@@ -28,7 +28,7 @@ export const StyledContainer = styled.div`
 `;
 
 export const StyledFormContainer = styled.div`
-  width: 500px;
+  width: 450px;
   display: flex;
   justify-content: center;
   align-items: center;

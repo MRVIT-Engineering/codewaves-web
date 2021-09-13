@@ -17,7 +17,7 @@ import { PrimaryText } from '../../utils/style/styledComponents';
 import { Separator } from '../../components/common/Separator';
 import { Breadcrumbs } from '../../components/breadcrumbs/Breadcrumbs';
 import { useStore } from '../../hooks/useStore';
-import { Icon } from '../../components/icon/Icon';
+import Icon from '../../components/icon/Icon';
 import { Spacer } from '../../components/common/Spacer';
 
 const StyledContainer = styled.div`

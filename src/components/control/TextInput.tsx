@@ -4,6 +4,7 @@ export interface TextInputProps {
   error?: boolean;
   errorText?: string;
   noMargin?: boolean;
+  elevated?: boolean;
 }
 
 export const TextInput = styled.input<TextInputProps>`
@@ -22,6 +23,7 @@ export const TextInput = styled.input<TextInputProps>`
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
+  box-shadow: ${props => (props.elevated ? 'var(--lighter-shadow)' : 'none')};
 
   &:focus {
     border-color: var(--primary);

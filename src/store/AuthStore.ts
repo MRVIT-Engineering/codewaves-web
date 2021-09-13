@@ -14,7 +14,7 @@ export class AuthStore {
   async login(email: string, password: string) {
     this.isLogInLoading = true;
     const response = await API.post('/auth/login', { email, password });
-
+    
     if (response.data.wrongAuthCredentials) {
       runInAction(() => {
         this.loginError = true;

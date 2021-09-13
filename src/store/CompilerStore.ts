@@ -16,6 +16,12 @@ export class CompilerStore {
   outputs: SubmissionOutput[] = [];
   webOutput: string = '';
 
+  /**
+   * This will determine if a submission is still compiling or
+   * the client has already received submissionStatusChanged event.
+   */
+  compilerLoading: boolean = false;
+
   socket: any;
   api: CompilerApi;
 
@@ -33,6 +39,9 @@ export class CompilerStore {
     this.socket.on('connection', () => {
       this.socket.on('submissionStatusChanged', async ({ origin, submission }: any) => {
         if (origin === 'sec' && !submission.executing && submission.id === this.currentSumbmissionId) {
+          runInAction(() => {
+            this.compilerLoading = false;
+          });
           const submissionData = await this.getSubmissionInfo(submission.id);
           await this.getSubmissionOutput(submissionData);
         }
@@ -54,8 +63,8 @@ export class CompilerStore {
       }
     } else {
       const response = await this.api.getSubmissionStream(submission.id, 'cmpinfo');
-      console.log(submission);
       runInAction(() => {
+        console.log('Adding errror to array');
         this.outputs = [...this.outputs, { output: response.data, type: 'error' }];
       });
     }
@@ -75,6 +84,7 @@ export class CompilerStore {
   }
 
   async runCodeWithCompiler(compilerId: number) {
+    this.compilerLoading = true;
     const { data } = await this.api.createCodeSubmission(this.playgroundStore.getActiveTabCode(), compilerId);
     runInAction(() => {
       this.currentSumbmissionId = data.id;

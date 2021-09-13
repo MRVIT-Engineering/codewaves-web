@@ -7,7 +7,7 @@ import { Routes } from '../../constants/routes';
 
 import { Spacer } from '../../components/common/Spacer';
 import { Separator } from '../../components/common/Separator';
-import { Icon } from '../../components/icon/Icon';
+import Icon from '../../components/icon/Icon';
 import { PrimaryText, Row, StyledTab } from '../../utils/style/styledComponents';
 import { useStore } from '../../hooks/useStore';
 import { Breadcrumbs } from '../../components/breadcrumbs/Breadcrumbs';

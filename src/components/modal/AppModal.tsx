@@ -1,10 +1,13 @@
 import styled from 'styled-components';
 import Modal from '@material-ui/core/Modal';
+import Fade from '@material-ui/core/Fade';
+import Backdrop from '@material-ui/core/Backdrop';
+
 import { HeadlineSmall } from '../typography/Headlines';
 
 const StyledContainer = styled.div`
   width: 550px;
-  height: 500px;
+  height: 530px;
   background-color: white;
   border-radius: 8px;
   box-shadow: var(--light-shadow);
@@ -41,13 +44,22 @@ interface AppModalProps {
 
 export const AppModal = ({ opened, handleClose, children, title }: AppModalProps) => {
   return (
-    <Modal open={opened} onClose={handleClose}>
-      <StyledContainer>
-        <StyledHeader>
-          <HeadlineSmall>{title}</HeadlineSmall>
-        </StyledHeader>
-        <Padding>{children}</Padding>
-      </StyledContainer>
+    <Modal
+      BackdropComponent={Backdrop}
+      BackdropProps={{
+        timeout: 500,
+      }}
+      open={opened}
+      onClose={handleClose}
+    >
+      <Fade timeout={{ enter: 500 }} in={opened}>
+        <StyledContainer>
+          <StyledHeader>
+            <HeadlineSmall noMargin>{title}</HeadlineSmall>
+          </StyledHeader>
+          <Padding>{children}</Padding>
+        </StyledContainer>
+      </Fade>
     </Modal>
   );
 };

@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 import { ScreenSize } from '../../../constants/media-queries/mediaQueris';
+import { Routes } from '../../../constants/routes';
 
 const NavList = styled.ul`
   height: 100%;
@@ -33,7 +34,7 @@ const StyledListItem = styled.li`
 export const HomepageList = () => (
   <NavList>
     <StyledListItem>
-      <Link to="/">Get Started</Link>
+      <Link to={Routes.Login}>Get Started</Link>
     </StyledListItem>
     <StyledListItem>
       <Link to="/">Contact Us</Link>

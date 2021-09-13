@@ -21,7 +21,7 @@ export default class RootStore {
   constructor() {
     this.appStateStore = new AppStateStore();
     this.authStore = new AuthStore();
-    this.playgroundStore = new PlaygroundStore();
+    this.playgroundStore = new PlaygroundStore(this.appStateStore.playgroundApi);
     this.compilerStore = new CompilerStore(this.playgroundStore, this.appStateStore.compilerApi);
     this.courseStore = new CourseStore(this.appStateStore.courseApi);
     this.quizzStore = new QuizzStore(this.appStateStore.quizzApi);

@@ -7,7 +7,7 @@
   --secondary-dark: #4542da;
 
   /* 50 shades of grey */
-  --background-grey: #f5f7fa;
+  --background-grey: #eff2f7;
   --placeholder-grey: #8f8ea1;
   --custom-grey: #ececec;
   --custom-black: #403865;
@@ -22,7 +22,7 @@
 
   /* General variables */
   --light-shadow: 0px 3px 15px rgba(0, 0, 0, 0.4);
-  --lighter-shadow: 0px 1px 5px rgba(0, 0, 0, 0.3);
+  --lighter-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2);
   --inset-light-shadow: inset 0px 3px 5px rgba(0, 0, 0, 0.2);
   --border-radius: 8px;
 

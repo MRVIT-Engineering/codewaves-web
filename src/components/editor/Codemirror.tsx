@@ -1,12 +1,12 @@
-import { observer } from "mobx-react-lite";
-import { useStore } from "../../hooks/useStore";
-import styled from "styled-components";
-import CodeMirror from "@uiw/react-codemirror";
-import "codemirror/addon/display/autorefresh";
-import "codemirror/addon/comment/comment";
-import "codemirror/addon/edit/matchbrackets";
-import "codemirror/keymap/sublime";
-import "codemirror/theme/material.css";
+import { observer } from 'mobx-react-lite';
+import { useStore } from '../../hooks/useStore';
+import styled from 'styled-components';
+import CodeMirror from '@uiw/react-codemirror';
+import 'codemirror/addon/display/autorefresh';
+import 'codemirror/addon/comment/comment';
+import 'codemirror/addon/edit/matchbrackets';
+import 'codemirror/keymap/sublime';
+import 'codemirror/theme/material.css';
 
 const StyledContainer = styled.div`
   width: 100%;
@@ -23,7 +23,7 @@ const TabsContainer = styled.div`
 const TabComp = styled.div<{ active?: boolean }>`
   width: 130px;
   height: 100%;
-  background-color: ${(props) => (props.active ? "#253337" : "#303f44")};
+  background-color: ${props => (props.active ? '#253337' : '#303f44')};
   color: white;
   display: flex;
   justify-content: center;
@@ -45,7 +45,7 @@ const StyledButton = styled.button`
   color: white;
   cursor: pointer;
   font-size: 16px;
-  font-family: "PT Mono";
+  font-family: 'PT Mono';
   margin-left: auto;
 
   &:hover {
@@ -63,7 +63,12 @@ const Editor = (props: EditorProps) => {
   const { mode, theme, onRunCode } = props;
 
   const {
-    playgroundStore: { tabs, activeTabIndex, setActiveTabIndex, editTabCode },
+    playgroundStore: {
+      currentPlayground: { tabs },
+      activeTabIndex,
+      setActiveTabIndex,
+      editTabCode,
+    },
   } = useStore();
 
   return (
@@ -94,7 +99,7 @@ const Editor = (props: EditorProps) => {
           options={{
             theme,
             mode,
-            keyMap: "sublime",
+            keyMap: 'sublime',
           }}
           onChange={(editor, change) => {
             editTabCode(editor.getValue());

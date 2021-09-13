@@ -9,6 +9,10 @@ import 'codemirror/keymap/sublime';
 import 'codemirror/theme/material.css';
 import 'codemirror-minimap';
 import 'codemirror-minimap/src/minimap.css';
+import { FiPlay } from 'react-icons/fi';
+
+import Icon from '../icon/Icon';
+import { Colors } from '../../constants/style/Colors';
 
 const StyledContainer = styled.div`
   width: 100%;
@@ -20,6 +24,7 @@ const TabsContainer = styled.div`
   height: 50px;
   background-color: #303f44;
   display: flex;
+  align-items: center;
 `;
 
 const TabComp = styled.div<{ active?: boolean }>`
@@ -33,46 +38,30 @@ const TabComp = styled.div<{ active?: boolean }>`
   cursor: pointer;
 `;
 
+const IconContainer = styled.div`
+  margin-left: auto;
+  margin-right: 32px;
+`;
+
 const EditorContainer = styled.div`
   width: 100%;
   height: calc(100% - 50px);
 `;
 
-const StyledButton = styled.button`
-  width: 130px;
-  height: 100%;
-  background-color: var(--success);
-  transition: background-color 0.4s;
-  border: none;
-  color: white;
-  cursor: pointer;
-  font-size: 16px;
-  font-family: 'PT Mono';
-  margin-left: auto;
-
-  &:hover {
-    background-color: var(--success-dark);
-  }
-`;
-
 interface CompilerEditorProps {
-  mode: string;
   theme: string;
-  onRunCode: () => void;
-  compiler: { id: number; name: string };
 }
 
-const CompilerEditor = (props: CompilerEditorProps) => {
-  const { mode, theme, onRunCode } = props;
-
+const CompilerEditor = ({ theme }: CompilerEditorProps) => {
   const {
-    playgroundStore: { tabs, activeTabIndex, setActiveTabIndex, editTabCode },
+    playgroundStore: { currentPlayground, activeTabIndex, setActiveTabIndex, editTabCode },
+    compilerStore: { runCodeWithCompiler, compilerLoading },
   } = useStore();
 
   return (
     <StyledContainer>
       <TabsContainer>
-        {tabs.map((tab, index) => (
+        {currentPlayground.tabs.map((tab, index) => (
           <TabComp
             onClick={() => {
               setActiveTabIndex(index);
@@ -83,26 +72,31 @@ const CompilerEditor = (props: CompilerEditorProps) => {
             {tab.name}
           </TabComp>
         ))}
-        <StyledButton
-          onClick={() => {
-            onRunCode();
-          }}
-        >
-          RUN
-        </StyledButton>
+        <IconContainer>
+          <Icon
+            size={6}
+            loading={compilerLoading}
+            icon={<FiPlay />}
+            onClick={async () => {
+              await runCodeWithCompiler(1);
+            }}
+            loadingColor={Colors.success}
+            color={Colors.success}
+            hoverColor={Colors.successDark}
+          />
+        </IconContainer>
       </TabsContainer>
       <EditorContainer onClick={() => {}}>
         <CodeMirror
-          value={tabs[activeTabIndex].code}
+          value={currentPlayground.tabs[activeTabIndex].code}
           options={{
             theme,
-            mode,
+            mode: currentPlayground.mode,
             keyMap: 'sublime',
           }}
           onChange={(editor, _change) => {
             editTabCode(editor.getValue());
           }}
-          onKeyDown={() => {}}
         />
       </EditorContainer>
     </StyledContainer>

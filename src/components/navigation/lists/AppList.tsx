@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 import { ScreenSize } from '../../../constants/media-queries/mediaQueris';
+import { Routes } from '../../../constants/routes';
 
 const NavList = styled.ul`
   height: 100%;
@@ -33,13 +34,13 @@ const StyledListItem = styled.li`
 export const AppList = () => (
   <NavList>
     <StyledListItem>
-      <Link to="/">Web Dev</Link>
+      <Link to={Routes.CourseLibrary}>Web Dev</Link>
     </StyledListItem>
     <StyledListItem>
       <Link to="/">Algo</Link>
     </StyledListItem>
     <StyledListItem>
-      <Link to="/">Playgrounds</Link>
+      <Link to={Routes.Playgrounds}>Playgrounds</Link>
     </StyledListItem>
   </NavList>
 );

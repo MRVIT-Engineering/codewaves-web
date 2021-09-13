@@ -6,10 +6,10 @@ export const Headline = styled.h1`
   margin: 0;
   margin-bottom: 16px;
   padding: 0;
-  font-size: 3rem;
+  font-size: 2.8rem;
 
   ${ScreenSize.small} {
-    font-size: 3rem;
+    font-size: 2.2rem;
   }
 `;
 
