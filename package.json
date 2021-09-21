@@ -54,6 +54,7 @@
     "hamburger-react": "^2.4.1",
     "mobx": "^6.3.2",
     "mobx-react-lite": "^3.2.0",
+    "notistack": "^1.0.10",
     "react": "^17.0.2",
     "react-animate-on-scroll": "^2.1.5",
     "react-devicon": "^0.1.9",

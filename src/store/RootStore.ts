@@ -6,6 +6,7 @@ import { CompilerStore } from './CompilerStore';
 import { CourseStore } from './CourseStore';
 import { QuizzStore } from './QuizzStore';
 import { AlgoStore } from './AlgoStore';
+import { ProblemsStore } from './ProblemsStore';
 
 configure({ enforceActions: 'observed' });
 
@@ -17,6 +18,7 @@ export default class RootStore {
   courseStore: CourseStore;
   quizzStore: QuizzStore;
   algoStore: AlgoStore;
+  problemsStore: ProblemsStore;
 
   constructor() {
     this.appStateStore = new AppStateStore();
@@ -26,5 +28,6 @@ export default class RootStore {
     this.courseStore = new CourseStore(this.appStateStore.courseApi);
     this.quizzStore = new QuizzStore(this.appStateStore.quizzApi);
     this.algoStore = new AlgoStore(this.appStateStore.algoApi);
+    this.problemsStore = new ProblemsStore(this.appStateStore.problemsApi);
   }
 }

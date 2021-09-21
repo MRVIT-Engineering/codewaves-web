@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import styled from 'styled-components';
 import { observer } from 'mobx-react-lite';
 
@@ -88,10 +87,6 @@ const Terminal = ({ username, compiler }: TerminalProps) => {
     compilerStore: { outputs },
   } = useStore();
 
-  useEffect(() => {
-    console.log('New output added', [...outputs]);
-  }, [outputs]);
-
   return (
     <StyledContainer>
       <TabsContainer>
@@ -110,7 +105,7 @@ const Terminal = ({ username, compiler }: TerminalProps) => {
                 </Username>
                 <StyledInput disabled />
               </Row>
-              <TerminalOutput error={o.type === 'error'}>{o.output}</TerminalOutput>;
+              <TerminalOutput error={o.type === 'error'}>{o.output}</TerminalOutput>
             </Column>
           );
         })}

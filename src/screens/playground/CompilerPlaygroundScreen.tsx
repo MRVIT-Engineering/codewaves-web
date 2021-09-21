@@ -40,7 +40,6 @@ const CompilerPlaygroundScreen = ({ match }: any) => {
     })();
 
     return () => {
-      console.log('here i should update the playground with the current code');
       (async () => {
         const { status } = await updatePlayground();
         console.log(status);

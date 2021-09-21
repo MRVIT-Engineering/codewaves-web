@@ -29,6 +29,8 @@ import { withAuthAndNavigation } from '../components/hoc/withAuth';
 import { withAdminNavigation } from '../components/hoc/withAdminNavigation';
 import TestScreen from '../screens/TestScreen';
 import { NotFoundScreen } from '../screens/404';
+import AddProblemScreen from '../screens/admin/AddProblemScreen';
+import EditProblemScreen from '../screens/admin/EditProblemScreen';
 
 export const AppRoutes = () => {
   const {
@@ -92,6 +94,16 @@ export const AppRoutes = () => {
         exact
         path={`${Routes.AdminAlgoPreview}/:id`}
         component={withAdmin(withAdminNavigation(AlgoPreviewScreen))}
+      />
+      <Route
+        exact
+        path={Routes.AdminAddProblem}
+        component={withAdmin(withAdminNavigation(AddProblemScreen))}
+      />
+      <Route
+        exact
+        path={`${Routes.AdminEditProblem}/:id`}
+        component={withAdmin(withAdminNavigation(EditProblemScreen))}
       />
 
       {/* Navigation for the actual codewaves app. */}

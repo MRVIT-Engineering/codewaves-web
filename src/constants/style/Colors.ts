@@ -10,6 +10,7 @@ export const Colors = {
 
   success: '#34cc3f',
   successDark: '#13a01e',
+  successLight: '#8cec9380',
   warning: '#ffba00',
   danger: '#e73537',
   dangerDark: '#b71c1d',
