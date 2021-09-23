@@ -1,6 +1,7 @@
 import autoBind from 'auto-bind';
 
 import { SPProblem } from '../models/Problems/SPProblem';
+import { TestCase } from '../models/Problems/TestCase';
 
 import { ApiConfig } from './ApiConfig';
 
@@ -17,7 +18,7 @@ export class ProblemsApi {
   }
 
   createSPProblemTestCase(data: any) {
-    return this.apiConfig.sendRequest('POST', '/sphere_engine/problem/test_case', data);
+    return this.apiConfig.sendRequest('POST', '/sphere_engine/test_case', data);
   }
 
   createCodewavesProblem(data: any) {
@@ -26,5 +27,9 @@ export class ProblemsApi {
 
   getProblemById(id: string) {
     return this.apiConfig.sendRequest('GET', `/problem/${id}`);
+  }
+
+  addProblemTestCase(testcase: TestCase, id: string) {
+    return this.apiConfig.sendRequest('PUT', '/problem/test_case', { testcase, problemId: id });
   }
 }

@@ -4,6 +4,7 @@ import { makeAutoObservable, runInAction } from 'mobx';
 import { SPProblem } from '../models/Problems/SPProblem';
 import { Problem } from '../models/Problems/CodewavesProblem';
 import { TestCase } from '../models/Problems/TestCase';
+
 import { INITIAL_PROBLEM } from '../constants/initial/InitialValues';
 import { STATUS_CODES } from '../constants/statusCodes/StatusCodes';
 
@@ -13,7 +14,7 @@ export class ProblemsStore {
   api: ProblemsApi;
 
   currentProblem: Problem = INITIAL_PROBLEM;
-  testCases: any[] = [];
+  testCases: TestCase[] = [];
 
   loading: boolean = false;
 
@@ -34,19 +35,19 @@ export class ProblemsStore {
     return data;
   }
 
-  async addTestCase(spTestCase: TestCase) {
+  async addSPTestCase(spTestCase: TestCase) {
     this.testCases = [...this.testCases, spTestCase];
     this.loading = true;
 
-    await this.api.createSPProblemTestCase({
+    const { status } = await this.api.createSPProblemTestCase({
       ...spTestCase,
       problemId: this.currentProblem.sphereEngineId,
     });
 
     runInAction(() => {
-      alert('Test Case added!');
       this.loading = false;
     });
+    return status;
   }
 
   async createCodewavesProblem(problem: Problem) {
@@ -69,5 +70,20 @@ export class ProblemsStore {
       });
 
     return { data, status };
+  }
+
+  async addProblemTestCase(testcase: TestCase, id: string) {
+    const { status } = await this.api.addProblemTestCase(testcase, id);
+
+    if (status === STATUS_CODES.success) {
+      runInAction(() => {
+        this.currentProblem = {
+          ...this.currentProblem,
+          testCases: [...this.currentProblem.testCases!, testcase],
+        };
+      });
+    }
+
+    return status;
   }
 }

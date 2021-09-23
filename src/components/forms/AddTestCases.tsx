@@ -1,7 +1,9 @@
 import { useState } from 'react';
-import styled from 'styled-components';
 import { observer } from 'mobx-react-lite';
+import { useSnackbar } from 'notistack';
+import styled from 'styled-components';
 
+import { STATUS_CODES } from '../../constants/statusCodes/StatusCodes';
 import { Colors } from '../../constants/style/Colors';
 
 import { TextInput } from '../control/TextInput';
@@ -25,18 +27,33 @@ const Row = styled.div`
 const AddTestCaseForm = () => {
   const [input, setInput] = useState('');
   const [output, setOutput] = useState('');
-  const [timelimit, setTimelimit] = useState('');
+  const [timelimit, setTimelimit] = useState('5');
+  const { enqueueSnackbar } = useSnackbar();
 
   const {
     problemsStore: {
-      addTestCase,
+      addSPTestCase,
+      addProblemTestCase,
       loading,
-      currentProblem: { sphereEngineId },
+      currentProblem: { sphereEngineId, _id },
     },
   } = useStore();
 
+  const resetFields = () => {
+    setInput('');
+    setOutput('');
+    setTimelimit('5');
+  };
+
   const handleAddCase = async () => {
-    await addTestCase({ input, output, timelimit: +timelimit });
+    const spStatus = await addSPTestCase({ input, output, timelimit: +timelimit });
+    if (spStatus === STATUS_CODES.success) {
+      const status = await addProblemTestCase({ input, output, timelimit: +timelimit }, _id!);
+      if (status === STATUS_CODES.success) {
+        enqueueSnackbar('New test case added!', { variant: 'success' });
+        resetFields();
+      }
+    }
   };
 
   return (
