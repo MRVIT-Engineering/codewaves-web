@@ -6,13 +6,14 @@ export const Row = styled.div`
 `;
 
 export const RowWithWrap = styled.div`
-  display: flex;
   align-items: center;
-  flex-wrap: wrap;
-  flex-flow: row;
   overflow: visible;
   height: auto;
   padding: 16;
+  display: flex;
+  flex-flow: row wrap;
+  flex-wrap: wrap;
+  flex-direction: row;
 `;
 
 export const PrimaryText = styled.span`
@@ -41,9 +42,10 @@ export const StyledTab = styled.div<{ active?: boolean }>`
 
 export const StyledCard = styled.div`
   width: 240px;
+  min-width: 240px;
   border: 1px solid transparent;
   border-radius: 8px;
-  margin: 0 16px 16px 0;
+  margin: 0 22px 22px 0;
   padding: 16px;
   transition: border-color 0.4s;
   display: flex;

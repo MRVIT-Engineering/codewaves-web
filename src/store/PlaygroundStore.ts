@@ -12,11 +12,12 @@ export class PlaygroundStore {
 
   // tabs and editor actions
   activeTabIndex: number = 0;
+  inputData: string = `#\n# This is the input data file.\n# Enter your input data bellow before compiling.\n# Also remvoe this comment \n`;
 
   // current playground settiings
   compilers: Compiler[] = [];
   playgroundProgrammingLanguage: string = '';
-  mode: string = '';
+  mode: string = ''; // storing this separately for the future problems palyground.
 
   // playground data from DB
   playgrounds: Playground[] = [];
@@ -31,6 +32,10 @@ export class PlaygroundStore {
     makeAutoObservable(this);
     autoBind(this);
     this.api = api;
+  }
+
+  setInputData(data: string) {
+    this.inputData = data;
   }
 
   async updatePlayground() {

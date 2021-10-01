@@ -11,8 +11,12 @@ export class CompilerApi {
     autoBind(this);
   }
 
-  createCodeSubmission(source: string, compilerId: number) {
-    return this.apiConfig.sendRequest('POST', '/sphere_engine/submission', { source, compilerId });
+  createCodeSubmission(source: string, compilerId: number, input: string) {
+    return this.apiConfig.sendRequest('POST', '/sphere_engine/submission', {
+      source,
+      compilerId,
+      input,
+    });
   }
 
   getSubmissionInfo(id: number) {

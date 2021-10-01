@@ -26,8 +26,8 @@ const AdminAlgosScreen = () => {
     (async () => {
       try {
         await getAlgos();
-      } catch (error) {
-        alert(error.message);
+      } catch (error: any) {
+        alert(error.toString());
       }
     })();
   }, []);

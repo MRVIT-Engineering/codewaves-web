@@ -1,114 +1,31 @@
-import { observer } from 'mobx-react-lite';
-import { useStore } from '../../hooks/useStore';
-import styled from 'styled-components';
 import CodeMirror from '@uiw/react-codemirror';
-import 'codemirror/addon/display/autorefresh';
-import 'codemirror/addon/comment/comment';
-import 'codemirror/addon/edit/matchbrackets';
 import 'codemirror/keymap/sublime';
-import 'codemirror/theme/material.css';
+import 'codemirror/theme/monokai.css';
+import '../../assets/css/codemirror/themes/CustomDark.css';
 
-const StyledContainer = styled.div`
-  width: 100%;
-  height: 100%;
-`;
-
-const TabsContainer = styled.div`
-  width: 100%;
-  height: 50px;
-  background-color: #303f44;
-  display: flex;
-`;
-
-const TabComp = styled.div<{ active?: boolean }>`
-  width: 130px;
-  height: 100%;
-  background-color: ${props => (props.active ? '#253337' : '#303f44')};
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-`;
-
-const EditorContainer = styled.div`
-  width: 100%;
-  height: calc(100% - 50px);
-`;
-
-const StyledButton = styled.button`
-  width: 130px;
-  height: 100%;
-  background-color: var(--success);
-  transition: background-color 0.4s;
-  border: none;
-  color: white;
-  cursor: pointer;
-  font-size: 16px;
-  font-family: 'PT Mono';
-  margin-left: auto;
-
-  &:hover {
-    background-color: var(--success-dark);
-  }
-`;
-
-interface EditorProps {
-  mode: string;
-  theme: string;
-  onRunCode: () => void;
+export interface CodemirrorProps {
+  value: string;
+  setValue: (newValue: string) => void;
+  mode?: string;
+  lineNumbers?: boolean;
+  theme?: string;
 }
 
-const Editor = (props: EditorProps) => {
-  const { mode, theme, onRunCode } = props;
-
-  const {
-    playgroundStore: {
-      currentPlayground: { tabs },
-      activeTabIndex,
-      setActiveTabIndex,
-      editTabCode,
-    },
-  } = useStore();
-
+export const Codemirror = ({ value, setValue, mode, lineNumbers, theme }: CodemirrorProps) => {
   return (
-    <StyledContainer>
-      <TabsContainer>
-        {tabs.map((tab, index) => (
-          <TabComp
-            onClick={() => {
-              setActiveTabIndex(index);
-            }}
-            key={tab.name}
-            active={index === activeTabIndex}
-          >
-            {tab.name}
-          </TabComp>
-        ))}
-        <StyledButton
-          onClick={() => {
-            onRunCode();
-          }}
-        >
-          RUN
-        </StyledButton>
-      </TabsContainer>
-      <EditorContainer onClick={() => {}}>
-        <CodeMirror
-          value={tabs[activeTabIndex].code}
-          options={{
-            theme,
-            mode,
-            keyMap: 'sublime',
-          }}
-          onChange={(editor, change) => {
-            editTabCode(editor.getValue());
-          }}
-          onKeyDown={() => {}}
-        />
-      </EditorContainer>
-    </StyledContainer>
+    <CodeMirror
+      value={value}
+      options={{
+        lineNumbers: lineNumbers,
+        theme: theme || 'monokai',
+        tabSize: 2,
+        keyMap: 'sublime',
+        mode: mode || 'javascript',
+        readOnly: false,
+      }}
+      onChange={(editor, _change) => {
+        setValue(editor.getValue());
+      }}
+    />
   );
 };
-
-export default observer(Editor);

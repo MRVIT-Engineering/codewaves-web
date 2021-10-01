@@ -8,22 +8,18 @@ import { PlaygroundStore } from './PlaygroundStore';
 import { CompilerApi } from '../api/CompilerApi';
 
 export class CompilerStore {
+  api: CompilerApi;
   playgroundStore: PlaygroundStore;
+
   // Web & Sphere engine compilers
   currentSumbmissionId: number = -1;
   currentSubmissionOutput: string = '';
   currentSubmissionError: string = '';
   outputs: SubmissionOutput[] = [];
   webOutput: string = '';
-
-  /**
-   * This will determine if a submission is still compiling or
-   * the client has already received submissionStatusChanged event.
-   */
   compilerLoading: boolean = false;
 
   socket: any;
-  api: CompilerApi;
 
   constructor(playgroundStore: PlaygroundStore, api: CompilerApi) {
     this.playgroundStore = playgroundStore;
@@ -85,7 +81,11 @@ export class CompilerStore {
 
   async runCodeWithCompiler(compilerId: number) {
     this.compilerLoading = true;
-    const { data } = await this.api.createCodeSubmission(this.playgroundStore.getActiveTabCode(), compilerId);
+    const { data } = await this.api.createCodeSubmission(
+      this.playgroundStore.getActiveTabCode(),
+      compilerId,
+      this.playgroundStore.inputData.replace(/^.*#.*$/gm, '').replace(/\s/g, '')
+    );
     runInAction(() => {
       this.currentSumbmissionId = data.id;
     });

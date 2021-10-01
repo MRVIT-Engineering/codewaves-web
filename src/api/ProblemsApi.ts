@@ -29,6 +29,10 @@ export class ProblemsApi {
     return this.apiConfig.sendRequest('GET', `/problem/${id}`);
   }
 
+  getProblems() {
+    return this.apiConfig.sendRequest('GET', '/problem');
+  }
+
   addProblemTestCase(testcase: TestCase, id: string) {
     return this.apiConfig.sendRequest('PUT', '/problem/test_case', { testcase, problemId: id });
   }

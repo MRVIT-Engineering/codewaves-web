@@ -3,13 +3,15 @@ import { observer } from 'mobx-react-lite';
 import { withRouter } from 'react-router';
 import styled from 'styled-components';
 
+import { TestCase } from '../../models/Problems/TestCase';
+
+import AddTestCases from '../../components/forms/AddTestCases';
 import { Breadcrumbs } from '../../components/breadcrumbs/Breadcrumbs';
 import { Headline, HeadlineSmall } from '../../components/typography/Headlines';
 import { Separator } from '../../components/common/Separator';
 import { Spacer } from '../../components/common/Spacer';
+import { MTable } from '../../components/table/Table';
 import { useStore } from '../../hooks/useStore';
-import AddTestCases from '../../components/forms/AddTestCases';
-import { TestCase } from '../../models/Problems/TestCase';
 
 const StyledContainer = styled.div`
   width: 700px;
@@ -41,6 +43,8 @@ const EditProblemScreen = ({ match }: any) => {
 
       <Spacer height={32} />
       <HeadlineSmall>Testcases</HeadlineSmall>
+
+      {/* <MTable columns={['#', 'Input', 'Output', 'Timelimit']} rows={testCases!} /> */}
 
       {testCases &&
         testCases.map((t: TestCase, index: number) => {

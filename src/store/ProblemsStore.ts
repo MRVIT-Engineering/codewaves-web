@@ -15,6 +15,7 @@ export class ProblemsStore {
 
   currentProblem: Problem = INITIAL_PROBLEM;
   testCases: TestCase[] = [];
+  problems: Problem[] = [];
 
   loading: boolean = false;
 
@@ -61,6 +62,15 @@ export class ProblemsStore {
     return { data, status };
   }
 
+  async getProblems() {
+    const { status, data } = await this.api.getProblems();
+    if (status === STATUS_CODES.success)
+      runInAction(() => {
+        this.problems = [...data];
+      });
+    return { status, data };
+  }
+
   async getProblemById(id: string) {
     const { data, status } = await this.api.getProblemById(id);
 
@@ -83,7 +93,6 @@ export class ProblemsStore {
         };
       });
     }
-
     return status;
   }
 }

@@ -3,7 +3,6 @@ import { Route, Switch } from 'react-router-dom';
 import { Routes } from '../constants/routes';
 
 import AdminEditCourseScreen from '../screens/admin/AdminCourseEdit';
-import PlaygroundScreen from '../screens/playground/PlaygroundScreen';
 import PlaygroundsScreen from '../screens/playground/PlaygroundsScreen';
 import CoursePreview from '../screens/admin/CoursePreview';
 import LoginView from '../screens/auth/LoginView';
@@ -31,6 +30,7 @@ import TestScreen from '../screens/TestScreen';
 import { NotFoundScreen } from '../screens/404';
 import AddProblemScreen from '../screens/admin/AddProblemScreen';
 import EditProblemScreen from '../screens/admin/EditProblemScreen';
+import AdminProblemsScreen from '../screens/admin/AdminProblemsScreen';
 
 export const AppRoutes = () => {
   const {
@@ -105,12 +105,17 @@ export const AppRoutes = () => {
         path={`${Routes.AdminEditProblem}/:id`}
         component={withAdmin(withAdminNavigation(EditProblemScreen))}
       />
+      <Route
+        exact
+        path={Routes.AdminProblems}
+        component={withAdmin(withAdminNavigation(AdminProblemsScreen))}
+      />
 
       {/* Navigation for the actual codewaves app. */}
       <Route exact path={Routes.CourseLibrary} component={withAuthAndNavigation(CoursesView)} />
       <Route exact path={Routes.Playgrounds} component={withAuthAndNavigation(PlaygroundsScreen)} />
 
-      <Route exact path={Routes.Playground} component={PlaygroundScreen} />
+      {/* <Route exact path={Routes.Playground} component={PlaygroundScreen} /> */}
       <Route exact path={`${Routes.CompilerPlayground}/:id`} component={CompilerPlaygroundScreen} />
       <Route exact path={Routes.TestScreen} component={TestScreen} />
 
