@@ -10,7 +10,6 @@ import { Breadcrumbs } from '../../components/breadcrumbs/Breadcrumbs';
 import { Headline, HeadlineSmall } from '../../components/typography/Headlines';
 import { Separator } from '../../components/common/Separator';
 import { Spacer } from '../../components/common/Spacer';
-import { MTable } from '../../components/table/Table';
 import { useStore } from '../../hooks/useStore';
 
 const StyledContainer = styled.div`
